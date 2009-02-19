@@ -9,7 +9,11 @@
   
   <include package=".browser" />
   
-  <cmf:registerDirectory name="collective_easyslideshow"/>
+  <cmf:registerDirectory
+      name="skins"
+      directory="skins"
+      recursive="True"
+      />
 
   <genericsetup:registerProfile
       name="default"
