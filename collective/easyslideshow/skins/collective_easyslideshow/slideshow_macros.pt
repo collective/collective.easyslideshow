@@ -1,0 +1,62 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal">
+<body>
+
+<metal:ad define-macro="slideshow"
+          tal:define="view context/@@easyslideshow_view;
+                      slideshowfolderid slideshowfolderid|string:slideshow-folder;
+                      images python:view.getImages(slideshowfolderid);">
+  <tal:cond tal:condition="images">
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/++resource++slideshow-css-js/jquery-cycle.js"></script>
+    <tal:block tal:replace='structure string:<script type="text/javascript" charset="utf-8">'></tal:block>
+      var jq = jQuery;
+      jq(document).ready(function(){
+            jq('#slideshow').cycle({
+                fx: 'fade',
+                pause: 1,
+                timeout: 7000,
+                pager:  '#navNumbers',
+                next: '#next',
+                prev: '#prev'
+            });
+        });
+    <tal:block tal:replace='structure string:</script>'></tal:block>
+  
+    <style type="text/css" media="all" tal:content="string:@import url($portal_url/++resource++slideshow-css-js/slideshow.css);"></style>
+  
+    <div id="nav">
+        <a id="prev" href="#">&laquo;</a>
+        <span id="navNumbers"></span>
+        <a id="next" href="#">&raquo;</a>
+    </div>
+  
+    <div id="slideshow" class="pics"> 
+        <tal:rep repeat="image images">
+          <div class="slideContainer">
+              <tal:def define="title image/Title;
+                               description image/Description;
+                               url image/getURL;
+                               link_path image/getRelatedLink">
+                <a tal:attributes="href string:${portal_url}/$link_path"
+                   tal:omit-tag="not:link_path">
+                    <img title="" alt="" tal:attributes="src url" />
+                </a>
+                <div class="imageCaption">
+                    <span class="imageTitle" tal:content="title" /><br />
+                    <span tal:content="description" />
+                </div>
+              </tal:def>
+          </div>
+        </tal:rep>
+    </div>
+    <tal:block tal:replace='structure string:<script type="text/javascript" charset="utf-8">'></tal:block>
+      var jq = jQuery;
+      jq(document).ready(function(){
+            jq("#slideshow").css("height",jq(".slideContainer img").height());            
+        });
+    <tal:block tal:replace='structure string:</script>'></tal:block>
+  </tal:cond>
+</metal:ad>
+</body>
+</html>

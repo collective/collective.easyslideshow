@@ -1,0 +1,43 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="collective.easyslideshow">
+
+  <five:registerPackage package="." initialize=".initialize" />
+  
+  <include package=".browser" />
+  
+  <cmf:registerDirectory name="collective_easyslideshow"/>
+
+  <genericsetup:registerProfile
+      name="default"
+      title="Easy Slideshow"
+      directory="profiles/default"
+      description="Easy Slideshow installation profile"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <!-- handle refs being transitioned -->
+  <subscriber
+      for="Products.ATContentTypes.interface.IATContentType
+           Products.DCWorkflow.interfaces.IAfterTransitionEvent"
+      handler=".subscribers.slideLinkSync"
+      />
+
+  <!-- handle refs being moved -->
+  <subscriber
+      for="Products.ATContentTypes.interface.IATContentType
+           zope.app.container.interfaces.IObjectMovedEvent"
+      handler=".subscribers.slideLinkSync"
+      />
+
+  <!-- handle refs being deleted -->
+  <subscriber
+      for="Products.ATContentTypes.interface.IATContentType
+           zope.app.container.interfaces.IObjectRemovedEvent"
+      handler=".subscribers.slideLinkDeleted"
+      />
+
+</configure>

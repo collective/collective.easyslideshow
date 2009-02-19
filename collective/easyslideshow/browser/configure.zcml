@@ -1,0 +1,20 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="collective.easyslideshow">
+
+  <browser:page
+      for="*"
+      name="easyslideshow_view"
+      class=".slideshowview.SlideshowView"
+      permission="zope.Public"
+      allowed_interface=".interfaces.IEasySlideshowView"
+      />
+
+  <browser:resourceDirectory
+      name="slideshow-css-js"
+      directory="slideshow-css-js"
+      layer=".interfaces.IEasySlideshowBrowserLayer"
+      />
+
+</configure>

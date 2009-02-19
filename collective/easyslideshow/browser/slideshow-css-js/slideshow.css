@@ -1,0 +1,56 @@
+.pics {  
+    width:   500px;  
+    padding: 0;  
+    margin:  0; 
+    top: -1px; 
+} 
+ 
+.pics img {  
+    padding: 0px; 
+}
+
+#nav {
+    text-align: center;
+    height: 21px;
+    background-color: #003466;
+    width: 500px;
+}
+
+#nav a,
+#nav #navNumbers a {
+    color: #ffffff;
+}
+
+#nav #navNumbers a {
+    padding: 2px 3px 4px;
+    margin-right: 5px;
+    line-height: 19px;
+}
+
+#nav #navNumbers a.activeSlide {
+    color: #003466;
+    background-color: #ffffff;
+}
+
+.imageCaption {
+    z-index: 9;
+    color: #ffffff;
+    background: url(slideshow_bg.png);
+    height: 65px;
+    padding: 5px;
+    position: relative;
+    margin-top: -75px;
+    font-size: 120%;
+    width: 490px;
+}
+
+.imageCaption .imageTitle {
+    font-size: 150%;
+    font-weight: bold;
+}
+
+#content a[href^="http:"],
+#content a.link-external {
+    background: none;
+    padding: 0;
+}

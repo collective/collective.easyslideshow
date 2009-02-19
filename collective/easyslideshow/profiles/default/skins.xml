@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+   default_skin="Custom Theme">
+
+ <object name="collective_easyslideshow"
+    meta_type="Filesystem Directory View"
+    directory="collective.easyslideshow:skins/collective_easyslideshow"/>
+
+ <skin-path name="*">
+  <layer name="collective_easyslideshow"
+     insert-after="custom"/>
+ </skin-path>
+
+</object>
