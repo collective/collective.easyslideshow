@@ -8,7 +8,7 @@
                       images python:view.getImages(slideshowfolderid);">
   <tal:cond tal:condition="images">
     <script type="text/javascript"
-            tal:attributes="src string:$portal_url/++resource++slideshow-css-js/jquery-cycle.js"></script>
+            tal:attributes="src string:${context/portal_url}/++resource++slideshow-css-js/jquery-cycle.js"></script>
     <tal:block tal:replace='structure string:<script type="text/javascript" charset="utf-8">'></tal:block>
       var jq = jQuery;
       jq(document).ready(function(){
@@ -23,7 +23,7 @@
         });
     <tal:block tal:replace='structure string:</script>'></tal:block>
   
-    <style type="text/css" media="all" tal:content="string:@import url($portal_url/++resource++slideshow-css-js/slideshow.css);"></style>
+    <style type="text/css" media="all" tal:content="string:@import url(${context/portal_url}/++resource++slideshow-css-js/slideshow.css);"></style>
   
     <div id="nav">
         <a id="prev" href="#">&laquo;</a>
@@ -38,7 +38,7 @@
                                description image/Description;
                                url image/getURL;
                                link_path image/getRelatedLink">
-                <a tal:attributes="href string:${portal_url}/$link_path"
+                <a tal:attributes="href string:${context/portal_url}/$link_path"
                    tal:omit-tag="not:link_path">
                     <img title="" alt="" tal:attributes="src url" />
                 </a>
