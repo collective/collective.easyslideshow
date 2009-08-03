@@ -7,11 +7,11 @@
                       slideshowfolderid slideshowfolderid|string:slideshow-folder;
                       images python:view.getImages(slideshowfolderid);">
   <tal:cond tal:condition="images">
-    <script type="text/javascript"
-            tal:attributes="src string:${context/portal_url}/++resource++slideshow-css-js/jquery-cycle.js"></script>
-    <tal:block tal:replace='structure string:<script type="text/javascript" charset="utf-8">'></tal:block>
+    <script type="text/javascript" charset="utf-8">
       var jq = jQuery;
       jq(document).ready(function(){
+            jq("#slideshow").css("visibility","visible");
+            
             jq('#slideshow').cycle({
                 fx: 'fade',
                 pause: 1,
@@ -20,10 +20,11 @@
                 next: '#next',
                 prev: '#prev'
             });
+            
+            jq("#slideshow").css("height",jq(".slideContainer img").height());
+            
         });
-    <tal:block tal:replace='structure string:</script>'></tal:block>
-  
-    <style type="text/css" media="all" tal:content="string:@import url(${context/portal_url}/++resource++slideshow-css-js/slideshow.css);"></style>
+    </script>
   
     <div id="nav">
         <a id="prev" href="#">&laquo;</a>
@@ -50,12 +51,6 @@
           </div>
         </tal:rep>
     </div>
-    <tal:block tal:replace='structure string:<script type="text/javascript" charset="utf-8">'></tal:block>
-      var jq = jQuery;
-      jq(document).ready(function(){
-            jq("#slideshow").css("height",jq(".slideContainer img").height());            
-        });
-    <tal:block tal:replace='structure string:</script>'></tal:block>
   </tal:cond>
 </metal:ad>
 </body>
