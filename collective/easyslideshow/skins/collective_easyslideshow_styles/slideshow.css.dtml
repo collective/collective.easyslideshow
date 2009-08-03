@@ -1,8 +1,14 @@
+/* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
+
 .pics {  
     width:   500px;  
     padding: 0;  
     margin:  0; 
     top: -1px; 
+    border-color: &dtml-globalBorderColor;;
+    border-style: &dtml-borderStyle;;
+    border-width: 0 &dtml-borderWidth; &dtml-borderWidth;;
 } 
  
 .pics img {  
@@ -12,13 +18,17 @@
 #nav {
     text-align: center;
     height: 21px;
-    background-color: #003466;
+    background-color: &dtml-globalBackgroundColor;;
     width: 500px;
+    border-color: &dtml-globalBorderColor;;
+    border-style: &dtml-borderStyle;;
+    border-width: &dtml-borderWidth; &dtml-borderWidth; 0;
 }
 
 #nav a,
 #nav #navNumbers a {
-    color: #ffffff;
+    text-decoration: none;
+    outline: none;
 }
 
 #nav #navNumbers a {
@@ -28,14 +38,13 @@
 }
 
 #nav #navNumbers a.activeSlide {
-    color: #003466;
     background-color: #ffffff;
 }
 
 .imageCaption {
     z-index: 9;
     color: #ffffff;
-    background: url(slideshow_bg.png);
+    background: url(&dtml-portal_url;/slideshow_bg.png);
     height: 65px;
     padding: 5px;
     position: relative;
@@ -54,3 +63,5 @@
     background: none;
     padding: 0;
 }
+
+/* </dtml-with> */

@@ -11,10 +11,4 @@
       allowed_interface=".interfaces.IEasySlideshowView"
       />
 
-  <browser:resourceDirectory
-      name="slideshow-css-js"
-      directory="slideshow-css-js"
-      layer=".interfaces.IEasySlideshowBrowserLayer"
-      />
-
 </configure>

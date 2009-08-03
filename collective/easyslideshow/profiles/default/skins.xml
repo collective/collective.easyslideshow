@@ -4,9 +4,19 @@
  <object name="collective_easyslideshow"
     meta_type="Filesystem Directory View"
     directory="collective.easyslideshow:skins/collective_easyslideshow"/>
+ <object name="collective_easyslideshow_styles"
+    meta_type="Filesystem Directory View"
+    directory="collective.easyslideshow:skins/collective_easyslideshow_styles"/>
+ <object name="collective_easyslideshow_images"
+    meta_type="Filesystem Directory View"
+    directory="collective.easyslideshow:skins/collective_easyslideshow_images"/>
 
  <skin-path name="*">
   <layer name="collective_easyslideshow"
+     insert-after="custom"/>
+  <layer name="collective_easyslideshow_styles"
+     insert-after="custom"/>
+  <layer name="collective_easyslideshow_images"
      insert-after="custom"/>
  </skin-path>
 
