@@ -10,5 +10,11 @@
       permission="zope.Public"
       allowed_interface=".interfaces.IEasySlideshowView"
       />
+      
+  <browser:page
+      name="easyslideshow-controlpanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class="collective.easyslideshow.browser.configlet.EasyslideshowControlPanel"      
+      permission="cmf.ManagePortal" />
 
 </configure>

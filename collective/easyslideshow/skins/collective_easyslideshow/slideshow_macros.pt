@@ -5,28 +5,29 @@
 <metal:ad define-macro="slideshow"
           tal:define="view context/@@easyslideshow_view;
                       slideshowfolderid slideshowfolderid|string:slideshow-folder;
-                      images python:view.getImages(slideshowfolderid);">
+                      images python:view.getImages(slideshowfolderid);
+                      props portal_properties/easyslideshow_properties;
+                      pause python:props.pause_hover and '1' or '0'">
   <tal:cond tal:condition="images">
-    <script type="text/javascript" charset="utf-8">
+  
+    <tal:block tal:replace='structure string:&lt;script type="text/javascript" charset="utf-8"&gt;'></tal:block>
       var jq = jQuery;
       jq(document).ready(function(){
             jq("#slideshow").css("visibility","visible");
             
             jq('#slideshow').cycle({
-                fx: 'fade',
-                pause: 1,
-                timeout: 7000,
+                fx: '<span tal:replace="props/transition" />',
+                pause: <span tal:replace="pause" />,
+                timeout: <span tal:replace="props/slide_timeout" />,
+                speed: <span tal:replace="props/transition_speed" />,
                 pager:  '#navNumbers',
                 next: '#next',
                 prev: '#prev'
-            });
-            
-            jq("#slideshow").css("height",jq(".slideContainer img").height());
-            
+            });            
         });
-    </script>
+    <tal:block tal:replace='structure string:&lt;/script&gt;'></tal:block>
   
-    <div id="nav">
+    <div id="nav" tal:condition="props/display_nav">
         <a id="prev" href="#">&laquo;</a>
         <span id="navNumbers"></span>
         <a id="next" href="#">&raquo;</a>
@@ -43,7 +44,7 @@
                    tal:omit-tag="not:link_path">
                     <img title="" alt="" tal:attributes="src url" />
                 </a>
-                <div class="imageCaption">
+                <div class="imageCaption" tal:condition="props/display_caption">
                     <span class="imageTitle" tal:content="title" /><br />
                     <span tal:content="description" />
                 </div>
