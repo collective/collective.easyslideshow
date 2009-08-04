@@ -9,6 +9,7 @@
     border-style: &dtml-borderStyle;;
     border-width: 0 &dtml-borderWidth; &dtml-borderWidth;;
     visibility: hidden;
+    overflow: hidden;
 } 
  
 .pics img {  
@@ -45,11 +46,14 @@
     color: #ffffff;
     background: url(&dtml-portal_url;/slideshow_bg.png);
     height: 65px;
-    padding: 5px;
-    position: relative;
-    margin-top: -75px;
-    font-size: 120%;
-    width: 490px;
+    padding: 5px 0;
+    position: absolute;
+    width: 100%;
+}
+
+.imageCaption .imageTitle,
+.imageCaption .imageDescrip {
+    padding: 0 5px;
 }
 
 .imageCaption .imageTitle {

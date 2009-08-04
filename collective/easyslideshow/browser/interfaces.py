@@ -12,23 +12,25 @@ class IEasySlideshowBrowserLayer(Interface):
 class IEasyslideshowConfiguration(Interface):
   """This interface defines the configlet for the slideshows."""
 
-  slideshow_width = schema.Int(title=_(u"label_slideshow_width", default=u'Width of the slideshow'),
+  slideshow_width = schema.Int(title=_(u"label_slideshow_width", default=u'Width of the Slideshow'),
                                description=_(u"help_slideshow_width",
-                                             default=u'Enter a whole number for width in pixels.'),
+                                             default=u"Enter a whole number for width in pixels. "
+                                             "All images should be this width."),
                                required=True,
                                default=500)
   
-  slideshow_height = schema.Int(title=_(u"label_slideshow_height", default=u'Height of the slideshow'),
+  slideshow_height = schema.Int(title=_(u"label_slideshow_height", default=u'Height of the Slideshow'),
                                 description=_(u"help_slideshow_height",
-                                              default=u'Enter a whole number for height in pixels.'),
+                                              default=u"Enter a whole number for height in pixels. "
+                                              "All images should be this height."),
                                 required=True,
                                 default=333)
                                
   slide_timeout = schema.Int(title=_(u"label_slide_timeout", default=u'Slide Time'),
                              description=_(u"help_slide_timeout",
-                                           default=u"Enter a number in milliseconds. "
+                                           default=u"Enter a number in milliseconds (5000 = 5 seconds). "
                                            "Entering '0' will set the slideshow to only be "
-                                           "manually operated using the navigation"),
+                                           "manually operated using the navigation."),
                              required=True,
                              default=7000)
                              
@@ -43,13 +45,13 @@ class IEasyslideshowConfiguration(Interface):
                             
   transition_speed = schema.Int(title=_(u"label_transition_speed", default=u'Transition Time'),
                                 description=_(u"help_transition_speed",
-                                              default=u'Enter a number in milliseconds.'),
+                                              default=u'Enter a number in milliseconds (1000 = 1 second).'),
                                 required=True,
                                 default=1000)
 
   pause_hover = schema.Bool(title=_(u"label_pause_hover", default=u'Pause on Hover'),
                             description=_(u"help_pause_hover",
-                                          default=u"Enable slideshow pausing when cursor "
+                                          default=u"If checked, the slideshow will pause when cursor "
                                           "is hovering over the slideshow"),
                             required=False,
                             default=False)

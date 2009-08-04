@@ -23,7 +23,12 @@
                 pager:  '#navNumbers',
                 next: '#next',
                 prev: '#prev'
-            });            
+            });
+            
+            slidewidth = <span tal:replace="props/slideshow_width" />;
+            slideheight = <span tal:replace="props/slideshow_height" />;
+            
+            jq(".imageCaption").css({"width":slidewidth, "margin-top":slideheight-75});
         });
     <tal:block tal:replace='structure string:&lt;/script&gt;'></tal:block>
   
@@ -42,14 +47,14 @@
                                description image/Description;
                                url image/getURL;
                                link_path image/getRelatedLink">
+                <div class="imageCaption" tal:condition="props/display_caption">
+                    <span class="imageTitle" tal:content="title" /><br />
+                    <span class="imageDescrip" tal:content="description" />
+                </div>
                 <a tal:attributes="href string:${context/portal_url}/$link_path"
                    tal:omit-tag="not:link_path">
                     <img title="" alt="" tal:attributes="src url" />
                 </a>
-                <div class="imageCaption" tal:condition="props/display_caption">
-                    <span class="imageTitle" tal:content="title" /><br />
-                    <span tal:content="description" />
-                </div>
               </tal:def>
           </div>
         </tal:rep>
