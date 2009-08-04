@@ -1,10 +1,7 @@
 /* <dtml-with base_properties> (do not remove this :) */
-/* <dtml-with "portal_properties.easyslideshow_properties"> (do not remove this :) */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
 .pics {  
-    width: &dtml-slideshow_width;px;
-    height: &dtml-slideshow_height;px;
     padding: 0;  
     margin: 0; 
     top: -1px; 
@@ -22,7 +19,6 @@
     text-align: center;
     height: 21px;
     background-color: &dtml-globalBackgroundColor;;
-    width: &dtml-slideshow_width;px;
     border-color: &dtml-globalBorderColor;;
     border-style: &dtml-borderStyle;;
     border-width: &dtml-borderWidth; &dtml-borderWidth; 0;
@@ -67,5 +63,4 @@
     padding: 0;
 }
 
-/* </dtml-with> */
 /* </dtml-with> */

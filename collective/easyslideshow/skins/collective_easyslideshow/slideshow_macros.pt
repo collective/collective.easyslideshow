@@ -27,13 +27,15 @@
         });
     <tal:block tal:replace='structure string:&lt;/script&gt;'></tal:block>
   
-    <div id="nav" tal:condition="props/display_nav">
+    <div id="nav" tal:condition="props/display_nav"
+         tal:attributes="style string:width:${props/slideshow_width}px">
         <a id="prev" href="#">&laquo;</a>
         <span id="navNumbers"></span>
         <a id="next" href="#">&raquo;</a>
     </div>
   
-    <div id="slideshow" class="pics"> 
+    <div id="slideshow" class="pics"
+         tal:attributes="style string:width:${props/slideshow_width}px;; height:${props/slideshow_height}px"> 
         <tal:rep repeat="image images">
           <div class="slideContainer">
               <tal:def define="title image/Title;
