@@ -25,6 +25,14 @@
       description="Easy Slideshow installation profile"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+      
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Easy Slideshow Uninstall"
+      directory="profiles/uninstall"
+      description="Easy Slideshow uninstallation profile"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
 
   <!-- handle refs being transitioned -->
   <subscriber
