@@ -6,6 +6,10 @@ def runProfile(portal, profileName):
     setupTool.runAllImportStepsFromProfile(profileName)
 
 def install(portal):
+    """Make the slideshow_folder_view available"""
+    pt = portal.portal_types
+    pt['Folder'].view_methods += ("slideshow_folder_view",)
+    
     """Run the GS profile to install this package"""
     out = StringIO()
     runProfile(portal, 'profile-collective.easyslideshow:default')
@@ -13,6 +17,25 @@ def install(portal):
     return out.getvalue()
 
 def uninstall(portal, reinstall=False):
+    """Remove slideshow_folder_view from display list, reset folder display"""
+    pt = portal.portal_types
+    layout = portal.getProperty("layout")
+    
+    pc = getToolByName(portal, 'portal_catalog')
+    brains = pc.searchResults(portal_type = 'Folder')
+    for brain in brains:
+        folder = brain.getObject()
+        if folder.getProperty("layout") is not None:
+            if folder.layout == "slideshow_folder_view":
+                folder.layout = "folder_listing"    
+    
+    avViews = []
+    for view in pt['Folder'].view_methods:
+        if view in ["slideshow_folder_view"]:
+            continue
+        avViews.append(view)
+    pt['Folder'].view_methods = tuple(avViews)
+    
     """Run the GS profile to uninstall this package"""
     out = StringIO()
     if not reinstall:
