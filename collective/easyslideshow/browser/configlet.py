@@ -34,5 +34,10 @@ class EasyslideshowControlPanel(ControlPanelForm):
     form_fields = FormFields(IEasyslideshowConfiguration)
 
     label = _(u"EasySlideshow configuration.")
-    description = _(u'Settings to configure the slideshow.')
+    description = _(u"Settings to configure the slideshow. "
+                    "The slideshow will work best if all images are "
+                    "the exact same size, and that size should match "
+                    "the width and height below. Otherwise, you may get "
+                    "some unexpected behavior based on which transition "
+                    "is chosen.")
     form_name = _(u'Slideshow settings')

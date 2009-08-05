@@ -48,7 +48,7 @@
                                url image/getURL;
                                link_path image/getRelatedLink">
                 <div class="imageCaption" tal:condition="props/display_caption">
-                    <span class="imageTitle" tal:content="title" /><br />
+                    <span class="imageTitle" tal:content="title" />
                     <span class="imageDescrip" tal:content="description" />
                 </div>
                 <a tal:attributes="href string:${context/portal_url}/$link_path"

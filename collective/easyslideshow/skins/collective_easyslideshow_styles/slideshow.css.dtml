@@ -53,7 +53,8 @@
 
 .imageCaption .imageTitle,
 .imageCaption .imageDescrip {
-    padding: 0 5px;
+    margin: 0 5px;
+    display: block;
 }
 
 .imageCaption .imageTitle {
