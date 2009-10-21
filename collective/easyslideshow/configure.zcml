@@ -33,6 +33,13 @@
       description="Easy Slideshow uninstallation profile"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+      
+  <genericsetup:importStep
+      name="setup"
+      title="collective.easyslideshow: Various steps"
+      description="Setup handlers for collective.easyslideshow"
+      handler="collective.easyslideshow.setuphandlers.setupVarious">
+  </genericsetup:importStep>
 
   <!-- handle refs being transitioned -->
   <subscriber

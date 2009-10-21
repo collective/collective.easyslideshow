@@ -6,10 +6,6 @@ def runProfile(portal, profileName):
     setupTool.runAllImportStepsFromProfile(profileName)
 
 def install(portal):
-    """Make the slideshow_folder_view available"""
-    pt = portal.portal_types
-    pt['Folder'].view_methods += ("slideshow_folder_view",)
-    
     """Run the GS profile to install this package"""
     out = StringIO()
     runProfile(portal, 'profile-collective.easyslideshow:default')
