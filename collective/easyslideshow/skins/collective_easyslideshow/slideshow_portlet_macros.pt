@@ -1,0 +1,65 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal">
+<body>
+
+<metal:ad define-macro="slideshow"
+          tal:define="view context/@@easyslideshow_view;
+                      images python:view.getPortletImages(slideshowfolderid)">
+    
+    <tal:cond tal:condition="images">
+    <script type="text/javascript"
+            tal:attributes="src string:${context/portal_url}/++resource++slideshow-css-js/jquery-cycle.js"></script>
+    <tal:block tal:replace='structure string:<script type="text/javascript" charset="utf-8">'></tal:block>
+      var jq = jQuery;
+      jq(document).ready(function(){
+            jq(".pics").css({'display':'block', 'visibility': 'visible'});
+            
+            jq('#slideshow-portlet').cycle({
+                fx: '<span tal:replace="slideTransition" />',
+                pause: <span tal:replace="pauseHover" />,
+                timeout: <span tal:replace="slideTimeout" />,
+                speed: <span tal:replace="slideTransitionSpeed" />,
+                pager: '.navNumbers'
+            });
+            
+        });
+    <tal:block tal:replace='structure string:</script>'></tal:block>
+  
+    <style type="text/css" media="all" tal:content="string:@import url(${context/portal_url}/++resource++slideshow-css-js/slideshow.css);"></style>
+  
+    <div id="slideshow-portlet" class="pics"
+         tal:attributes="style string:width:${slideshowWidth}px">
+        <tal:rep repeat="image images">
+          <div class="slideContainer">
+              <tal:def define="title image/Title;
+                               description image/Description;
+                               url image/getURL;
+                               link_path image/getRelatedLink">
+                <a tal:attributes="href string:${context/portal_url}/$link_path"
+                   tal:omit-tag="not:link_path">
+                    <img title="" alt="" tal:attributes="src url" />
+                </a>
+                <div class="imageCaption" tal:condition="displayCaption">
+                    <a tal:attributes="href string:${context/portal_url}/$link_path"
+                       tal:omit-tag="not:link_path"><span tal:content="description" /></a>
+                </div>
+              </tal:def>
+          </div>
+        </tal:rep>
+    </div>
+    <div class="nav" tal:condition="displayNav">
+        <span class="navNumbers"></span>
+        <div class="visualClear"><!-- --></div>
+    </div>
+    
+    <tal:block tal:replace='structure string:<script type="text/javascript" charset="utf-8">'></tal:block>
+      var jq = jQuery;
+      jq(document).ready(function(){
+            totalHeight =  jq(".imageCaption").height() + <span tal:replace="slideshowHeight" />;
+            jq("#slideshow-portlet").css("height",totalHeight);            
+      });
+    <tal:block tal:replace='structure string:</script>'></tal:block>
+  </tal:cond>
+</metal:ad>
+</body>
+</html>

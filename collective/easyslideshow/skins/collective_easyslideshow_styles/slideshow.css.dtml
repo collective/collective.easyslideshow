@@ -68,4 +68,56 @@
     padding: 0;
 }
 
+/* portlet styles */
+
+#portal-column-two {
+    /* just for IE6/IE7, because the portlets don't
+    resize correctly when the slideshow portlet
+    images are wider than the alloted space */
+    *width: auto;
+}
+
+.slideshowPortlet,
+.slideshowPortlet .portletHeader {
+    width: auto;
+}
+
+#slideshow-portlet {
+    border: none;
+}
+
+#slideshow-portlet .imageCaption {
+    background: none;
+    height: 35px;
+    position: static;
+    color: &dtml-fontColor;;
+}
+
+.slideshowPortlet a {
+    outline: none;
+}
+
+.slideshowPortlet .nav {
+    margin-top: 10px;
+}
+
+.slideshowPortlet .nav .navNumbers a {
+    padding: 0;
+    font-size: 5px;
+    color: &dtml-evenRowBackgroundColor;;
+    background-color: &dtml-evenRowBackgroundColor;;
+    margin-right: 12px;
+    display: block;
+    float: left;
+    width: 12px;
+    height: 12px;
+    overflow: hidden;
+}
+
+.slideshowPortlet .nav .navNumbers a.activeSlide {
+    color: &dtml-globalBorderColor;;
+    background-color: &dtml-globalBorderColor;;
+}
+
+
 /* </dtml-with> */

@@ -1,0 +1,23 @@
+<dl class="portlet slideshowPortlet"
+    i18n:domain="uvhs.theme.services.portlets">
+    
+    <dt class="portletHeader" tal:content="view/data/header"></dt>
+    
+    <dd class="portletItem"
+        tal:define="slideshowWidth view/data/slideshow_width;
+                    slideshowHeight view/data/slideshow_height;
+                    slideshowfolderid view/data/images_location;
+                    slideTimeout view/data/slide_timeout;
+                    slideTransition view/data/transition;
+                    slideTransitionSpeed view/data/transition_speed;
+                    pauseHover python:view.data.pause_hover and '1' or '0';
+                    displayNav view/data/display_nav;
+                    displayCaption view/data/display_caption;
+                    slideshowfolderid view/data/images_location">
+        <metal:block use-macro="here/slideshow_portlet_macros/macros/slideshow">
+          slideshow here...
+        </metal:block>               
+        
+    </dd>
+
+</dl>

@@ -1,0 +1,3 @@
+ * a slideshow portlet has been started. It should allow you to choose which folder of images to use, but I haven't gotten this part working yet.
+ * instead of site-wide properties, apply a tab on a slideshow folder.
+ * slideshow currently uses registerIndexableAttribute, but this is deprecated, and completely removed in Plone 4. Needs to be updated.

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<portlets>
+    
+ <portlet 
+   addview="collective.easyslideshow.portlets.Slideshow"
+   title="Slideshow"
+   description="Displays a Slideshow">
+   <for interface="plone.app.portlets.interfaces.IColumn" />
+   <for interface="plone.app.portlets.interfaces.IDashboard" />
+ </portlet>
+      
+</portlets>

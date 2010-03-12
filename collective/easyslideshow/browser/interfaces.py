@@ -79,4 +79,8 @@ class IEasySlideshowView(Interface):
     def getImages(slideshowfolderid):
         """Get the images for the slideshow based of the given ID
         """
+        
+    def getPortletImages(slideshowfolderuid):
+        """Get the images for the slideshow based of the given UID
+        """
 

@@ -31,3 +31,21 @@ class SlideshowView(BrowserView):
                                        path=path,
                                        sort_on='getObjPositionInParent')
         return results
+        
+    def getPortletImages(self, slideshowfolderuid):
+        # we check if there is a folder with uid
+        # slideshowfolderuid
+        results = []
+        pc = getToolByName(self.context, 'portal_catalog')
+        pot_folders = pc.searchResults(UID=slideshowfolderuid)
+
+        if pot_folders:
+            folder = pot_folders[0]
+            if folder.isPrincipiaFolderish:
+                path = {
+                    'query': folder.getPath()
+                }
+                results = pc.searchResults(portal_type='Image',
+                                       path=path,
+                                       sort_on='getObjPositionInParent')
+        return results
