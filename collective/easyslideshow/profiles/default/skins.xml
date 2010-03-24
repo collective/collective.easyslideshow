@@ -12,12 +12,9 @@
     directory="collective.easyslideshow:skins/collective_easyslideshow_images"/>
 
  <skin-path name="*">
-  <layer name="collective_easyslideshow"
-     insert-after="custom"/>
-  <layer name="collective_easyslideshow_styles"
-     insert-after="custom"/>
-  <layer name="collective_easyslideshow_images"
-     insert-after="custom"/>
+  <layer name="collective_easyslideshow"/>
+  <layer name="collective_easyslideshow_styles"/>
+  <layer name="collective_easyslideshow_images"/>
  </skin-path>
 
 </object>
