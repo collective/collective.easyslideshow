@@ -1,8 +1,94 @@
 Changelog
 =========
 
-1.0 - Unreleased
+0.6 - unreleased
 ----------------
 
-* Initial release
+- cleaned up the README so it is valid reStructuredText
+  [cwainwright]
+
+- added installation instructions to the README
+  [cwainwright]
+
+- using z3c.autoinclude
+  [tbesluau]
+
+- wrote up some documentation on how to use the slideshow
+  [cwainwright]
+
+- removed `insert-after=custom` code.  This generally causes a problem when easyslideshow is installed after the theme -- the slideshow_macros override stops working.
+  [cwainwright]
+
+- Slideshow portlet.  It is almost done, but I have not yet been successful in getting the selected folder to display its images in the slideshow.
+  [cwainwright]
+
+0.5 - 2010-02-22
+----------------
+
+- put in a condition on install - do not add the slideshow folder view to the display dropdown if it is already there
+  [cwainwright]
+
+- fixed the title property for the slideshow propertiestool.xml
+  [cwainwright]
+
+0.4 - 2009-12-11
+----------------
+
+- including docs from the egg to avoid errors on install
+  [cwainwright]
+
+
+0.2 - 2009-10-23
+----------------
+
+- changed up the way the slideshow_folder_view is made available, so that it gets run with the default profile instead of just an install.
+  [cwainwright]
+
+
+0.1 - 2009-10-15
+----------------
+
+- when easyslideshow is installed, slideshow_folder_view is made available from the display menu on a folder
+- on uninstall, slideshow_folder_view is removed from the display menu, and any folders using that view are reset to folder_listing
+  [cwainwright]
+
+- created an uninstall profile to remove the EasySlideshow Configuration from the control panel
+  [cwainwright]
+
+- added disclaimer about all images being the same size
+- fixed spacing on caption
+  [cwainwright]
+
+- changed the way the caption is positioned, so that it is always at the bottom of the slideshow container, no matter the image size
+- made the variable descriptions more descriptive
+  [cwainwright]
+
+- moved height and width variables to the template from CSS due to caching issues.
+  [cwainwright]
+  
+- added a control panel for the slideshow via Site Setup for easy customization functionality
+  [cwainwright]
+
+- cleaned up slideshow_macro code
+- set the slideshow to be hidden until everything is loaded (to avoid all slides being seen before the slideshow has loaded)
+  [cwainwright]
+
+- moved the stylesheet and JS to the skins directory so that the stylesheet can use dtml.  Also added dtml variables to the stylesheet so the slideshow will use colors set in base_properties.
+  [cwainwright]
+
+- fixed links to portal_url
+  [cwainwright]
+
+- make sure the index exists before searching/re-indexing
+  [claytron]
+
+- fixed interface path
+  [claytron]
+
+- don't set options in skins.xml that aren't changed
+- register skins recursively
+  [claytron]
+
+- initial import of a jquery based slideshow product
+  [claytron]
 
