@@ -4,6 +4,9 @@ Changelog
 0.6 - unreleased
 ----------------
 
+- updated the versioning style in metadata.xml
+  [cwainwright]
+
 - added cssregistry, jsregistry, portlets, and skins to the uninstall profile to ensure everything gets removed
   [cwainwright]
 
@@ -25,6 +28,7 @@ Changelog
 - Slideshow portlet.  It is almost done, but I have not yet been successful in getting the selected folder to display its images in the slideshow.
   [cwainwright]
 
+
 0.5 - 2010-02-22
 ----------------
 
@@ -33,6 +37,7 @@ Changelog
 
 - fixed the title property for the slideshow propertiestool.xml
   [cwainwright]
+
 
 0.4 - 2009-12-11
 ----------------
