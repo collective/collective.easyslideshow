@@ -7,6 +7,14 @@ image type for presentation.  The base jQuery library is
 jQuery Cycle (http://malsup.com/jquery/cycle/)
 
 
+Installation
+============
+ * In your buildout.cfg, add collective.easyslideshow to the list
+   of eggs and zcml within the [instance] section. 
+ * Run buildout, and start up the instance
+ * Install collective.easyslideshow via portal_quickinstaller
+
+
 Use
 ===
  * Create a folder in your site
