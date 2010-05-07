@@ -4,6 +4,9 @@ Changelog
 0.6 - unreleased
 ----------------
 
+- added cssregistry, jsregistry, portlets, and skins to the uninstall profile to ensure everything gets removed
+  [cwainwright]
+
 - cleaned up the README so it is valid reStructuredText
   [cwainwright]
 

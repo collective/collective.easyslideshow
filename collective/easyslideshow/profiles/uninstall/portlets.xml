@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<portlets>
+    
+ <portlet 
+   addview="collective.easyslideshow.portlets.Slideshow"
+   title="Slideshow"
+   description="Displays a Slideshow"
+   remove="True">
+ </portlet>
+      
+</portlets>
