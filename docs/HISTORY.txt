@@ -3,6 +3,9 @@ Changelog
 
 0.6 - unreleased
 ----------------
+- created an image for the easyslideshow configuration in site setup
+  [cwainwright]
+
 - moved propertiestool.xml into the initial profile
   [cwainwright]
 
