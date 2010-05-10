@@ -3,6 +3,9 @@ Changelog
 
 0.6 - unreleased
 ----------------
+- moved propertiestool.xml into the initial profile
+  [cwainwright]
+
 - made the uninstall stop running on reinstall
   [tbesluau]
 

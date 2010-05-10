@@ -1,3 +1,8 @@
+def importVariousInitial(context):
+    """Run the setup handlers for the initial profile"""
+    if context.readDataFile('collective.easyslideshow-initial.txt') is None:
+        return
+
 def setupVarious(context):
 
     # Ordinarily, GenericSetup handlers check for the existence of XML files.

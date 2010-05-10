@@ -28,6 +28,14 @@
       />
       
   <genericsetup:registerProfile
+      name="initial"
+      title="Easy Slideshow Initial"
+      directory="profiles/initial"
+      description="Innitial Profile for Easy Slideshow"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+      
+  <genericsetup:registerProfile
       name="uninstall"
       title="Easy Slideshow Uninstall"
       directory="profiles/uninstall"
@@ -40,6 +48,13 @@
       title="collective.easyslideshow: Various steps"
       description="Setup handlers for collective.easyslideshow"
       handler="collective.easyslideshow.setuphandlers.setupVarious">
+  </genericsetup:importStep>
+  
+  <genericsetup:importStep
+      name="collective.easyslideshow:initial" 
+      title="easyslideshow: Various Initial steps" 
+      description="Initial Setup handlers for collective.easyslideshow" 
+      handler="collective.easyslideshow.setuphandlers.importVariousInitial">
   </genericsetup:importStep>
 
   <!-- handle refs being transitioned -->
