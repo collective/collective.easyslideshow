@@ -2,7 +2,7 @@ from Products.CMFPlone.CatalogTool import registerIndexableAttribute
 from Products.CMFCore.utils import getToolByName
 
 def initialize(context):
-    
+
     def getRelatedLink(obj, portal, **kwargs):
         """Index to get the link for the slide.  It will be the first related
         item.
@@ -19,5 +19,5 @@ def initialize(context):
                 if current_state == 'published':
                     return '/'.join(image_link.getPhysicalPath()[2:])
         return
-    
+
     registerIndexableAttribute('getRelatedLink', getRelatedLink)

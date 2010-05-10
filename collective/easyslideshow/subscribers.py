@@ -18,7 +18,7 @@ def slideLinkSync(obj, event):
 def slideLinkDeleted(obj, event):
     """Need to keep the getRelatedLink up-to-date.  If the item link is being
     removed then we have to find it and re-index those objects.
-    
+
     manage_beforeDelete kills the refs before IObjectWillBeRemoved is fired.
     So we'll do the clean up after the fact with IObjectRemoved
     """

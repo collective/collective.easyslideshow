@@ -9,7 +9,8 @@ from Products.CMFDefault.formlib.schema import SchemaAdapterBase
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 from plone.app.controlpanel.form import ControlPanelForm
 
-from collective.easyslideshow.browser.interfaces import IEasyslideshowConfiguration
+from collective.easyslideshow.browser.interfaces import \
+        IEasyslideshowConfiguration
 
 _ = MessageFactory('collective.easyslideshow')
 
@@ -21,14 +22,30 @@ class EasyslideshowControlPanelAdapter(SchemaAdapterBase):
         super(EasyslideshowControlPanelAdapter, self).__init__(context)
         self.context = getUtility(IPropertiesTool).easyslideshow_properties
 
-    slideshow_width = ProxyFieldProperty(IEasyslideshowConfiguration['slideshow_width'])
-    slideshow_height = ProxyFieldProperty(IEasyslideshowConfiguration['slideshow_height']) 
-    slide_timeout = ProxyFieldProperty(IEasyslideshowConfiguration['slide_timeout'])
-    transition = ProxyFieldProperty(IEasyslideshowConfiguration['transition'])
-    transition_speed = ProxyFieldProperty(IEasyslideshowConfiguration['transition_speed'])
-    pause_hover = ProxyFieldProperty(IEasyslideshowConfiguration['pause_hover'])
-    display_nav = ProxyFieldProperty(IEasyslideshowConfiguration['display_nav'])
-    display_caption = ProxyFieldProperty(IEasyslideshowConfiguration['display_caption'])
+    slideshow_width = ProxyFieldProperty(
+        IEasyslideshowConfiguration['slideshow_width']
+    )
+    slideshow_height = ProxyFieldProperty(
+        IEasyslideshowConfiguration['slideshow_height']
+    )
+    slide_timeout = ProxyFieldProperty(
+        IEasyslideshowConfiguration['slide_timeout']
+    )
+    transition = ProxyFieldProperty(
+        IEasyslideshowConfiguration['transition']
+    )
+    transition_speed = ProxyFieldProperty(
+        IEasyslideshowConfiguration['transition_speed']
+    )
+    pause_hover = ProxyFieldProperty(
+        IEasyslideshowConfiguration['pause_hover']
+    )
+    display_nav = ProxyFieldProperty(
+        IEasyslideshowConfiguration['display_nav']
+    )
+    display_caption = ProxyFieldProperty(
+        IEasyslideshowConfiguration['display_caption']
+    )
 
 class EasyslideshowControlPanel(ControlPanelForm):
     form_fields = FormFields(IEasyslideshowConfiguration)

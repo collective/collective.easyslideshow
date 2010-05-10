@@ -11,7 +11,7 @@ class SlideshowView(BrowserView):
     """View class for the Slideshow
     """
     implements(IEasySlideshowView)
-        
+
     def getImages(self, slideshowfolderid):
         # we check if there is a folder with id slideshowfolderid
         # if so, we return the images in it
@@ -24,14 +24,14 @@ class SlideshowView(BrowserView):
         if slideshowfolderid in parent.objectIds():
             pc = getToolByName(self.context, 'portal_catalog')
             path = {
-                'query': 
+                'query':
                 '/'.join(parent[slideshowfolderid].getPhysicalPath())
             }
             results = pc.searchResults(portal_type='Image',
                                        path=path,
                                        sort_on='getObjPositionInParent')
         return results
-        
+
     def getPortletImages(self, slideshowfolderuid):
         # we check if there is a folder with uid
         # slideshowfolderuid

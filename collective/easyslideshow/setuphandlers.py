@@ -6,7 +6,7 @@ def setupVarious(context):
     # The file is found in profiles/default.
     if context.readDataFile('collective.easyslideshow_various.txt') is None:
         return
-   
+
     # Add additional setup code here
     """Make the slideshow_folder_view available"""
     portal = context.getSite()
