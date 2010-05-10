@@ -3,6 +3,8 @@ Changelog
 
 0.6 - unreleased
 ----------------
+- made the uninstall stop running on reinstall
+  [tbesluau]
 
 - updated the versioning style in metadata.xml
   [cwainwright]
