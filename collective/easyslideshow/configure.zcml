@@ -9,7 +9,10 @@
   
   <include package=".browser" />
   <include package=".portlets" />
-  
+
+  <includePlugins package="." />
+  <includeDependencies package="." />
+
   <cmf:registerDirectory
       name="skins"
       directory="skins"
