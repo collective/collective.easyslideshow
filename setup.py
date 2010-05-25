@@ -1,10 +1,8 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.6'
-
 setup(name='collective.easyslideshow',
-      version=version,
+      version=open(os.path.join("collective", "easyslideshow", "version.txt")).read().strip(),
       description="An easy slideshow solution for Plone",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
