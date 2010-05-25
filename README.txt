@@ -6,7 +6,7 @@ collective.easyslideshow is a product for displaying slideshows  within your sit
 
 Installation
 ============
-- In your buildout.cfg, add collective.easyslideshow to the list of eggs and zcml within the [instance] section. 
+- In your buildout.cfg, add collective.easyslideshow to the list of eggs within the [instance] section. It is using z3c.autoinclude so there is no need to add it to zcml too. 
 - Run buildout, and start up the instance
 - Install collective.easyslideshow via portal_quickinstaller
 
