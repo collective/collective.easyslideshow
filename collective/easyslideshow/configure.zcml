@@ -1,12 +1,9 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:five="http://namespaces.zope.org/five"
     xmlns:cmf="http://namespaces.zope.org/cmf"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="collective.easyslideshow">
 
-  <five:registerPackage package="." initialize=".initialize" />
-  
   <include package=".browser" />
   <include package=".portlets" />
 
