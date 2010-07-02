@@ -12,19 +12,6 @@ ptc.setupPloneSite()
 
 import collective.easyslideshow
 
-class TestCase(ptc.PloneTestCase):
-    class layer(PloneSite):
-        @classmethod
-        def setUp(cls):
-            fiveconfigure.debug_mode = True
-            zcml.load_config('configure.zcml',
-                             collective.easyslideshow)
-            fiveconfigure.debug_mode = False
-
-        @classmethod
-        def tearDown(cls):
-            pass
-
 
 def test_suite():
     return unittest.TestSuite([
