@@ -1,0 +1,45 @@
+Configure the configlet by changing the default values.
+
+    >>> from Products.Five.testbrowser import Browser
+    >>> from Products.PloneTestCase.setup import portal_owner, default_password
+    >>> browser = Browser()
+    >>> self.setRoles(('Manager',))
+    >>> portal_url = self.portal.absolute_url()
+    >>> browser.open(portal_url + '/login')
+    >>> browser.getControl(name='__ac_name').value = portal_owner
+    >>> browser.getControl(name='__ac_password').value = default_password
+    >>> browser.getControl(name='submit').click()
+    >>> browser.getLink('Site Setup').click()
+    >>> browser.getLink('EasySlideshow Configuration').click()
+    >>> browser.getControl('Width of the Slideshow').value = '400'
+    >>> browser.getControl('Height of the Slideshow').value = '300'
+    >>> browser.getControl('Slide Time').value = '2000'
+    >>> browser.getControl('Transition', index=0).value = ['scrollUp']
+    >>> browser.getControl('Transition Time').value = '500'
+    >>> browser.getControl(name='form.pause_hover').value = True
+    >>> browser.getControl(name='form.display_nav').value = False
+    >>> browser.getControl(name='form.display_nav').value = True
+    >>> browser.getControl(name='form.display_caption').value = False
+    >>> browser.getControl(name='form.display_caption').value = True
+    >>> browser.getControl('Save').click()
+    
+Verify the values were changed correctly
+
+    >>> from Products.CMFCore.utils import getToolByName
+    >>> ep = getToolByName(self,'portal_properties').easyslideshow_properties
+    >>> ep.slideshow_width
+    400
+    >>> ep.slideshow_height
+    300
+    >>> ep.slide_timeout
+    2000
+    >>> ep.transition
+    'scrollUp'
+    >>> ep.transition_speed
+    500
+    >>> ep.pause_hover
+    True
+    >>> ep.display_nav
+    True
+    >>> ep.display_caption
+    True
