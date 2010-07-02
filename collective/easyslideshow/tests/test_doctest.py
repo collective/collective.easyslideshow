@@ -1,7 +1,7 @@
 import unittest
 import doctest
 from Testing import ZopeTestCase as ztc
-from test.foobar.tests import base
+from collective.easyslideshow.tests import base
 
 
 def test_suite():
