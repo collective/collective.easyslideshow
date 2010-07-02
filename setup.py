@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import os
 
 setup(name='collective.easyslideshow',
-      version=open(os.path.join("collective", "easyslideshow", "version.txt")).read().strip(),
+      version=open(os.path.join("src", "collective", "easyslideshow", "version.txt")).read().strip(),
       description="An easy slideshow solution for Plone",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
@@ -17,7 +17,8 @@ setup(name='collective.easyslideshow',
       author_email='info@sixfeetup.com',
       url='http://svn.plone.org/svn/collective/collective.easyslideshow',
       license='GPL',
-      packages=find_packages(exclude=['ez_setup']),
+      packages=find_packages('src'),
+	  package_dir = {'': 'src'},
       namespace_packages=['collective'],
       include_package_data=True,
       zip_safe=False,
