@@ -29,12 +29,7 @@ setup(name='collective.easyslideshow',
       # -*- Entry points: -*-
       [z3c.autoinclude.plugin]
       target = plone
-
-      [distutils.setup_keywords]
-      paster_plugins = setuptools.dist:assert_string_list
-
-      [egg_info.writers]
-      paster_plugins.txt = setuptools.command.egg_info:write_arg
       """,
       paster_plugins = ["ZopeSkel"],
+      setup_requires=["PasteScript"]
       )
