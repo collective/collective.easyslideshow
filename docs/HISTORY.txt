@@ -3,6 +3,9 @@ Changelog
 
 0.6 (xxxx-xx-xx)
 ----------------
+- Added test for the `SlideshowView` `getImages` method and stub for
+  `getPortletImages`.
+  [davidblewett] 
 
 - Updated the change log format.
   [clayton]
