@@ -65,9 +65,9 @@ class TestCase(ptc.PloneTestCase):
     applies to unit test cases.
     """
 
-	def _createType(self, context, portal_type, id):
+    def _createType(self, context, portal_type, id):
         """create an object in the proper context
-	    """
+        """
         self.setRoles(('Manager', ))
         ttool = getToolByName(context, 'portal_types')
         fti = ttool.getTypeInfo(portal_type)
