@@ -13,6 +13,7 @@ from Testing import ZopeTestCase as ztc
 
 from Products.PloneTestCase import PloneTestCase as ptc
 from Products.PloneTestCase.layer import onsetup
+from Products.CMFCore.utils import getToolByName
 
 # When ZopeTestCase configures Zope, it will *not* auto-load products
 # in Products/. Instead, we have to use a statement such as:
