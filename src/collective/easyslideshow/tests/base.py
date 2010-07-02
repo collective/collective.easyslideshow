@@ -13,6 +13,7 @@ from Testing import ZopeTestCase as ztc
 
 from Products.PloneTestCase import PloneTestCase as ptc
 from Products.PloneTestCase.layer import onsetup
+from collective.testcaselayer import ptc as tcl_ptc
 from Products.CMFCore.utils import getToolByName
 
 # When ZopeTestCase configures Zope, it will *not* auto-load products
@@ -57,14 +58,25 @@ def setup_product():
 # PloneTestCase set up this product on installation.
 
 setup_product()
-ptc.setupPloneSite(products=['collective.easyslideshow'])
+ptc.setupPloneSite()
 
+
+class Layer(tcl_ptc.BasePTCLayer):
+    """Install collective.foo"""
+
+    def afterSetUp(self):
+        self.addProfile('collective.easyslideshow:default')
+
+
+InstalledLayer = Layer([tcl_ptc.ptc_layer])
+UninstalledLayer = tcl_ptc.ptc_layer
 
 class TestCase(ptc.PloneTestCase):
     """We use this base class for all the tests in this package. If
     necessary, we can put common utility or setup code in here. This
     applies to unit test cases.
     """
+    layer = InstalledLayer
 
     def _createType(self, context, portal_type, id):
         """create an object in the proper context
@@ -83,6 +95,7 @@ class FunctionalTestCase(ptc.FunctionalTestCase):
     doctest syntax. Again, we can put basic common utility or setup
     code in here.
     """
+    layer = InstalledLayer
 
     def afterSetUp(self):
         roles = ('Member', 'Contributor')

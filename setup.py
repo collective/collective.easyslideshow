@@ -1,12 +1,24 @@
 from setuptools import setup, find_packages
 import os
 
+tests_require = [
+    "zope.testing",
+    "collective.testcaselayer",
+]
+
+version = open(os.path.join(
+    "src",
+    "collective",
+    "easyslideshow",
+    "version.txt")).read().strip()
+
 setup(name='collective.easyslideshow',
-      version=open(os.path.join("src", "collective", "easyslideshow", "version.txt")).read().strip(),
+      version=version,
       description="An easy slideshow solution for Plone",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
-      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
+      # Get more strings from:
+      # http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
         "Programming Language :: Python",
@@ -18,7 +30,7 @@ setup(name='collective.easyslideshow',
       url='http://svn.plone.org/svn/collective/collective.easyslideshow',
       license='GPL',
       packages=find_packages('src'),
-	  package_dir = {'': 'src'},
+      package_dir = {'': 'src'},
       namespace_packages=['collective'],
       include_package_data=True,
       zip_safe=False,
@@ -26,6 +38,8 @@ setup(name='collective.easyslideshow',
           'setuptools',
           # -*- Extra requirements: -*-
       ],
+      tests_require=tests_require,
+      extras_require={'tests': tests_require},
       entry_points="""
       # -*- Entry points: -*-
       [z3c.autoinclude.plugin]
