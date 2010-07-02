@@ -36,8 +36,8 @@ def setup_product():
     # This can of course use <include /> to include other packages.
 
     fiveconfigure.debug_mode = True
-    import test.foobar
-    zcml.load_config('configure.zcml', test.foobar)
+    import collective.easyslideshow
+    zcml.load_config('configure.zcml', collective.easyslideshow)
     fiveconfigure.debug_mode = False
 
     # We need to tell the testing framework that these products
@@ -56,7 +56,7 @@ def setup_product():
 # PloneTestCase set up this product on installation.
 
 setup_product()
-ptc.setupPloneSite(products=['test.foobar'])
+ptc.setupPloneSite(products=['collective.easyslideshow'])
 
 
 class TestCase(ptc.PloneTestCase):
