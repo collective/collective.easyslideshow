@@ -65,6 +65,17 @@ class TestCase(ptc.PloneTestCase):
     applies to unit test cases.
     """
 
+	def _createType(self, context, portal_type, id):
+        """create an object in the proper context
+	    """
+        self.setRoles(('Manager', ))
+        ttool = getToolByName(context, 'portal_types')
+        fti = ttool.getTypeInfo(portal_type)
+        fti.constructInstance(context, id)
+        self.setRoles(())
+        obj = getattr(context.aq_inner.aq_explicit, id)
+        return obj
+
 
 class FunctionalTestCase(ptc.FunctionalTestCase):
     """We use this class for functional integration tests that use
