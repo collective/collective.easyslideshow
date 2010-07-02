@@ -3,6 +3,9 @@ Changelog
 
 0.6 - unreleased
 ----------------
+- fixed the portlet so it grabs the slideshow folder correctly
+  [lucielejard]
+
 - added version.txt in the collective/easyslideshow folder and modified setup.py to grab it automatically
   [tbesluau]
 
