@@ -4,7 +4,7 @@
 
 <metal:ad define-macro="slideshow"
           tal:define="view context/@@easyslideshow_view;
-                      images python:view.getPortletImages(slideshowfolderid)">
+                      images python:view.getPortletImages(slideshowfolderpath)">
     
     <tal:cond tal:condition="images">
     <script type="text/javascript"

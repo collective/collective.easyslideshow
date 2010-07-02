@@ -1,4 +1,5 @@
 from zope.interface import implements
+from zope.component import getMultiAdapter
 
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
@@ -32,12 +33,16 @@ class SlideshowView(BrowserView):
                                        sort_on='getObjPositionInParent')
         return results
 
-    def getPortletImages(self, slideshowfolderuid):
-        # we check if there is a folder with uid
-        # slideshowfolderuid
+    def getPortletImages(self, slideshowfolderpath):
+        # we check if there is a folder with path
+        # slideshowfolderpath
         results = []
+        ps = getMultiAdapter((self.context, self.context.REQUEST),
+                              name=u"plone_portal_state")
+        path = "/%s%s" % (ps.portal().getId(), slideshowfolderpath)
+
         pc = getToolByName(self.context, 'portal_catalog')
-        pot_folders = pc.searchResults(UID=slideshowfolderuid)
+        pot_folders = pc.searchResults(path=path)
 
         if pot_folders:
             folder = pot_folders[0]
@@ -46,6 +51,6 @@ class SlideshowView(BrowserView):
                     'query': folder.getPath()
                 }
                 results = pc.searchResults(portal_type='Image',
-                                       path=path,
-                                       sort_on='getObjPositionInParent')
+                                           path=path,
+                                           sort_on='getObjPositionInParent')
         return results
