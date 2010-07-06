@@ -1,6 +1,7 @@
 from Products.CMFPlone.CatalogTool import registerIndexableAttribute
 from Products.CMFCore.utils import getToolByName
 
+
 def initialize(context):
 
     def getRelatedLink(obj, portal, **kwargs):

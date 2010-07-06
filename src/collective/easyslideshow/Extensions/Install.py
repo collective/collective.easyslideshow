@@ -1,16 +1,19 @@
 from cStringIO import StringIO
 from Products.CMFCore.utils import getToolByName
 
+
 def runProfile(portal, profileName):
     setupTool = getToolByName(portal, 'portal_setup')
     setupTool.runAllImportStepsFromProfile(profileName)
+
 
 def install(portal):
     """Run the GS profile to install this package"""
     out = StringIO()
     runProfile(portal, 'profile-collective.easyslideshow:default')
-    print >>out, "Installed collective.easyslideshow"
+    print >> out, "Installed collective.easyslideshow"
     return out.getvalue()
+
 
 def uninstall(portal, reinstall=False):
     """Remove slideshow_folder_view from display list, reset folder display"""
@@ -20,7 +23,7 @@ def uninstall(portal, reinstall=False):
     layout = portal.getProperty("layout")
 
     pc = getToolByName(portal, 'portal_catalog')
-    brains = pc.searchResults(portal_type = 'Folder')
+    brains = pc.searchResults(portal_type='Folder')
     for brain in brains:
         folder = brain.getObject()
         if folder.getProperty("layout") is not None:
@@ -37,5 +40,5 @@ def uninstall(portal, reinstall=False):
     """Run the GS profile to uninstall this package"""
     out = StringIO()
     runProfile(portal, 'profile-collective.easyslideshow:uninstall')
-    print >>out, "Uninstalled collective.easyslideshow"
+    print >> out, "Uninstalled collective.easyslideshow"
     return out.getvalue()

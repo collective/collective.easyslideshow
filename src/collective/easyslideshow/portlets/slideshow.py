@@ -29,7 +29,7 @@ class ISlideshow(IPortletDataProvider):
         description=_(u"Path to the folder that contains the images "
                        "to be visible in the portlet."),
         required=True,
-        source=SearchableTextSourceBinder({'is_folderish' : True},
+        source=SearchableTextSourceBinder({'is_folderish': True},
                                           default_query='path:'))
 
     slideshow_width = schema.Int(
@@ -99,6 +99,7 @@ class ISlideshow(IPortletDataProvider):
         required=True,
         default=True)
 
+
 class Assignment(base.Assignment):
     """Portlet assignment.
 
@@ -159,6 +160,7 @@ class AddForm(base.AddForm):
 
     def create(self, data):
         return Assignment(**data)
+
 
 class EditForm(base.EditForm):
     """Portlet edit form.

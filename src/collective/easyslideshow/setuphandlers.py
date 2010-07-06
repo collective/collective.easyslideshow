@@ -3,6 +3,7 @@ def importVariousInitial(context):
     if context.readDataFile('collective.easyslideshow-initial.txt') is None:
         return
 
+
 def setupVarious(context):
 
     # Ordinarily, GenericSetup handlers check for the existence of XML files.
@@ -18,4 +19,3 @@ def setupVarious(context):
     pt = portal.portal_types
     if  "slideshow_folder_view" not in pt['Folder'].view_methods:
         pt['Folder'].view_methods += ("slideshow_folder_view",)
-

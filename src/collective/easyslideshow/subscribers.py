@@ -1,6 +1,7 @@
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import base_hasattr
 
+
 def slideLinkSync(obj, event):
     """Need to keep the getRelatedLink up-to-date
     """
@@ -14,6 +15,7 @@ def slideLinkSync(obj, event):
             for item in related_items:
                 if item.portal_type == 'Image':
                     item.reindexObject(idxs=['getRelatedLink'])
+
 
 def slideLinkDeleted(obj, event):
     """Need to keep the getRelatedLink up-to-date.  If the item link is being

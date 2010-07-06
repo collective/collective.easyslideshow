@@ -14,6 +14,7 @@ from collective.easyslideshow.browser.interfaces import \
 
 _ = MessageFactory('collective.easyslideshow')
 
+
 class EasyslideshowControlPanelAdapter(SchemaAdapterBase):
     adapts(IPloneSiteRoot)
     implements(IEasyslideshowConfiguration)
@@ -23,29 +24,22 @@ class EasyslideshowControlPanelAdapter(SchemaAdapterBase):
         self.context = getUtility(IPropertiesTool).easyslideshow_properties
 
     slideshow_width = ProxyFieldProperty(
-        IEasyslideshowConfiguration['slideshow_width']
-    )
+        IEasyslideshowConfiguration['slideshow_width'])
     slideshow_height = ProxyFieldProperty(
-        IEasyslideshowConfiguration['slideshow_height']
-    )
+        IEasyslideshowConfiguration['slideshow_height'])
     slide_timeout = ProxyFieldProperty(
-        IEasyslideshowConfiguration['slide_timeout']
-    )
+        IEasyslideshowConfiguration['slide_timeout'])
     transition = ProxyFieldProperty(
-        IEasyslideshowConfiguration['transition']
-    )
+        IEasyslideshowConfiguration['transition'])
     transition_speed = ProxyFieldProperty(
-        IEasyslideshowConfiguration['transition_speed']
-    )
+        IEasyslideshowConfiguration['transition_speed'])
     pause_hover = ProxyFieldProperty(
-        IEasyslideshowConfiguration['pause_hover']
-    )
+        IEasyslideshowConfiguration['pause_hover'])
     display_nav = ProxyFieldProperty(
-        IEasyslideshowConfiguration['display_nav']
-    )
+        IEasyslideshowConfiguration['display_nav'])
     display_caption = ProxyFieldProperty(
-        IEasyslideshowConfiguration['display_caption']
-    )
+        IEasyslideshowConfiguration['display_caption'])
+
 
 class EasyslideshowControlPanel(ControlPanelForm):
     form_fields = FormFields(IEasyslideshowConfiguration)

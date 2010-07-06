@@ -71,6 +71,7 @@ class Layer(tcl_ptc.BasePTCLayer):
 InstalledLayer = Layer([tcl_ptc.ptc_layer])
 UninstalledLayer = tcl_ptc.ptc_layer
 
+
 class TestCase(ptc.PloneTestCase):
     """We use this base class for all the tests in this package. If
     necessary, we can put common utility or setup code in here. This
@@ -102,4 +103,3 @@ class FunctionalTestCase(ptc.FunctionalTestCase):
         self.portal.portal_membership.addMember('contributor',
                                                 'secret',
                                                 roles, [])
-

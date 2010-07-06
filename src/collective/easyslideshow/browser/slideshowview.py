@@ -8,6 +8,7 @@ from Acquisition import aq_inner
 
 from collective.easyslideshow.browser.interfaces import IEasySlideshowView
 
+
 class SlideshowView(BrowserView):
     """View class for the Slideshow
     """
@@ -26,8 +27,7 @@ class SlideshowView(BrowserView):
             pc = getToolByName(self.context, 'portal_catalog')
             path = {
                 'query':
-                '/'.join(parent[slideshowfolderid].getPhysicalPath())
-            }
+                '/'.join(parent[slideshowfolderid].getPhysicalPath())}
             results = pc.searchResults(portal_type='Image',
                                        path=path,
                                        sort_on='getObjPositionInParent')
@@ -48,8 +48,7 @@ class SlideshowView(BrowserView):
             folder = pot_folders[0]
             if folder.isPrincipiaFolderish:
                 path = {
-                    'query': folder.getPath()
-                }
+                    'query': folder.getPath()}
                 results = pc.searchResults(portal_type='Image',
                                            path=path,
                                            sort_on='getObjPositionInParent')
