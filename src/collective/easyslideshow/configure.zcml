@@ -21,6 +21,7 @@
       
   <adapter
       factory=".browser.configlet.EasyslideshowControlPanelAdapter" />
+  <adapter name="getRelatedLink" factory=".indexers.getRelatedLink" />
 
   <genericsetup:registerProfile
       name="default"
