@@ -6,7 +6,7 @@
           tal:define="view context/@@easyslideshow_view;
                       slideshowfolderid slideshowfolderid|string:slideshow-folder;
                       images python:view.getImages(slideshowfolderid);
-                      props portal_properties/easyslideshow_properties;
+                      props context/portal_properties/easyslideshow_properties;
                       pause python:props.pause_hover and '1' or '0'">
   <tal:cond tal:condition="images">
   
