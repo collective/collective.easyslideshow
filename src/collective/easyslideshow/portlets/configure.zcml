@@ -14,7 +14,7 @@
       interface=".slideshow.ISlideshow"
       assignment=".slideshow.Assignment"
       view_permission="zope2.View"
-      edit_permission="cmf.ManagePortal"
+      edit_permission="collective.easyslideshow.EditPortlet"
       renderer=".slideshow.Renderer"
       addview=".slideshow.AddForm"
       editview=".slideshow.EditForm"

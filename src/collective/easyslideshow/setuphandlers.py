@@ -14,8 +14,4 @@ def setupVarious(context):
         return
 
     # Add additional setup code here
-    """Make the slideshow_folder_view available"""
-    portal = context.getSite()
-    pt = portal.portal_types
-    if  "slideshow_folder_view" not in pt['Folder'].view_methods:
-        pt['Folder'].view_methods += ("slideshow_folder_view",)
+
