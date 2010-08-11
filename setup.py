@@ -37,6 +37,7 @@ setup(name='collective.easyslideshow',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
+          'collective.autopermission'
       ],
       tests_require=tests_require,
       extras_require={'tests': tests_require},

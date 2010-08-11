@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<rolemap>
+  <roles>
+    <role name="Manager"/>
+  </roles>
+  <permissions>
+    <permission name="collective.easyslideshow: Edit portlet"
+                acquire="True">
+      <role name="Manager"/>
+    </permission>
+  </permissions>
+</rolemap>
