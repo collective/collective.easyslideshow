@@ -9,7 +9,8 @@
     <tal:cond tal:condition="images">
     <script type="text/javascript"
             tal:attributes="src string:${context/portal_url}/++resource++slideshow-css-js/jquery-cycle.js"></script>
-    <tal:block tal:replace='structure string:<script type="text/javascript" charset="utf-8">'></tal:block>
+    <tal:block tal:replace='structure string:&lt;script type="text/javascript" charset="utf-8"&gt;'></tal:block>
+      <tal:translate i18n:translate="">
       var jq = jQuery;
       jq(document).ready(function(){
             jq(".pics").css({'display':'block', 'visibility': 'visible'});
@@ -23,7 +24,8 @@
             });
             
         });
-    <tal:block tal:replace='structure string:</script>'></tal:block>
+      </tal:translate>
+    <tal:block tal:replace='structure string:&lt;/script&gt;'></tal:block>
   
     <style type="text/css" media="all" tal:content="string:@import url(${context/portal_url}/++resource++slideshow-css-js/slideshow.css);"></style>
   
@@ -52,13 +54,15 @@
         <div class="visualClear"><!-- --></div>
     </div>
     
-    <tal:block tal:replace='structure string:<script type="text/javascript" charset="utf-8">'></tal:block>
+    <tal:block tal:replace='structure string:&lt;script type="text/javascript" charset="utf-8"&gt;'></tal:block>
+      <tal:translate i18n:translate="">
       var jq = jQuery;
       jq(document).ready(function(){
             totalHeight =  jq(".imageCaption").height() + <span tal:replace="slideshowHeight" />;
             jq("#slideshow-portlet").css("height",totalHeight);            
       });
-    <tal:block tal:replace='structure string:</script>'></tal:block>
+      </tal:translate>
+    <tal:block tal:replace='structure string:&lt;/script&gt;'></tal:block>
   </tal:cond>
 </metal:ad>
 </body>

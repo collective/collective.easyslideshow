@@ -1,7 +1,8 @@
 <dl class="portlet slideshowPortlet"
-    i18n:domain="uvhs.theme.services.portlets">
+    i18n:domain="collective.easyslideshow.portlets"
+    i18n:translate="">
     
-    <dt class="portletHeader" tal:content="view/data/header"></dt>
+    <dt class="portletHeader" tal:content="view/data/header" i18n:name="slideshow_portlet_header"></dt>
     
     <dd class="portletItem"
         tal:define="slideshowWidth view/data/slideshow_width;

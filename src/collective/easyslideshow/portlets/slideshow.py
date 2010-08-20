@@ -33,7 +33,7 @@ class ISlideshow(IPortletDataProvider):
                                           default_query='path:'))
 
     slideshow_width = schema.Int(
-        title=_(u"label_slideshow_width",
+        title=_(u"label_slideshow__portlet_width",
                 default=u'Width of the Slideshow Image'),
         description=_(u"help_slideshow_width",
         default=u"Enter a whole number for width in pixels. "
@@ -42,7 +42,7 @@ class ISlideshow(IPortletDataProvider):
         default=244)
 
     slideshow_height = schema.Int(
-        title=_(u"label_slideshow_height",
+        title=_(u"label_slideshow_portlet_height",
                 default=u'Height of the Slideshow Image'),
         description=_(u"help_slideshow_height",
         default=u"Enter a whole number for height in pixels. "
@@ -154,9 +154,8 @@ class AddForm(base.AddForm):
     form_fields = form.Fields(ISlideshow)
     label = _(u"title_add_slideshow_portlet",
               default=u"Add slideshow portlet")
-    description = _(u"description_slideshow_portlet",
-                    default=u"A portlet which can display a slideshow. "
-                             "NOTE: This portlet isn't functional yet!")
+    description = _(u"description_slideshow_add_portlet",
+                    default=u"A portlet which can display a slideshow.")
 
     def create(self, data):
         return Assignment(**data)
@@ -171,5 +170,5 @@ class EditForm(base.EditForm):
     form_fields = form.Fields(ISlideshow)
     ISlideshowlabel = _(u"title_edit_slideshow_portlet",
               default=u"Edit slideshow portlet")
-    description = _(u"description_slideshow_portlet",
+    description = _(u"description_slideshow_edit_portlet",
                     default=u"A portlet which can display a slideshow.")
