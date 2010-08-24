@@ -6,8 +6,8 @@
           tal:define="view context/@@easyslideshow_view;
                       slideshowfolderid slideshowfolderid|string:slideshow-folder;
                       images python:view.getImages(slideshowfolderid);
-                      props context/portal_properties/easyslideshow_properties;
-                      pause python:props.pause_hover and '1' or '0'">
+                      props view/getSlideshowAllProperties;
+                      pause python:props['pause_hover'] and '1' or '0'">
   <tal:cond tal:condition="images">
   
     <tal:block tal:replace='structure string:&lt;script type="text/javascript" charset="utf-8"&gt;'></tal:block>
@@ -16,38 +16,38 @@
             jq("#slideshow").css("visibility","visible");
             
             jq('#slideshow').cycle({
-                fx: '<span tal:replace="props/transition" />',
+                fx: '<span tal:replace="python:props['transition']" />',
                 pause: <span tal:replace="pause" />,
-                timeout: <span tal:replace="props/slide_timeout" />,
-                speed: <span tal:replace="props/transition_speed" />,
+                timeout: <span tal:replace="python:props['slide_timeout']" />,
+                speed: <span tal:replace="python:props['transition_speed']" />,
                 pager:  '#navNumbers',
                 next: '#next',
                 prev: '#prev'
             });
             
-            slidewidth = <span tal:replace="props/slideshow_width" />;
-            slideheight = <span tal:replace="props/slideshow_height" />;
+            slidewidth = <span tal:replace="python:props['slideshow_width']" />;
+            slideheight = <span tal:replace="python:props['slideshow_height']" />;
             
             jq(".imageCaption").css({"width":slidewidth, "margin-top":slideheight-75});
         });
     <tal:block tal:replace='structure string:&lt;/script&gt;'></tal:block>
   
-    <div id="nav" tal:condition="props/display_nav"
-         tal:attributes="style string:width:${props/slideshow_width}px">
+    <div id="nav" tal:condition="python:props['display_nav']"
+         tal:attributes="style python:'width:%spx' %(props['slideshow_width'])">
         <a id="prev" href="#">&laquo;</a>
         <span id="navNumbers"></span>
         <a id="next" href="#">&raquo;</a>
     </div>
   
     <div id="slideshow" class="pics"
-         tal:attributes="style string:width:${props/slideshow_width}px;; height:${props/slideshow_height}px"> 
+         tal:attributes="style python:('width:%spx;;height:%spx'%(props['slideshow_width'],props['slideshow_height']))"> 
         <tal:rep repeat="image images">
           <div class="slideContainer">
               <tal:def define="title image/Title;
                                description image/Description;
                                url image/getURL;
                                link_path image/getRelatedLink">
-                <div class="imageCaption" tal:condition="props/display_caption">
+                <div class="imageCaption" tal:condition="python:props['display_caption']">
                     <span class="imageTitle" tal:content="title" />
                     <span class="imageDescrip" tal:content="description" />
                 </div>

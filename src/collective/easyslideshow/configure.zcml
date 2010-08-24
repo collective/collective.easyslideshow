@@ -83,4 +83,10 @@
       handler=".subscribers.slideLinkDeleted"
       />
 
+  <!-- handle slideshow creation -->
+  <subscriber
+      for="p4a.subtyper.interfaces.ISubtypeAddedEvent"
+      handler=".subscribers.enableSlideshowFolder"
+      />
+
 </configure>

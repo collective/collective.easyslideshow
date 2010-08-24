@@ -1,12 +1,16 @@
 from zope.interface import implements
 from zope.component import getMultiAdapter
+from zope.component import getUtility
 
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
+from Products.CMFCore.interfaces import IPropertiesTool
+from Products.statusmessages.interfaces import IStatusMessage
 
 from Acquisition import aq_inner
 
-from collective.easyslideshow.browser.interfaces import IEasySlideshowView
+from collective.easyslideshow.browser.interfaces import IEasySlideshowView, IEasyslideshowConfiguration
+from collective.easyslideshow.browser.slideshowmanager import SlideshowManagerAdapter
 
 
 class SlideshowView(BrowserView):
@@ -53,3 +57,59 @@ class SlideshowView(BrowserView):
                                            path=path,
                                            sort_on='getObjPositionInParent')
         return results
+
+
+    def getSlideshowLocalProperties(self):
+        """ Returns the locally defined properties fro the slideshow """
+        adapter = SlideshowManagerAdapter(self.context)
+        values = adapter.getSlideshowProperties().items()
+        props = {}
+        for key, value in values:
+            props[key] = str(value)
+        return props
+
+    def setSlideshowLocalProperties(self):
+        """ Saves the locally defined properties for a Slideshow """
+        status = IStatusMessage(self.request)
+        adapter = SlideshowManagerAdapter(self.context)
+        reset_key = []
+        for key, value in self.request.form.items():
+            if key.startswith('reset_'):
+                real_key = key.split('reset_')[1]
+                adapter.resetSlideshowProperty(real_key)
+                reset_key.append(real_key)
+                continue
+            if key not in reset_key and value not in ['', 'None']:
+                adapter.setSlideshowProperty(key, value)
+        status.addStatusMessage('Local slideshow properties have been saved',
+                                type='info')
+        self.request.response.redirect(self.request.URL.split('@@')[0])
+
+    def getSlideshowGeneralProperties(self):
+        """ Returns the slideshow properties defined site-wide """
+        ptool = getUtility(IPropertiesTool)
+        props = {}
+        for pid in ptool.easyslideshow_properties.propertyIds():
+            if pid != 'title':
+                prop = str(ptool.easyslideshow_properties.getProperty(pid))
+                if hasattr(IEasyslideshowConfiguration[pid], 'vocabulary'):
+                    prop = (prop, [item.value for item in\
+                        IEasyslideshowConfiguration[pid].vocabulary._terms])
+                props[pid] = prop
+        return props
+
+    def getSlideshowAllProperties(self):
+        """ Returns the local property if there is one,
+        general property if not """
+        local_sp = self.getSlideshowLocalProperties()
+        global_sp = self.getSlideshowGeneralProperties()
+        for sid in global_sp.keys():
+            if sid in local_sp.keys():
+                global_sp[sid] = local_sp[sid]
+            if type(global_sp[sid]) == tuple:
+                global_sp[sid] = global_sp[sid][0]
+            if global_sp[sid] == 'True':
+                global_sp[sid] = True
+            if global_sp[sid] == 'False':
+                global_sp[sid] = False
+        return global_sp

@@ -20,7 +20,6 @@
   <element value="folder_tabular_view"/>
   <element value="atct_album_view"/>
   <element value="folder_listing"/>
-  <element value="slideshow_folder_view"/>
  </property>
  <property name="default_view_fallback">False</property>
  <alias from="(Default)" to="(dynamic view)"/>
@@ -45,6 +44,11 @@
  <action title="Folder Listing" action_id="folderlisting" category="folder"
     condition_expr="object/isPrincipiaFolderish"
     url_expr="string:${folder_url}/view" visible="False">
+  <permission value="View"/>
+ </action>
+ <action title="Slideshow" action_id="slideshowproperties" category="folder"
+    condition_expr="python:object.restrictedTraverse('@@plone_interface_info').provides('collective.easyslideshow.interfaces.ISlideshowFolder')"
+    url_expr="string:${folder_url}/slideshow_edit_form" visible="True">
   <permission value="View"/>
  </action>
 </object>
