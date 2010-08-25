@@ -42,3 +42,13 @@ def enableSlideshowFolder(event):
         folder = event.object
         folder.setLayout('slideshow_folder_view')
         adapter = SlideshowManagerAdapter(folder)
+        fol = getToolByName(folder, 'portal_types')['Folder']
+        if 'Slideshow' not in [ac.title for ac in fol.listActions()]:
+            fol.addAction("slideshowproperties",
+                          "Slideshow",
+                          "slideshow_edit_form",
+                          "python:object.restrictedTraverse(\
+                          '@@plone_interface_info').provides(\
+                          'collective.easyslideshow.interfaces.ISlideshowFolder')",
+                          "Modify portal content",
+                          "folder",)

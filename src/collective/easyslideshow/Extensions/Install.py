@@ -1,18 +1,11 @@
-import sys
 from cStringIO import StringIO
 from Products.CMFCore.utils import getToolByName
 
 
-def checkFolderIcon(portal):
-    if sys.version_info[:2] == (2, 6):
-        pt = getToolByName(portal, 'portal_types')
-        pt['Folder'].icon_expr = ''
-        pt['Folder'].icon_expr_object = None
-
 def runProfile(portal, profileName):
     setupTool = getToolByName(portal, 'portal_setup')
     setupTool.runAllImportStepsFromProfile(profileName)
-    checkFolderIcon(portal)
+
 
 def install(portal):
     """Run the GS profile to install this package"""
@@ -20,7 +13,6 @@ def install(portal):
     runProfile(portal, 'profile-collective.easyslideshow:default')
     # if plone 4 is used, we need to remove the folder icon GS imported
     # to do so we check the python version to see if it is 2.6
-    checkFolderIcon(portal)
     print >> out, "Installed collective.easyslideshow"
     return out.getvalue()
 
