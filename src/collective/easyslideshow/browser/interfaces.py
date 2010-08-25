@@ -100,7 +100,7 @@ class IEasySlideshowView(Interface):
         """
 
     def getSlideshowLocalProperties(self):
-        """ Returns the locally defined properties fro the slideshow """
+        """ Returns the locally defined properties for the slideshow """
 
     def setSlideshowLocalProperties(self):
         """ Saves the locally defined properties for a Slideshow """

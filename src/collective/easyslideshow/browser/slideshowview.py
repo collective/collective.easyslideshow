@@ -60,7 +60,7 @@ class SlideshowView(BrowserView):
 
 
     def getSlideshowLocalProperties(self):
-        """ Returns the locally defined properties fro the slideshow """
+        """ Returns the locally defined properties for the slideshow """
         adapter = SlideshowManagerAdapter(self.context)
         values = adapter.getSlideshowProperties().items()
         props = {}

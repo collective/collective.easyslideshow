@@ -1,3 +1,1 @@
-
-def initialize(context):
-    pass
+# init file
