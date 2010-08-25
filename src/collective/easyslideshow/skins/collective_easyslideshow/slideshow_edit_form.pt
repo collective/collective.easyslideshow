@@ -1,0 +1,89 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+           tal:define="templateId template/getId;">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 class="documentFirstHeading"> 
+            <metal:field use-macro="python:here.widget('title', mode='view')">
+            Title
+            </metal:field>
+        </h1>
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <p class="documentDescription">
+            <metal:field use-macro="python:here.widget('description', mode='view')">
+            Description
+            </metal:field>
+        </p>
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+            <div tal:define="view here/@@easyslideshow_view;
+                            local_sp view/getSlideshowLocalProperties;
+                            general_sp view/getSlideshowGeneralProperties;
+                            props python:general_sp.keys();
+                            ">
+                <form action="./@@easyslideshow_view/setSlideshowLocalProperties" method="get">
+                    <div id="slideshow-edit-property" tal:repeat="prop props">
+                        <tal:def define="is_local python:local_sp.has_key(prop);
+                        val python:is_local and local_sp[prop] or general_sp[prop];
+                        bool python:general_sp[prop] in ['True','False'];
+                        tuple python:same_type(general_sp[prop],())">
+                        <br /><label tal:content="python:prop.replace('_', ' ').capitalize()"></label>
+                        <p tal:condition="is_local">&nbsp;&nbsp;<input type="checkbox" name="" value="None" tal:attributes="name string:reset_${prop}" />&nbsp;revert to default</p>
+
+
+                        <!-- Input for True/False variables -->
+                        <tal:cond condition="bool">
+                        <p>Currently: <b tal:condition="python:val=='True'">Yes</b><b tal:condition="python:val=='False'">No</b>&nbsp;
+                        <em tal:condition="not:is_local">(default)</em>
+                        </p>
+                            <input type="radio" name="" value="True" tal:attributes="name prop; checked python:(is_local and val=='True') and 1 or 0" />Yes&nbsp;&nbsp; 
+                            <input type="radio" name="" value="False" tal:attributes="name prop; checked python:(is_local and val=='False') and 1 or 0" />No
+                        </tal:cond>
+
+
+                        <!-- Input for int/str variables -->
+                        <tal:cond condition="python: not(bool or tuple)">
+                        <p>Currently: <b tal:content="val"></b>&nbsp;<em tal:condition="not:is_local">(default)</em></p>
+                            <input type="text" size="10" name="" tal:attributes="name prop;
+                            value python:is_local and val or ''" />
+                        </tal:cond>
+
+
+                        <!-- Input for list selection variables -->
+                        <tal:cond condition="tuple">
+                            <p>Currently: <b tal:content="python:is_local and val or val[0]"></b>&nbsp;<em tal:condition="not:is_local">(default)</em></p>
+                            <select name="" tal:attributes="name prop" tal:define="voc python:general_sp[prop][1]">
+                                <option value="None" tal:attributes="selected python:(not is_local) and 1 or 0">Keep Current</option>
+                                <tal:rep repeat="word voc">
+                                    <option value="" tal:content="word" tal:attributes="value word; selected python:(is_local and val==word) and 1 or 0">choice</option>
+                                </tal:rep>
+                            </select>
+                        </tal:cond>
+                        </tal:def>
+                    </div>
+                    <div class="visualClear"><!-- --></div><br />
+                    <input type="submit" name="submit" value="Save">
+                </form>
+            </div>
+
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>
+

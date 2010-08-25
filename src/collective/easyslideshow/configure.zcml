@@ -5,8 +5,6 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="collective.easyslideshow">
 
-  <five:registerPackage package="." initialize=".initialize" />
-
   <include file="permissions.zcml" />
   <include package=".browser" />
   <include package=".portlets" />
@@ -22,6 +20,7 @@
       
   <adapter
       factory=".browser.configlet.EasyslideshowControlPanelAdapter" />
+  <adapter name="getRelatedLink" factory=".indexers.getRelatedLink" />
 
   <genericsetup:registerProfile
       name="default"
@@ -80,6 +79,12 @@
       for="Products.ATContentTypes.interface.IATContentType
            zope.app.container.interfaces.IObjectRemovedEvent"
       handler=".subscribers.slideLinkDeleted"
+      />
+
+  <!-- handle slideshow creation -->
+  <subscriber
+      for="p4a.subtyper.interfaces.ISubtypeAddedEvent"
+      handler=".subscribers.enableSlideshowFolder"
       />
 
 </configure>

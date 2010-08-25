@@ -10,3 +10,6 @@ var
 fake-eggs
 .installed.cfg
 Paste*
+eggs
+downloads
+

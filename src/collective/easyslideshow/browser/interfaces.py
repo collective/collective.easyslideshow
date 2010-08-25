@@ -98,3 +98,17 @@ class IEasySlideshowView(Interface):
     def getPortletImages(slideshowfolderuid):
         """ Get the images for the slideshow based of the given UID
         """
+
+    def getSlideshowLocalProperties(self):
+        """ Returns the locally defined properties for the slideshow """
+
+    def setSlideshowLocalProperties(self):
+        """ Saves the locally defined properties for a Slideshow """
+
+    def getSlideshowGeneralProperties(self):
+        """ Returns the slideshow properties defined site-wide """
+
+    def getSlideshowAllProperties(self):
+        """ Returns the local property if there is one,
+        general property if not """
+
