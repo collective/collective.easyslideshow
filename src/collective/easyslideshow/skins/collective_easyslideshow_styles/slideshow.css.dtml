@@ -62,8 +62,8 @@
     font-weight: bold;
 }
 
-#content a[href^="http:"],
-#content a.link-external {
+#slideshow a[href^="http:"],
+#slideshow a.link-external {
     background: none;
     padding: 0;
 }

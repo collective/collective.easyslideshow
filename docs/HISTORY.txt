@@ -3,6 +3,9 @@ Changelog
 
 0.6 (xxxx-xx-xx)
 ----------------
+- Made CSS that removes content type images specific to just #slideshow
+  [cwainwright]
+
 - Added browser tests for the configlet
   [tbesluau]
 
