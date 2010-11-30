@@ -12,10 +12,16 @@ version = open(os.path.join(
     "easyslideshow",
     "version.txt")).read().strip()
 
+readme_text = open(os.path.join(
+    "src",
+    "collective",
+    "easyslideshow",
+    "README.txt")).read()
+
 setup(name='collective.easyslideshow',
       version=version,
       description="An easy slideshow solution for Plone",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=readme_text + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from:
       # http://www.python.org/pypi?%3Aaction=list_classifiers

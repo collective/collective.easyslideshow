@@ -6,9 +6,9 @@ collective.easyslideshow is a product for displaying slideshows within your Plon
 
 Installation
 ============
-- In your buildout.cfg, add collective.easyslideshow to the list of eggs within the [instance] section. It is using z3c.autoinclude so there is no need to add it to zcml too. 
+- In your buildout.cfg, add collective.easyslideshow to the list of eggs within the [instance] section. The package is using ``z3c.autoinclude`` so there is no need to add it to zcml if you are using Plone 3.2+.
 - Run buildout, and start up the instance
-- Install collective.easyslideshow via portal_quickinstaller
+- Install ``collective.easyslideshow`` via ``portal_quickinstaller``
 
 
 Use
