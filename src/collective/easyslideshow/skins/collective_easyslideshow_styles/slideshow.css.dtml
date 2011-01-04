@@ -97,8 +97,8 @@
 .slideshowPortlet .nav .navNumbers a {
     padding: 0;
     font-size: 5px;
-    color: &dtml-oddRowBackgroundColor;;
-    background-color: &dtml-oddRowBackgroundColor;;
+    color: &dtml-evenRowBackgroundColor;;
+    background-color: &dtml-evenRowBackgroundColor;;
     margin-right: 12px;
     display: block;
     float: left;
