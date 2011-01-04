@@ -70,13 +70,6 @@
 
 /* portlet styles */
 
-#portal-column-two {
-    /* just for IE6/IE7, because the portlets don't
-    resize correctly when the slideshow portlet
-    images are wider than the alloted space */
-    *width: auto;
-}
-
 .slideshowPortlet,
 .slideshowPortlet .portletHeader {
     width: auto;
@@ -104,8 +97,8 @@
 .slideshowPortlet .nav .navNumbers a {
     padding: 0;
     font-size: 5px;
-    color: &dtml-evenRowBackgroundColor;;
-    background-color: &dtml-evenRowBackgroundColor;;
+    color: &dtml-oddRowBackgroundColor;;
+    background-color: &dtml-oddRowBackgroundColor;;
     margin-right: 12px;
     display: block;
     float: left;
