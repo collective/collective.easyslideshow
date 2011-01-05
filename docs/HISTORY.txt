@@ -3,6 +3,9 @@ Changelog
 
 0.6 (xxxx-xx-xx)
 ----------------
+- Allowed for individual folders to have their own slideshow properties
+  [tbesluau]
+
 - Made CSS that removes content type images specific to just #slideshow
   [cwainwright]
 
