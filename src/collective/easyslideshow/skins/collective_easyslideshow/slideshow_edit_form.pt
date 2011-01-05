@@ -75,7 +75,8 @@
                         </tal:def>
                     </div>
                     <div class="visualClear"><!-- --></div><br />
-                    <input type="submit" name="submit" value="Save">
+                    <input type="submit" class="context" name="form.button.save" value="Save">
+                    <input type="button" onclick="history.back();" class="standalone" name="form.button.cancel" value="Cancel">
                 </form>
             </div>
 
