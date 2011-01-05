@@ -46,7 +46,7 @@ class SlideshowView(BrowserView):
         path = "/%s%s" % (ps.portal().getId(), slideshowfolderpath)
 
         pc = getToolByName(self.context, 'portal_catalog')
-        pot_folders = pc.searchResults(path=path)
+        pot_folders = pc.searchResults(path={'query': path, 'depth': 0})
 
         if pot_folders:
             folder = pot_folders[0]
