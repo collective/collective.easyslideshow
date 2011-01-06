@@ -37,7 +37,10 @@ class ISlideshow(IPortletDataProvider):
                 default=u'Width of the Slideshow Image'),
         description=_(u"help_slideshow_width",
         default=u"Enter a whole number for width in pixels. "
-                 "All images should be this width."),
+                 "All images should be this width. "
+                 "Width should be narrower than the portlet "
+                 "column, otherwise you may get unexpected "
+                 "results."),
         required=True,
         default=244)
 
@@ -155,8 +158,7 @@ class AddForm(base.AddForm):
     label = _(u"title_add_slideshow_portlet",
               default=u"Add slideshow portlet")
     description = _(u"description_slideshow_portlet",
-                    default=u"A portlet which can display a slideshow. "
-                             "NOTE: This portlet isn't functional yet!")
+                    default=u"A portlet which can display a slideshow. ")
 
     def create(self, data):
         return Assignment(**data)

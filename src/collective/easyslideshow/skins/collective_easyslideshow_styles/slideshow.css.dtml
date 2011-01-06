@@ -70,11 +70,6 @@
 
 /* portlet styles */
 
-.slideshowPortlet,
-.slideshowPortlet .portletHeader {
-    width: auto;
-}
-
 #slideshow-portlet {
     border: none;
 }
@@ -92,6 +87,7 @@
 
 .slideshowPortlet .nav {
     margin-top: 10px;
+    clear: both;
 }
 
 .slideshowPortlet .nav .navNumbers a {
@@ -99,9 +95,8 @@
     font-size: 5px;
     color: &dtml-evenRowBackgroundColor;;
     background-color: &dtml-evenRowBackgroundColor;;
-    margin-right: 12px;
-    display: block;
-    float: left;
+    margin-right: 8px;
+    display: inline-block;
     width: 12px;
     height: 12px;
     overflow: hidden;
