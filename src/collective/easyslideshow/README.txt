@@ -24,6 +24,20 @@ While EasySlideshow's global parameters are controlled via the Control Panel (lo
 
 EasySlideshow is Plone 4 compatible (Plone 3.3.x and up) and requires no custom installation, as it leverages the jQuery library that already ships with Plone. EasySlideshow uses fields already found in the Plone image type for presentation.  The jQuery plugin that is the basis for this product is `jQuery Cycle <http://malsup.com/jquery/cycle/>`_.
 
+Examples
+========
+
+Sites that use EasySlideshow include:
+
+- `About Hand Eczema <http://abouthandeczema.com/>`_
+- `Decision Education Foundation <http://www.decisioneducation.org/>`_
+- `Durham Public Schools <http://dpsnc.net/>`_
+- `IEEE Information Theory Society <http://www.itsoc.org/>`_
+- `Indiana Historical Society <http://www.indianahistory.org/>`_
+- `Sugarcane Ethanol <http://sweeteralternative.com/>`_
+- `UNC Center for Galapagos Studies <http://galapagos.unc.edu/>`_
+- `UVA Health System <http://uvahealth.com/>`_
+
 Installation
 ============
 
@@ -60,17 +74,3 @@ Customization
 
 - When used on a custom template, the slideshow will look for images in a folder called ``Slideshow Folder`` (id ``slideshow-folder``) at the same level as the page on which it will be displayed. The name of this folder can be modified within the macro.
 - See http://malsup.com/jquery/cycle/ for further functions and customizations that can be used.
-
-Examples
-========
-
-Sites that use EasySlideshow include:
-
-- `About Hand Eczema <http://abouthandeczema.com/>`_
-- `Decision Education Foundation <http://www.decisioneducation.org/>`_
-- `Durham Public Schools <http://dpsnc.net/>`_
-- `IEEE Information Theory Society <http://www.itsoc.org/>`_
-- `Indiana Historical Society <http://www.indianahistory.org/>`_
-- `Sugarcane Ethanol <http://sweeteralternative.com/>`_
-- `UNC Center for Galapagos Studies <http://galapagos.unc.edu/>`_
-- `UVA Health System <http://uvahealth.com/>`_
