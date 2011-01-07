@@ -3,6 +3,10 @@ Changelog
 
 0.6 (xxxx-xx-xx)
 ----------------
+
+- Fix up docs in preparation for 1.0 release.
+  [claytron]
+
 - Allowed for individual folders to have their own slideshow properties
   [tbesluau]
 
