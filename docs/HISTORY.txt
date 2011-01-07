@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.6 (xxxx-xx-xx)
+1.0 (2011-01-07)
 ----------------
 
 - Fix up docs in preparation for 1.0 release.
