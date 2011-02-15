@@ -55,6 +55,4 @@ setup(name='collective.easyslideshow',
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      paster_plugins = ["ZopeSkel"],
-      setup_requires=["PasteScript"]
       )

@@ -4,7 +4,9 @@ Changelog
 1.1 (xxxx-xx-xx)
 ----------------
 
-
+- Remove paste install as this was not working on windows and not needed
+  for the product to function
+  [claytron]
 
 1.0 (2011-01-07)
 ----------------
