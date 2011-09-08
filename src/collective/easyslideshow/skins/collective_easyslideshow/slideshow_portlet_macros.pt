@@ -7,27 +7,8 @@
                       images python:view.getPortletImages(slideshowfolderpath)">
     
     <tal:cond tal:condition="images">
-    <script type="text/javascript"
-            tal:attributes="src string:${context/portal_url}/++resource++slideshow-css-js/jquery-cycle.js"></script>
-    <tal:block tal:replace='structure string:<script type="text/javascript" charset="utf-8">'></tal:block>
-      var jq = jQuery;
-      jq(document).ready(function(){
-            jq(".pics").css({'display':'block', 'visibility': 'visible'});
-            
-            jq('#slideshow-portlet').cycle({
-                fx: '<span tal:replace="slideTransition" />',
-                pause: <span tal:replace="pauseHover" />,
-                timeout: <span tal:replace="slideTimeout" />,
-                speed: <span tal:replace="slideTransitionSpeed" />,
-                pager: '.navNumbers'
-            });
-            
-        });
-    <tal:block tal:replace='structure string:</script>'></tal:block>
-  
-    <style type="text/css" media="all" tal:content="string:@import url(${context/portal_url}/++resource++slideshow-css-js/slideshow.css);"></style>
-  
-    <div id="slideshow-portlet" class="pics"
+    
+    <div class="portletPics"
          tal:attributes="style string:width:${slideshowWidth}px">
         <tal:rep repeat="image images">
           <div class="slideContainer">
@@ -53,12 +34,27 @@
     </div>
     
     <tal:block tal:replace='structure string:<script type="text/javascript" charset="utf-8">'></tal:block>
-      var jq = jQuery;
-      jq(document).ready(function(){
-            totalHeight =  jq(".imageCaption").height() + <span tal:replace="slideshowHeight" />;
-            jq("#slideshow-portlet").css("height",totalHeight);            
-      });
+      (function($) { $(function() {
+          // numSlideshowPortlets is set in jquery-cycle.js
+          $(".slideshowPortlet").eq(numSlideshowPortlets).find(".navNumbers").addClass("nav"+numSlideshowPortlets);
+          $(".portletPics").eq(numSlideshowPortlets).css({'display':'block', 'visibility': 'visible'});
+          
+          $('.portletPics').eq(numSlideshowPortlets).cycle({
+              fx: '<span tal:replace="slideTransition" />',
+              pause: <span tal:replace="pauseHover" />,
+              timeout: <span tal:replace="slideTimeout" />,
+              speed: <span tal:replace="slideTransitionSpeed" />,
+              pager: '.nav' + numSlideshowPortlets
+          });
+          
+          totalHeight =  jq(".portletPics").eq(numSlideshowPortlets).find(".imageCaption").height() + <span tal:replace="slideshowHeight" />;
+          jq(".portletPics").eq(numSlideshowPortlets).css("height",totalHeight);
+          
+          numSlideshowPortlets += 1;
+          
+      }); })(jQuery);
     <tal:block tal:replace='structure string:</script>'></tal:block>
+    
   </tal:cond>
 </metal:ad>
 </body>

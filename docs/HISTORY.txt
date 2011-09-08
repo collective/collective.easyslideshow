@@ -4,6 +4,16 @@ Changelog
 1.1 (xxxx-xx-xx)
 ----------------
 
+- Compressed jquery-cycle.js
+  [cwainwright]
+
+- Updated colors/display of slideshow portlet navigation
+  [cwainwright]
+
+- Fixed slideshow portlet so that multiple portlets can be added, and
+  all will function with their individual settings
+  [cwainwright]
+
 - Remove paste install as this was not working on windows and not needed
   for the product to function
   [claytron]
