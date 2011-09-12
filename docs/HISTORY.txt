@@ -4,6 +4,10 @@ Changelog
 1.1 (xxxx-xx-xx)
 ----------------
 
+- Updated slideshow_folder_view for Plone 4:
+  uses macro content-core, removed viewlet managers refs #3
+  [cwainwright]
+
 - Fixed slideshow display for when javascript is disabled.  Display
   the first slide, and make sure overflow is properly hidden. refs #2
   [cwainwright]
