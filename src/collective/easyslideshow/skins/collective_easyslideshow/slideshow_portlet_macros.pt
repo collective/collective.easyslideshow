@@ -9,7 +9,7 @@
     <tal:cond tal:condition="images">
     
     <div class="portletPics"
-         tal:attributes="style string:width:${slideshowWidth}px">
+         tal:attributes="style string:width:${slideshowWidth}px;;height:${slideshowHeight}px">
         <tal:rep repeat="image images">
           <div class="slideContainer">
               <tal:def define="title image/Title;

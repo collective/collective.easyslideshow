@@ -8,8 +8,8 @@
     border-color: &dtml-globalBorderColor;;
     border-style: &dtml-borderStyle;;
     border-width: 0 &dtml-borderWidth; &dtml-borderWidth;;
-    visibility: hidden;
     overflow: hidden;
+    position: relative;
 } 
  
 .pics img {  
@@ -81,8 +81,8 @@
     border-color: &dtml-globalBorderColor;;
     border-style: &dtml-borderStyle;;
     border-width: 0 &dtml-borderWidth; &dtml-borderWidth;;
-    visibility: hidden;
     overflow: hidden;
+    position: relative;
 }
 
 .portletPics .imageCaption {

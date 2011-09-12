@@ -13,8 +13,6 @@
     <tal:block tal:replace='structure string:&lt;script type="text/javascript" charset="utf-8"&gt;'></tal:block>
       var jq = jQuery;
       jq(document).ready(function(){
-            jq("#slideshow").css("visibility","visible");
-            
             jq('#slideshow').cycle({
                 fx: '<span tal:replace="python:props['transition']" />',
                 pause: <span tal:replace="pause" />,
@@ -28,7 +26,7 @@
             slidewidth = <span tal:replace="python:props['slideshow_width']" />;
             slideheight = <span tal:replace="python:props['slideshow_height']" />;
             
-            jq(".imageCaption").css({"width":slidewidth, "margin-top":slideheight-75});
+            jq("#slideshow .imageCaption").css({"width":slidewidth, "margin-top":slideheight-75});
         });
     <tal:block tal:replace='structure string:&lt;/script&gt;'></tal:block>
   

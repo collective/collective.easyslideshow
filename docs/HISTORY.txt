@@ -4,6 +4,10 @@ Changelog
 1.1 (xxxx-xx-xx)
 ----------------
 
+- Fixed slideshow display for when javascript is disabled.  Display
+  the first slide, and make sure overflow is properly hidden. refs #2
+  [cwainwright]
+
 - Compressed jquery-cycle.js
   [cwainwright]
 
