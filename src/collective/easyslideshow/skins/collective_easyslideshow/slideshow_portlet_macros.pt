@@ -18,7 +18,11 @@
                                link_path image/getRelatedLink">
                 <a tal:attributes="href string:${context/portal_url}/$link_path"
                    tal:omit-tag="not:link_path">
-                    <img title="" alt="" tal:attributes="src url" />
+                    <img tal:define="obj image/getObject;
+                                     scales obj/@@images; 
+                                     preview python:scales.scale('image', width=int(slideshowWidth), height=int(slideshowHeight))"
+                         tal:attributes="src preview/url; 
+                                         alt title" />
                 </a>
                 <div class="imageCaption" tal:condition="displayCaption">
                     <a tal:attributes="href string:${context/portal_url}/$link_path"

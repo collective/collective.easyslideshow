@@ -58,7 +58,6 @@ Use
 - Add images into the folder
 - The caption on top of the image in the slideshow displays each image's ``Title`` and ``Description``
 - To link a slide to a page in your site, edit the image, click on the ``Categorization`` tab, and set a related link. Each slide can have its own related link.
-- For best performance, all images used in the slideshow should be the same size, and be uploaded at that size. Slideshow size can be changed in ``Site Setup``.
 - Properties can be changed either site wide or on each slideshow individually. Go to site setup to set the site wide properties. For changing the properties of individual slideshow, there is a ``slideshow`` tab available on each slideshow folder. 
 - A slideshow portlet is also available.  Each portlet has its own settings, and displays the images from a folder that you choose.
 

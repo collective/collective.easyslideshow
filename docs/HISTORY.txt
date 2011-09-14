@@ -4,6 +4,12 @@ Changelog
 1.1 (xxxx-xx-xx)
 ----------------
 
+- utilize plone.app.imaging to resize images for
+  display in the slideshows. Will use sizes set
+  in individual slideshow properties. Applies to
+  slideshow folders and portlets. refs #6
+  [cwainwright]
+
 - Updated slideshow_folder_view for Plone 4:
   uses macro content-core, removed viewlet managers refs #3
   [cwainwright]

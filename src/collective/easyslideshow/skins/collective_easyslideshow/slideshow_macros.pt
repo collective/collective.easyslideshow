@@ -7,7 +7,9 @@
                       slideshowfolderid slideshowfolderid|string:slideshow-folder;
                       images python:view.getImages(slideshowfolderid);
                       props view/getSlideshowAllProperties;
-                      pause python:props['pause_hover'] and '1' or '0'">
+                      pause python:props['pause_hover'] and '1' or '0';
+                      slideHeight python:props['slideshow_height'];
+                      slideWidth python:props['slideshow_width']">
   <tal:cond tal:condition="images">
   
     <tal:block tal:replace='structure string:&lt;script type="text/javascript" charset="utf-8"&gt;'></tal:block>
@@ -23,22 +25,22 @@
                 prev: '#prev'
             });
             
-            slidewidth = <span tal:replace="python:props['slideshow_width']" />;
-            slideheight = <span tal:replace="python:props['slideshow_height']" />;
+            slidewidth = <span tal:replace="slideWidth" />;
+            slideheight = <span tal:replace="slideHeight" />;
             
             jq("#slideshow .imageCaption").css({"width":slidewidth, "margin-top":slideheight-75});
         });
     <tal:block tal:replace='structure string:&lt;/script&gt;'></tal:block>
   
     <div id="nav" tal:condition="python:props['display_nav']"
-         tal:attributes="style python:'width:%spx' %(props['slideshow_width'])">
+         tal:attributes="style python:'width:%spx' %(slideWidth)">
         <a id="prev" href="#">&laquo;</a>
         <span id="navNumbers"></span>
         <a id="next" href="#">&raquo;</a>
     </div>
   
     <div id="slideshow" class="pics"
-         tal:attributes="style python:('width:%spx;;height:%spx'%(props['slideshow_width'],props['slideshow_height']))"> 
+         tal:attributes="style python:('width:%spx;;height:%spx'%(slideWidth,slideHeight))"> 
         <tal:rep repeat="image images">
           <div class="slideContainer">
               <tal:def define="title image/Title;
@@ -51,7 +53,12 @@
                 </div>
                 <a tal:attributes="href string:${context/portal_url}/$link_path"
                    tal:omit-tag="not:link_path">
-                    <img title="" alt="" tal:attributes="src url" />
+                    <img tal:define="obj image/getObject;
+                                     scales obj/@@images; 
+                                     preview python:scales.scale('image', width=int(slideWidth), height=int(slideHeight))"
+                         tal:attributes="src preview/url; 
+                                         alt title" />
+                    
                 </a>
               </tal:def>
           </div>
