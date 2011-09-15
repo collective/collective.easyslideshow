@@ -8,7 +8,7 @@
   <property name="transition" type="string">fade</property>
   <property name="transition_speed" type="int">1000</property>
   <property name="pause_hover" type="boolean">False</property>
-  <property name="display_nav" type="boolean">True</property>
+  <property name="display_nav" type="string">Numbers</property>
   <property name="display_caption" type="boolean">True</property>
  </object>
 </object>    
