@@ -67,12 +67,13 @@ class IEasyslideshowConfiguration(Interface):
         required=False,
         default=False)
 
-    display_nav = schema.Bool(
-        title=_(u"label_display_nav", default=u'Display Navigation'),
+    display_nav = schema.Choice(
+        title=_(u"label_display_nav", default=u'Navigation Display'),
         description=_(u"help_display_nav",
                       default=u''),
+        values=("Numbers", "Thumbnails", "None"),
         required=True,
-        default=True)
+        default="Numbers")
 
     display_caption = schema.Bool(
         title=_(u"label_display_caption", default=u'Display Caption'),

@@ -4,6 +4,15 @@ Changelog
 1.1 (xxxx-xx-xx)
 ----------------
 
+- added option to display slideshow navigation as thumbnails.
+  Options for displaying numbers or no navigation are still
+  available
+  [cwainwright]
+
+- moved propertiestool.xml to initial profile, so that default
+  profile doesn't overwrite slideshow settings
+  [cwainwright]
+
 - utilize plone.app.imaging to resize images for
   display in the slideshows. Will use sizes set
   in individual slideshow properties. Applies to

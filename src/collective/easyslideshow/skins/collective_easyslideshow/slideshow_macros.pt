@@ -9,7 +9,8 @@
                       props view/getSlideshowAllProperties;
                       pause python:props['pause_hover'] and '1' or '0';
                       slideHeight python:props['slideshow_height'];
-                      slideWidth python:props['slideshow_width']">
+                      slideWidth python:props['slideshow_width'];
+                      navDisplay python:props['display_nav']">
   <tal:cond tal:condition="images">
   
     <tal:block tal:replace='structure string:&lt;script type="text/javascript" charset="utf-8"&gt;'></tal:block>
@@ -23,6 +24,12 @@
                 pager:  '#navNumbers',
                 next: '#next',
                 prev: '#prev'
+                <tal:thumbs condition="python:navDisplay == 'Thumbnails'">
+                ,pagerAnchorBuilder: function(idx, slide) { 
+                    // return selector string for existing anchor 
+                    return '#navNumbers a:eq(' + idx + ')'; 
+                }
+                </tal:thumbs>
             });
             
             slidewidth = <span tal:replace="slideWidth" />;
@@ -32,7 +39,7 @@
         });
     <tal:block tal:replace='structure string:&lt;/script&gt;'></tal:block>
   
-    <div id="nav" tal:condition="python:props['display_nav']"
+    <div id="nav" tal:condition="python:navDisplay == 'Numbers'"
          tal:attributes="style python:'width:%spx' %(slideWidth)">
         <a id="prev" href="#">&laquo;</a>
         <span id="navNumbers"></span>
@@ -64,6 +71,22 @@
           </div>
         </tal:rep>
     </div>
+    
+    <div id="nav" class="thumbnails"
+         tal:condition="python:navDisplay == 'Thumbnails'"
+         tal:attributes="style python:'width:%spx' %(slideWidth)">
+        <a id="prev" href="#">&laquo;</a>
+        <span id="navNumbers">
+            <a href="#" tal:repeat="image images">
+                <img tal:define="obj image/getObject;
+                                 scales obj/@@images; 
+                                 preview python:scales.scale('image', width=50, height=50, direction='down')"
+                     tal:attributes="src preview/url" />
+            </a>
+        </span>
+        <a id="next" href="#">&raquo;</a>
+    </div>
+    
   </tal:cond>
 </metal:ad>
 </body>

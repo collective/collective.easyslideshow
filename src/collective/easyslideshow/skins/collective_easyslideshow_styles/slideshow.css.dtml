@@ -3,13 +3,8 @@
 
 .pics {  
     padding: 0;  
-    margin: 0; 
-    top: -1px; 
-    border-color: &dtml-globalBorderColor;;
-    border-style: &dtml-borderStyle;;
-    border-width: 0 &dtml-borderWidth; &dtml-borderWidth;;
+    margin: 0;
     overflow: hidden;
-    position: relative;
 } 
  
 .pics img {  
@@ -20,9 +15,6 @@
     text-align: center;
     height: 21px;
     background-color: &dtml-globalBackgroundColor;;
-    border-color: &dtml-globalBorderColor;;
-    border-style: &dtml-borderStyle;;
-    border-width: &dtml-borderWidth; &dtml-borderWidth; 0;
 }
 
 #nav a,
@@ -41,6 +33,33 @@
     background-color: #ffffff;
 }
 
+/* thumbnail navigation */
+#nav.thumbnails {
+    height: auto;
+    padding-top: 5px;
+}
+#nav.thumbnails #prev,
+#nav.thumbnails #next {
+    position: relative;
+    top: -23px;
+    border: none;
+}
+#nav img {
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 5px;
+}
+#nav.thumbnails #navNumbers a,
+#nav.thumbnails #navNumbers a.activeSlide {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+#nav.thumbnails .activeSlide img {
+    outline: 1px solid #333333;
+}
+
+/* caption */
 .imageCaption {
     z-index: 9;
     color: #ffffff;
@@ -106,7 +125,7 @@
     border: none;
     color: #DDDDDD;
     background-color: #DDDDDD;
-    margin-right: 8px;
+    margin: 0 8px 8px 0;
     display: inline-block;
     text-indent: -12px;
     width: 12px;

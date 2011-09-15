@@ -17,8 +17,7 @@ Configure the configlet by changing the default values.
     >>> browser.getControl('Transition', index=0).value = ['scrollUp']
     >>> browser.getControl('Transition Time').value = '500'
     >>> browser.getControl(name='form.pause_hover').value = True
-    >>> browser.getControl(name='form.display_nav').value = False
-    >>> browser.getControl(name='form.display_nav').value = True
+    >>> browser.getControl('Navigation Display', index=0).value = ['Thumbnails']
     >>> browser.getControl(name='form.display_caption').value = False
     >>> browser.getControl(name='form.display_caption').value = True
     >>> browser.getControl('Save').click()
@@ -40,6 +39,6 @@ Verify the values were changed correctly
     >>> ep.pause_hover
     True
     >>> ep.display_nav
-    True
+    Thumbnails
     >>> ep.display_caption
     True

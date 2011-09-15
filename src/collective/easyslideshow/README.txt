@@ -12,9 +12,9 @@ EasySlideshow is a Plone product that makes it easy for any content editor to cr
 - Adjusting the delay between slide transitions;
 - Managing the height/width of slideshow images;
 - Controlling whether or not captions are shown with slides;
-- Selecting whether or not users can pause the slideshow on hover;
+- Selecting whether or not users can pause the slideshow when cursor is hovering over the slideshow;
 - Selecting slides timeout;
-- Turning the display of slide number on/off.
+- Displaying navigation as numbers, thumbnails, or not at all.
 
 In order to create a slideshow, content editors just upload pictures to a regular folder, click the folder's ``Subtype`` menu, and select ``slideshow``. This transforms the regular folder into a slideshow folder, and automatically changes the folder display to a slideshow view. To modify the order in which the slideshow displays the images, content editors just need to reorder the pictures in the folder by dragging them up or down in the ``Contents`` tab.
 
@@ -29,6 +29,7 @@ Examples
 
 Sites that use EasySlideshow include:
 
+- `Simons Foundation Autism Research Initiative <http://sfari.org/>`-
 - `About Hand Eczema <http://abouthandeczema.com/>`_
 - `Decision Education Foundation <http://www.decisioneducation.org/>`_
 - `Durham Public Schools <http://dpsnc.net/>`_
@@ -60,6 +61,7 @@ Use
 - To link a slide to a page in your site, edit the image, click on the ``Categorization`` tab, and set a related link. Each slide can have its own related link.
 - Properties can be changed either site wide or on each slideshow individually. Go to site setup to set the site wide properties. For changing the properties of individual slideshow, there is a ``slideshow`` tab available on each slideshow folder. 
 - A slideshow portlet is also available.  Each portlet has its own settings, and displays the images from a folder that you choose.
+- Images will be automatically resized to fit the height and width set in the slideshow properties. White space will display to the right or bottom of images that do not match the width to height ratio of the slideshow.
 
 Customization
 =============
