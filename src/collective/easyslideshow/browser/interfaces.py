@@ -71,7 +71,7 @@ class IEasyslideshowConfiguration(Interface):
         title=_(u"label_display_nav", default=u'Navigation Display'),
         description=_(u"help_display_nav",
                       default=u''),
-        values=("Numbers", "Thumbnails", "None"),
+        values=("Numbers", "Thumbnails", "Don't Display"),
         required=True,
         default="Numbers")
 
