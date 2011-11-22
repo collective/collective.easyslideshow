@@ -12,6 +12,10 @@
     padding: 0px; 
 }
 
+.slideContainer {
+    background-color: #ffffff;
+}
+
 #nav {
     text-align: center;
     height: 21px;

@@ -50,7 +50,7 @@
          tal:attributes="style python:('width:%spx;;height:%spx'%(slideWidth,slideHeight))"> 
         <tal:rep repeat="image images">
           <div class="slideContainer"
-               tal:attributes="style python:('height:%spx'%(slideHeight))">
+               tal:attributes="style python:('width:%spx;;height:%spx'%(slideWidth,slideHeight))">
               <tal:def define="title image/Title;
                                description image/Description;
                                url image/getURL;
