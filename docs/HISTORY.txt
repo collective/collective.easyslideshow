@@ -4,6 +4,9 @@ Changelog
 1.1 (xxxx-xx-xx)
 ----------------
 
+- migrated branch for adding i18n support and adding
+  French translations
+
 - added option to display slideshow navigation as thumbnails.
   Options for displaying numbers or no navigation are still
   available
