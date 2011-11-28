@@ -37,7 +37,8 @@
         <div class="visualClear"><!-- --></div>
     </div>
     
-    <tal:block tal:replace='structure string:<script type="text/javascript" charset="utf-8">'></tal:block>
+    <tal:block tal:replace='structure string:&lt;script type="text/javascript" charset="utf-8"&gt;'></tal:block>
+      <tal:translate i18n:translate="">
       (function($) { $(function() {
           // numSlideshowPortlets is set in jquery-cycle.js
           $(".slideshowPortlet").eq(numSlideshowPortlets).find(".navNumbers").addClass("nav"+numSlideshowPortlets);
@@ -57,7 +58,8 @@
           numSlideshowPortlets += 1;
           
       }); })(jQuery);
-    <tal:block tal:replace='structure string:</script>'></tal:block>
+      </tal:translate>
+    <tal:block tal:replace='structure string:&lt;/script&gt;'></tal:block>
     
   </tal:cond>
 </metal:ad>

@@ -14,6 +14,7 @@
   <tal:cond tal:condition="images">
   
     <tal:block tal:replace='structure string:&lt;script type="text/javascript" charset="utf-8"&gt;'></tal:block>
+      <tal:translate i18n:translate="">
       var jq = jQuery;
       jq(document).ready(function(){
             jq('#slideshow').cycle({
@@ -37,6 +38,7 @@
             
             jq("#slideshow .imageCaption").css({"width":slidewidth, "margin-top":slideheight-75});
         });
+      </tal:translate>
     <tal:block tal:replace='structure string:&lt;/script&gt;'></tal:block>
   
     <div id="nav" tal:condition="python:navDisplay == 'Numbers'"
@@ -55,9 +57,9 @@
                                description image/Description;
                                url image/getURL;
                                link_path image/getRelatedLink">
-                <div class="imageCaption" tal:condition="python:props['display_caption']">
-                    <span class="imageTitle" tal:content="title" />
-                    <span class="imageDescrip" tal:content="description" />
+                <div class="imageCaption" tal:condition="python:props['display_caption']" i18n:translate="">
+                    <span class="imageTitle" tal:content="title" i18n:name="slide_title" />
+                    <span class="imageDescrip" tal:content="description" i18n:name="slide_description" />
                 </div>
                 <a tal:attributes="href string:${context/portal_url}/$link_path"
                    tal:omit-tag="not:link_path">
