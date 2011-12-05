@@ -47,7 +47,10 @@
 #nav.thumbnails #next {
     position: relative;
     top: -23px;
+    padding-top: 23px;
     border: none;
+    display: inline-block;
+    height: 27px;
 }
 #nav img {
     cursor: pointer;
