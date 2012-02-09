@@ -1,5 +1,11 @@
 from cStringIO import StringIO
 from Products.CMFCore.utils import getToolByName
+from zope.component import getUtility
+from Products.CMFCore.interfaces import IPropertiesTool
+from p4a.z2utils import utils
+from zope.interface import noLongerProvides
+from p4a.subtyper import interfaces as p4ainterfaces
+from collective.easyslideshow import interfaces as essinterfaces
 
 
 def runProfile(portal, profileName):
@@ -10,6 +16,12 @@ def runProfile(portal, profileName):
 def install(portal):
     """Run the GS profile to install this package"""
     out = StringIO()
+    # we have our default settings in the initial profile.
+    # we check if they are setup and if not, we run the
+    # inital profile
+    ptool = getUtility(IPropertiesTool)
+    if not ptool.get("easyslideshow_properties"):
+        runProfile(portal, 'profile-collective.easyslideshow:initial')
     runProfile(portal, 'profile-collective.easyslideshow:default')
     # if plone 4 is used, we need to remove the folder icon GS imported
     # to do so we check the python version to see if it is 2.6
@@ -22,7 +34,6 @@ def uninstall(portal, reinstall=False):
     if reinstall:
         return
     pt = portal.portal_types
-    layout = portal.getProperty("layout")
 
     pc = getToolByName(portal, 'portal_catalog')
     brains = pc.searchResults(portal_type='Folder')
@@ -31,6 +42,8 @@ def uninstall(portal, reinstall=False):
         if folder.getProperty("layout") is not None:
             if folder.layout == "slideshow_folder_view":
                 folder.layout = "folder_listing"
+    noLongerProvides(folder, p4ainterfaces.ISubtyped)
+    noLongerProvides(folder, essinterfaces.ISlideshowFolder)
 
     avViews = []
     for view in pt['Folder'].view_methods:

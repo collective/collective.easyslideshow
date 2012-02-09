@@ -8,6 +8,8 @@
 
   <i18n:registerTranslations directory="locales" />
 
+  <five:registerPackage package="." initialize=".initialize"/>
+
   <include file="permissions.zcml" />
   <include package=".browser" />
   <include package=".portlets" />
