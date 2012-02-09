@@ -2,10 +2,10 @@ from cStringIO import StringIO
 from Products.CMFCore.utils import getToolByName
 from zope.component import getUtility
 from Products.CMFCore.interfaces import IPropertiesTool
-from p4a.z2utils import utils
 from zope.interface import noLongerProvides
 from p4a.subtyper import interfaces as p4ainterfaces
 from collective.easyslideshow import interfaces as essinterfaces
+from zope.annotation.interfaces import IAnnotations
 
 
 def runProfile(portal, profileName):
@@ -44,6 +44,14 @@ def uninstall(portal, reinstall=False):
                 folder.layout = "folder_listing"
     noLongerProvides(folder, p4ainterfaces.ISubtyped)
     noLongerProvides(folder, essinterfaces.ISlideshowFolder)
+    annotations = IAnnotations(folder)
+    if annotations.get('easyslideshow.slideshowmanager.props'):
+        annotations.pop('easyslideshow.slideshowmanager.props')
+    psD = annotations.get('p4a.subtyper.DescriptorInfo')
+    if psD and psD.get('descriptor_name')\
+       and psD['descriptor_name'] == 'collective.easyslideshow.slideshow':
+        annotations.pop('p4a.subtyper.DescriptorInfo')
+
 
     avViews = []
     for view in pt['Folder'].view_methods:
