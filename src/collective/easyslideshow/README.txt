@@ -20,7 +20,7 @@ In order to create a slideshow, content editors just upload pictures to a regula
 
 Besides living in a dedicated folder, EasySlideshow also supports the ability to display images in a portlet (a.k.a. side box). Slideshows can actually be displayed in any template by calling the slideshow macro that ships with EasySlideshow.
 
-While EasySlideshow's global parameters are controlled via the Control Panel (log in, click ``Site Setup``, and select ``EasySlideshow Configuration``), content editors also have the ability to override the global settings for a specific slideshow directly at the folder level.  This allows the use of EasySlideShow in multiple locations on your site without having to make the appearance and function of all slideshows the same.
+While EasySlideshow's global parameters are controlled via the Control Panel (log in, click ``Site Setup``, and select ``EasySlideshow Configuration``), content editors also have the ability to override the global settings for a specific slideshow directly at the folder level.  This allows the use of EasySlideshow in multiple locations on your site without having to make the appearance and function of all slideshows the same.
 
 EasySlideshow is Plone 4 compatible (Plone 3.3.x and up) and requires no custom installation, as it leverages the jQuery library that already ships with Plone. EasySlideshow uses fields already found in the Plone image type for presentation.  The jQuery plugin that is the basis for this product is `jQuery Cycle <http://malsup.com/jquery/cycle/>`_.
 
