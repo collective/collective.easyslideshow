@@ -42,15 +42,15 @@ def uninstall(portal, reinstall=False):
         if folder.getProperty("layout") is not None:
             if folder.layout == "slideshow_folder_view":
                 folder.layout = "folder_listing"
-    noLongerProvides(folder, p4ainterfaces.ISubtyped)
-    noLongerProvides(folder, essinterfaces.ISlideshowFolder)
-    annotations = IAnnotations(folder)
-    if annotations.get('easyslideshow.slideshowmanager.props'):
-        annotations.pop('easyslideshow.slideshowmanager.props')
-    psD = annotations.get('p4a.subtyper.DescriptorInfo')
-    if psD and psD.get('descriptor_name')\
-       and psD['descriptor_name'] == 'collective.easyslideshow.slideshow':
-        annotations.pop('p4a.subtyper.DescriptorInfo')
+        noLongerProvides(folder, p4ainterfaces.ISubtyped)
+        noLongerProvides(folder, essinterfaces.ISlideshowFolder)
+        annotations = IAnnotations(folder)
+        if annotations.get('easyslideshow.slideshowmanager.props'):
+            annotations.pop('easyslideshow.slideshowmanager.props')
+        psD = annotations.get('p4a.subtyper.DescriptorInfo')
+        if psD and psD.get('descriptor_name')\
+           and psD['descriptor_name'] == 'collective.easyslideshow.slideshow':
+            annotations.pop('p4a.subtyper.DescriptorInfo')
 
 
     avViews = []
