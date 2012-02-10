@@ -1,17 +1,38 @@
 Changelog
 =========
 
+2.0 (2012-02-10)
+----------------
+
+- made quickinstall actually execute install/uninstall
+  properly instead of simply running the default profile
+  [claytron, tbesluau]
+
+- handling removal of slideshow portlets when uninstalling
+  [tbesluau]
+
+- handling removal of marker interfaces and annotations on
+  slideshow folders when uninstalling
+  [tbesluau]
+
+- updating README for uninstall instruction
+  [cwainwright, tbesluau]
+
+- testing/QA
+  [clshaw01, elizabeth]
+
 1.1 (xxxx-xx-xx)
 ----------------
 
 - migrated branch for adding i18n support and adding
   French translations
+  [tbesluau]
 
 - added option to display slideshow navigation as thumbnails.
   Options for displaying numbers or no navigation are still
   available
   [cwainwright]
-
+)
 - moved propertiestool.xml to initial profile, so that default
   profile doesn't overwrite slideshow settings
   [cwainwright]

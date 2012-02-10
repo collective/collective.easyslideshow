@@ -51,6 +51,14 @@ Installation
 - Run buildout, and start up the instance
 - Install ``collective.easyslideshow`` via ``portal_quickinstaller``
 
+Uninstall
+=========
+
+- Uninstall ``collective.easyslideshow`` via ``portal_quickinstaller``
+- Existing slideshow folders will be fully reverted to normal folders
+- Marker interfaces, layout, and annotations will be removed
+- Slideshow portlets will be deleted
+
 Use
 ===
 

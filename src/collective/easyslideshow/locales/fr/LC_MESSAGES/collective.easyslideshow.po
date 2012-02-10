@@ -36,7 +36,7 @@ msgstr "Entête du portlet"
 
 #: ./easyslideshow/browser/configlet.py:48
 msgid "Settings to configure the slideshow. The slideshow will work best if all images are the exact same size, and that size should match the width and height below. Otherwise, you may get some unexpected behavior based on which transition is chosen."
-msgstr "Configuration du diaporama (slideshow). Il est recommandé d'avoir des images qui aient toutes les mêmes dimensions, lesquelless sont définies ci-dessous, sans quoi il n'est pas garanti que toutes les transitions marcheront parfaitement."
+msgstr "Configuration du diaporama (slideshow). Il est recommandé d'avoir des images qui aient toutes les mêmes dimensions, lesquelles sont définies ci-dessous, sans quoi il n'est pas garanti que toutes les transitions marcheront parfaitement."
 
 #: ./easyslideshow/browser/configlet.py:54
 msgid "Slideshow settings"
