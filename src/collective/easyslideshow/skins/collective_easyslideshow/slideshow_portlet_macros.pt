@@ -11,7 +11,8 @@
     <div class="portletPics"
          tal:attributes="style string:width:${slideshowWidth}px;;height:${slideshowHeight}px">
         <tal:rep repeat="image images">
-          <div class="slideContainer">
+          <div class="slideContainer"
+               tal:attributes="style python:('width:%spx;;height:%spx'%(slideshowWidth,slideshowHeight))">
               <tal:def define="title image/Title;
                                description image/Description;
                                url image/getURL;
