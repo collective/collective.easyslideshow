@@ -4,6 +4,10 @@ Changelog
 2.0 (2012-02-10)
 ----------------
 
+- added a randomize option to display the slides of
+  a slideshow in random order
+  [tbesluau]
+
 - made quickinstall actually execute install/uninstall
   properly instead of simply running the default profile
   [claytron, tbesluau]
