@@ -6,6 +6,9 @@ from zope.interface import noLongerProvides
 from p4a.subtyper import interfaces as p4ainterfaces
 from collective.easyslideshow import interfaces as essinterfaces
 from zope.annotation.interfaces import IAnnotations
+from zope.component import getMultiAdapter
+from plone.portlets.interfaces import IPortletAssignmentMapping
+from plone.portlets.interfaces import IPortletManager
 
 
 def runProfile(portal, profileName):
@@ -51,7 +54,16 @@ def uninstall(portal, reinstall=False):
         if psD and psD.get('descriptor_name')\
            and psD['descriptor_name'] == 'collective.easyslideshow.slideshow':
             annotations.pop('p4a.subtyper.DescriptorInfo')
-
+    allbrains = pc()
+    for brain in allbrains:
+        item = brain.getObject()
+        for column in ['plone.leftcolumn', 'plone.rightcolumn']:
+            manager = getUtility(IPortletManager, name=column)
+            assignments = getMultiAdapter((item, manager),
+                                                 IPortletAssignmentMapping)
+            for key in assignments.keys():
+                if key.startswith('slideshow-portlet'):
+                    del assignments[key]
 
     avViews = []
     for view in pt['Folder'].view_methods:
