@@ -102,6 +102,13 @@ class ISlideshow(IPortletDataProvider):
         required=True,
         default=True)
 
+    random_order = schema.Bool(
+        title=_(u"label_random_order", default=u'Random Display Order'),
+        description=_(u"help_random_order",
+                      default=u''),
+        required=True,
+        default=False)
+
 
 class Assignment(base.Assignment):
     """Portlet assignment.
@@ -115,7 +122,7 @@ class Assignment(base.Assignment):
     def __init__(self, header=u"", images_location=None, slideshow_width=244,
                 slideshow_height=157, slide_timeout=7000, transition="fade",
                 transition_speed=1000, pause_hover=False, display_nav=True,
-                display_caption=True):
+                display_caption=True, random_order=False):
         self.header = header
         self.images_location = images_location
         self.slideshow_width = slideshow_width
@@ -126,6 +133,7 @@ class Assignment(base.Assignment):
         self.pause_hover = pause_hover
         self.display_nav = display_nav
         self.display_caption = display_caption
+        self.random_order = random_order
 
     @property
     def title(self):

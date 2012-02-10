@@ -82,6 +82,14 @@ class IEasyslideshowConfiguration(Interface):
         required=True,
         default=True)
 
+    random_order = schema.Bool(
+        title=_(u"label_random_order", default=u'Random Display Order'),
+        description=_(u"help_random_order",
+                      default=u''),
+        required=True,
+        default=False)
+
+
 
 class IEasySlideshowLiteBrowserLayer(Interface):
     """ Browser layer marker interface for the lite version

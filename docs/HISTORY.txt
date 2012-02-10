@@ -21,9 +21,6 @@ Changelog
 - testing/QA
   [clshaw01, elizabeth]
 
-1.1 (xxxx-xx-xx)
-----------------
-
 - migrated branch for adding i18n support and adding
   French translations
   [tbesluau]

@@ -39,6 +39,8 @@ class EasyslideshowControlPanelAdapter(SchemaAdapterBase):
         IEasyslideshowConfiguration['display_nav'])
     display_caption = ProxyFieldProperty(
         IEasyslideshowConfiguration['display_caption'])
+    random_order = ProxyFieldProperty(
+        IEasyslideshowConfiguration['random_order'])
 
 
 class EasyslideshowControlPanel(ControlPanelForm):

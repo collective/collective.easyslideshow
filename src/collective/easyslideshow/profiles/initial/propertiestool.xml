@@ -10,5 +10,6 @@
   <property name="pause_hover" type="boolean">False</property>
   <property name="display_nav" type="string">Numbers</property>
   <property name="display_caption" type="boolean">True</property>
+  <property name="random_order" type="boolean">False</property>
  </object>
 </object>    

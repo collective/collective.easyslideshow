@@ -1,3 +1,5 @@
+import random
+
 from zope.interface import implements
 from zope.component import getMultiAdapter
 from zope.component import getUtility
@@ -18,7 +20,7 @@ class SlideshowView(BrowserView):
     """
     implements(IEasySlideshowView)
 
-    def getImages(self, slideshowfolderid):
+    def getImages(self, slideshowfolderid, randomize=False):
         # we check if there is a folder with id slideshowfolderid
         # if so, we return the images in it
         results = []
@@ -35,9 +37,12 @@ class SlideshowView(BrowserView):
             results = pc.searchResults(portal_type='Image',
                                        path=path,
                                        sort_on='getObjPositionInParent')
+        if randomize:
+            results = [brain for brain in results]
+            random.shuffle(results)
         return results
 
-    def getPortletImages(self, slideshowfolderpath):
+    def getPortletImages(self, slideshowfolderpath, randomize=False):
         # we check if there is a folder with path
         # slideshowfolderpath
         results = []
@@ -56,6 +61,9 @@ class SlideshowView(BrowserView):
                 results = pc.searchResults(portal_type='Image',
                                            path=path,
                                            sort_on='getObjPositionInParent')
+        if randomize:
+            results = [brain for brain in results]
+            random.shuffle(results)
         return results
 
 

@@ -41,3 +41,7 @@ def getDisplayNav():
 def getDisplayCaption():
     ptool = getUtility(IPropertiesTool)
     return ptool.easyslideshow_properties.getProperty('display_caption')
+
+def getRandomOrder():
+    ptool = getUtility(IPropertiesTool)
+    return ptool.easyslideshow_properties.getProperty('random_order')
