@@ -67,7 +67,7 @@ class ISlideshow(IPortletDataProvider):
         description=_(u"help_transition",
                       default=u''),
         values=("blindX", "blindY", "blindZ", "cover", "curtainX", "curtainY",
-        "fade", "fadeZoom", "growX", "growY", "scrollUp", "scrollDown",
+        "fade", "growX", "growY", "scrollUp", "scrollDown",
         "scrollLeft", "scrollRight", "scrollHorz", "scrollVert", "shuffle",
         "slideX", "slideY", "turnUp", "turnDown", "turnLeft", "turnRight",
         "uncover", "wipe", "zoom"),
