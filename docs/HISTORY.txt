@@ -1,6 +1,13 @@
 Changelog
 =========
 
+2.0.1 (xxxx-xx-xx)
+------------------
+
+- added include for CMFCore permissions.zcml to avoid an
+  error on certain versions of Plone
+  [cwainwright]
+
 2.0 (2012-02-10)
 ----------------
 
