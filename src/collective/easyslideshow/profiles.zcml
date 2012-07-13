@@ -1,0 +1,65 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="collective.easyslideshow">
+
+  <genericsetup:registerProfile
+      name="default"
+      title="Easy Slideshow"
+      directory="profiles/default"
+      description="Easy Slideshow installation profile"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+      
+  <genericsetup:registerProfile
+      name="initial"
+      title="Easy Slideshow Initial"
+      directory="profiles/initial"
+      description="Innitial Profile for Easy Slideshow"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+      
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Easy Slideshow Uninstall"
+      directory="profiles/uninstall"
+      description="Easy Slideshow uninstallation profile"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+      
+  <genericsetup:importStep
+      name="setup"
+      title="collective.easyslideshow: Various steps"
+      description="Setup handlers for collective.easyslideshow"
+      handler="collective.easyslideshow.setuphandlers.setupVarious">
+  </genericsetup:importStep>
+  
+  <genericsetup:importStep
+      name="collective.easyslideshow:initial" 
+      title="easyslideshow: Various Initial steps" 
+      description="Initial Setup handlers for collective.easyslideshow" 
+      handler="collective.easyslideshow.setuphandlers.importVariousInitial">
+  </genericsetup:importStep>
+
+  <genericsetup:registerProfile
+      name="migration-002"
+      title="Easy Slideshow Migration for 2.0.1"
+      directory="profiles/migration-002"
+      description="Migration profile for random_order"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+      
+  <genericsetup:upgradeStep
+      title="Import new random_order setting"
+      description=""
+      source="001"
+      destination="002"
+      handler="collective.easyslideshow.upgrades.runMigration"
+      sortkey="10"
+      profile="collective.easyslideshow:default"
+      />
+
+</configure>

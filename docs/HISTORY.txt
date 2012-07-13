@@ -4,6 +4,11 @@ Changelog
 2.0.1 (xxxx-xx-xx)
 ------------------
 
+- set random_order setting to be imported in an upgrade step
+  for sites migrating to latest Easy Slideshow. This way,
+  slideshow folders will no longer error out.
+  [cwainwright]
+
 - added include for CMFCore permissions.zcml to avoid an
   error on certain versions of Plone
   [cwainwright]
