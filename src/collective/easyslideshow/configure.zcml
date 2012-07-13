@@ -11,6 +11,7 @@
   <five:registerPackage package="." initialize=".initialize"/>
 
   <include file="permissions.zcml" />
+  <include package="Products.CMFCore" file="permissions.zcml" />
   <include package=".browser" />
   <include package=".portlets" />
 
