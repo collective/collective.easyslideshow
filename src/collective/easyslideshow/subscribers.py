@@ -29,7 +29,7 @@ def slideLinkDeleted(obj, event):
     pc = getToolByName(obj, 'portal_catalog')
     # make sure the index exists first
     if 'getRelatedLink' in pc.indexes():
-        link_path = '/'.join(obj.getPhysicalPath()[2:])
+        link_path = '/'.join(obj.getPhysicalPath())
         res = pc(getRelatedLink=link_path)
         for item in res:
             obj = item.getObject()

@@ -19,7 +19,7 @@ def getRelatedLink(obj, **kwargs):
             # we are assuming the linked to object needs to be published
             # TODO: make this configurable.
             if current_state == 'published':
-                return '/'.join(image_link.getPhysicalPath()[2:])
+                return '/'.join(image_link.getPhysicalPath())
     return
 
 provideAdapter(getRelatedLink, name='getRelatedLink')

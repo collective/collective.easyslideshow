@@ -62,4 +62,14 @@
       profile="collective.easyslideshow:default"
       />
 
+  <genericsetup:upgradeStep
+      title="Update getRelatedLink index"
+      description=""
+      source="002"
+      destination="003"
+      handler="collective.easyslideshow.upgrades.update_getRelatedLink"
+      sortkey="10"
+      profile="collective.easyslideshow:default"
+      />
+
 </configure>

@@ -29,7 +29,7 @@ Examples
 
 Sites that use EasySlideshow include:
 
-- `Simons Foundation Autism Research Initiative <http://sfari.org/>`-
+- `Simons Foundation Autism Research Initiative <http://sfari.org/>`_
 - `About Hand Eczema <http://abouthandeczema.com/>`_
 - `Decision Education Foundation <http://www.decisioneducation.org/>`_
 - `Durham Public Schools <http://dpsnc.net/>`_

@@ -4,6 +4,11 @@ Changelog
 2.0.1 (xxxx-xx-xx)
 ------------------
 
+- Added upgrade step to update the `getRelatedLink` index.
+  NOTE: this upgrade step needs to be run so that the related
+        item links continue to function.
+  [davidblewett]
+
 - set random_order setting to be imported in an upgrade step
   for sites migrating to latest Easy Slideshow. This way,
   slideshow folders will no longer error out.
