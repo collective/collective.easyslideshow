@@ -17,7 +17,7 @@
                                description image/Description;
                                url image/getURL;
                                link_path image/getRelatedLink;
-                               link_url python:self.request.physicalPathToURL(link_path)">
+                               link_url python:self.request.physicalPathToURL(link_path or '')">
                 <a tal:attributes="href string:$link_url"
                    tal:omit-tag="not:link_url">
                     <img tal:define="obj image/getObject;

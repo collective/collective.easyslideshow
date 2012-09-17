@@ -58,7 +58,7 @@
                                description image/Description;
                                url image/getURL;
                                link_path image/getRelatedLink
-                               link_url python:self.request.physicalPathToURL(link_path)">
+                               link_url python:self.request.physicalPathToURL(link_path or '')">
                 <div class="imageCaption" tal:condition="python:props['display_caption']" i18n:translate="">
                     <span class="imageTitle" tal:content="title" i18n:name="slide_title" />
                     <span class="imageDescrip" tal:content="description" i18n:name="slide_description" />
