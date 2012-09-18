@@ -64,7 +64,7 @@
                     <span class="imageDescrip" tal:content="description" i18n:name="slide_description" />
                 </div>
                 <a tal:attributes="href string:$link_url"
-                   tal:omit-tag="not:link_url">
+                   tal:omit-tag="not:link_path">
                     <img tal:define="obj image/getObject;
                                      scales obj/@@images; 
                                      preview python:scales.scale('image', width=int(slideWidth), height=int(slideHeight))"
