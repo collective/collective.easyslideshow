@@ -44,7 +44,7 @@ def uninstall(portal, reinstall=False):
 
     pc = getToolByName(portal, 'portal_catalog')
     brains = pc.searchResults(portal_type='Folder')
-    
+
     # remove annotations and interfaces
     for brain in brains:
         folder = brain.getObject()
@@ -61,7 +61,7 @@ def uninstall(portal, reinstall=False):
            and psD['descriptor_name'] == 'collective.easyslideshow.slideshow':
             annotations.pop('p4a.subtyper.DescriptorInfo')
 
-    # remove portlet-assignments   
+    # remove portlet-assignments
     allbrains = pc()
     for brain in allbrains:
         item = brain.getObject()
@@ -88,7 +88,7 @@ def uninstall(portal, reinstall=False):
     out = StringIO()
     runProfile(portal, 'profile-collective.easyslideshow:uninstall')
 
-    _removePersistentUtility(portal, logger)
+    # _removePersistentUtility(portal, logger)
     print >> out, "Uninstalled collective.easyslideshow"
     return out.getvalue()
 
