@@ -27,11 +27,11 @@
       directory="skins"
       recursive="True"
       />
-      
+
   <adapter
       factory=".browser.configlet.EasyslideshowControlPanelAdapter" />
   <adapter name="getRelatedLink" factory=".indexers.getRelatedLink" />
-  
+
   <!-- handle refs being transitioned -->
   <subscriber
       for="Products.ATContentTypes.interface.IATContentType
@@ -42,14 +42,14 @@
   <!-- handle refs being moved -->
   <subscriber
       for="Products.ATContentTypes.interface.IATContentType
-           zope.app.container.interfaces.IObjectMovedEvent"
+           zope.container.interfaces.IObjectMovedEvent"
       handler=".subscribers.slideLinkSync"
       />
 
   <!-- handle refs being deleted -->
   <subscriber
       for="Products.ATContentTypes.interface.IATContentType
-           zope.app.container.interfaces.IObjectRemovedEvent"
+           zope.container.interfaces.IObjectRemovedEvent"
       handler=".subscribers.slideLinkDeleted"
       />
 
