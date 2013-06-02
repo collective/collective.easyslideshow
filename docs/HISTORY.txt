@@ -1,8 +1,12 @@
 Changelog
 =========
 
-2.0.1 (xxxx-xx-xx)
+2.1 (2013-06-02)
 ------------------
+
+- Fixed to be Plone 4.3 compatible with backward campatiblilty
+  to Plone 4.1
+  [calvinhp]
 
 - Added upgrade step to update the `getRelatedLink` index.
   NOTE: this upgrade step needs to be run so that the related

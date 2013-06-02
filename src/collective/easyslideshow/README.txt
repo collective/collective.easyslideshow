@@ -51,6 +51,8 @@ Installation
 - Run buildout, and start up the instance
 - Install ``collective.easyslideshow`` via ``portal_quickinstaller``
 
+NOTE: version 2.1 is compatible with Plone >= 4.1
+
 Uninstall
 =========
 
