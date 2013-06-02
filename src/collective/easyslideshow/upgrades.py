@@ -1,6 +1,10 @@
-from zope.component.hooks import getSite
+try:
+    # Plone < 4.3
+    from zope.app.component.hooks import getSite
+except ImportError:
+    # Plone >= 4.3
+    from zope.component.hooks import getSite  # NOQA
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import base_hasattr
 
 from collective.easyslideshow.interfaces import ISlideshowFolder
 
@@ -11,6 +15,7 @@ def runMigration(context):
     portal = getSite()
     setup_tool = getToolByName(portal, 'portal_setup')
     setup_tool.runAllImportStepsFromProfile('profile-collective.easyslideshow:migration-002')
+
 
 def update_getRelatedLink(context):
     """Update the getRelatedLink index.
