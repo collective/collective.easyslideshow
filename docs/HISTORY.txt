@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.1.1 (2013-06-02)
+------------------
+
+- Fixed Changelog to allow the rst to compile correctly.
+  [calvinhp]
+
 2.1 (2013-06-02)
 ------------------
 
@@ -10,7 +16,7 @@ Changelog
 
 - Added upgrade step to update the `getRelatedLink` index.
   NOTE: this upgrade step needs to be run so that the related
-        item links continue to function.
+  item links continue to function.
   [davidblewett]
 
 - set random_order setting to be imported in an upgrade step
@@ -54,7 +60,7 @@ Changelog
   Options for displaying numbers or no navigation are still
   available
   [cwainwright]
-)
+
 - moved propertiestool.xml to initial profile, so that default
   profile doesn't overwrite slideshow settings
   [cwainwright]
