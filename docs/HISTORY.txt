@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.1.2 (2013-06-03)
+------------------
+
+- Fixed bad calls in ZPT to find paths to images.
+  [calvinhp]
+
 2.1.1 (2013-06-02)
 ------------------
 
