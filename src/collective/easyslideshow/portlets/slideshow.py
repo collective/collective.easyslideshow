@@ -92,21 +92,21 @@ class ISlideshow(IPortletDataProvider):
         title=_(u"label_display_nav", default=u'Display Navigation'),
         description=_(u"help_display_nav",
                       default=u''),
-        required=True,
+        required=False,
         default=True)
 
     display_caption = schema.Bool(
         title=_(u"label_display_caption", default=u'Display Caption'),
         description=_(u"help_display_caption",
                       default=u''),
-        required=True,
+        required=False,
         default=True)
 
     random_order = schema.Bool(
         title=_(u"label_random_order", default=u'Random Display Order'),
         description=_(u"help_random_order",
                       default=u''),
-        required=True,
+        required=False,
         default=False)
 
 
