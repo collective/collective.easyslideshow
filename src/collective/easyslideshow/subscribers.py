@@ -15,8 +15,7 @@ def slideLinkSync(obj, event):
         if base_hasattr(obj, 'getBRefs'):
             related_items = obj.getBRefs('relatesTo')
             for item in related_items:
-                if item.portal_type == 'Image':
-                    item.reindexObject(idxs=['getRelatedLink'])
+                item.reindexObject(idxs=['getRelatedLink'])
 
 
 def slideLinkDeleted(obj, event):
