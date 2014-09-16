@@ -1,6 +1,12 @@
 Changelog
 =========
 
+Unreleased
+----------
+
+- Remove dependency on base_properties
+  [cdw9]
+
 2.1.2 (2013-06-03)
 ------------------
 
@@ -16,7 +22,7 @@ Changelog
 2.1 (2013-06-02)
 ------------------
 
-- Fixed to be Plone 4.3 compatible with backward campatiblilty
+- Fixed to be Plone 4.3 compatible with backward compatibility
   to Plone 4.1
   [calvinhp]
 

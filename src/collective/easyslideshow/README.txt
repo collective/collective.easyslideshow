@@ -29,14 +29,12 @@ Examples
 
 Sites that use EasySlideshow include:
 
+- `ReTrans <http://www.re-trans.com>`_
+- `The Huck Institutes <http://www.huck.psu.edu>`_
+- `Drive Aluminum <http://www.drivealuminum.org>`_
 - `Simons Foundation Autism Research Initiative <http://sfari.org/>`_
-- `About Hand Eczema <http://abouthandeczema.com/>`_
-- `Decision Education Foundation <http://www.decisioneducation.org/>`_
-- `Durham Public Schools <http://dpsnc.net/>`_
 - `IEEE Information Theory Society <http://www.itsoc.org/>`_
 - `Indiana Historical Society <http://www.indianahistory.org/>`_
-- `Sugarcane Ethanol <http://sweeteralternative.com/>`_
-- `UNC Center for Galapagos Studies <http://galapagos.unc.edu/>`_
 - `UVA Health System <http://uvahealth.com/>`_
 
 Installation
