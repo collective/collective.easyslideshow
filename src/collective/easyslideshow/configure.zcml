@@ -22,12 +22,6 @@
   <includePlugins package="." />
   <includeDependencies package="." />
 
-  <cmf:registerDirectory
-      name="skins"
-      directory="skins"
-      recursive="True"
-      />
-
   <adapter
       factory=".browser.configlet.EasyslideshowControlPanelAdapter" />
   <adapter name="getRelatedLink" factory=".indexers.getRelatedLink" />

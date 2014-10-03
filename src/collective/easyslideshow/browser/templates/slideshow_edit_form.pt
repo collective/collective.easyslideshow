@@ -39,7 +39,7 @@
                         <tal:def define="is_local python:local_sp.has_key(prop);
                         val python:is_local and local_sp[prop] or general_sp[prop];
                         bool python:general_sp[prop] in ['True','False'];
-                        tuple python:same_type(general_sp[prop],())">
+                        tuple python:type(general_sp[prop]) == type(())">
                         <br /><label tal:content="python:prop.replace('_', ' ').capitalize()"></label>
                         <p tal:condition="is_local">&nbsp;&nbsp;<input type="checkbox" name="" value="None" tal:attributes="name string:reset_${prop}" />&nbsp;revert to default</p>
 

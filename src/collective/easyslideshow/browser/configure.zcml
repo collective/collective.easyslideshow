@@ -16,5 +16,39 @@
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       class="collective.easyslideshow.browser.configlet.EasyslideshowControlPanel"      
       permission="cmf.ManagePortal" />
+      
+  <browser:page
+      for="*"
+      name="slideshow_macros"
+      template="templates/slideshow_macros.pt"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      for="*"
+      name="slideshow_folder_view"
+      template="templates/slideshow_folder_view.pt"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      for="*"
+      name="slideshow_edit_form"
+      template="templates/slideshow_edit_form.pt"
+      permission="cmf.ManagePortal"
+      />
+      
+  <browser:page
+      for="*"
+      name="slideshow_portlet_macros"
+      template="templates/slideshow_portlet_macros.pt"
+      permission="zope.Public"
+      />
+
+  <browser:resourceDirectory
+      name="easyslideshow"
+      directory="resources"
+      layer=".interfaces.IEasySlideshowBrowserLayer"
+     />
 
 </configure>

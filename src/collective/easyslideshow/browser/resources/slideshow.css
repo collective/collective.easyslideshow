@@ -70,7 +70,7 @@
 .imageCaption {
     z-index: 9;
     color: #ffffff;
-    background: url('slideshow_bg.png');
+    background: rgba(0, 0, 0, 0.5);
     height: 65px;
     padding: 5px 0;
     position: absolute;

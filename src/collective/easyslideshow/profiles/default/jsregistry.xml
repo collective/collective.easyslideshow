@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts">
- <javascript cacheable="True" compression="safe" cookable="True"
-    enabled="True" expression="" id="jquery-cycle.js" inline="False"/>
+ <javascript id="jquery-cycle.js" remove="True"/>
+ 
+ <javascript authenticated="False" bundle="default" cacheable="True"
+    compression="safe" conditionalcomment="" cookable="True" enabled="True"
+    expression="" id="++resource++easyslideshow/jquery-cycle.js" inline="False"/>
 </object>

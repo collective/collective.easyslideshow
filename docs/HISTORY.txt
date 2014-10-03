@@ -4,6 +4,9 @@ Changelog
 Unreleased
 ----------
 
+- Remove skins, put everything into resource directories
+  [cdw9]
+
 - Upgrade to Cycle2. This requires jQuery 1.7+
   [cdw9]
 
