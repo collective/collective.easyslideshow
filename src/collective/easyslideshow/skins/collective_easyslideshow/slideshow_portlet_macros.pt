@@ -8,7 +8,7 @@
     
     <tal:cond tal:condition="images">
     
-    <div class="portletPics"
+    <div class="cycle-slideshow portletPics" data-cycle-slides=".slideContainer"
          tal:attributes="style string:width:${slideshowWidth}px;;height:${slideshowHeight}px">
         <tal:rep repeat="image images">
           <div class="slideContainer"
@@ -34,7 +34,7 @@
           </div>
         </tal:rep>
     </div>
-    <div class="nav" tal:condition="displayNav">
+    <div class="nav cycle-pager" tal:condition="displayNav">
         <span class="navNumbers"></span>
         <div class="visualClear"><!-- --></div>
     </div>
@@ -48,14 +48,15 @@
           
           $('.portletPics').eq(numSlideshowPortlets).cycle({
               fx: '<span tal:replace="slideTransition" />',
-              pause: <span tal:replace="pauseHover" />,
+              pauseOnHover: <span tal:replace="pauseHover" />,
               timeout: <span tal:replace="slideTimeout" />,
               speed: <span tal:replace="slideTransitionSpeed" />,
-              pager: '.nav' + numSlideshowPortlets
+              pagerTemplate: '<a href="#">{{slideNum}}</a>',
+              pager: '.navNumbers.nav' + numSlideshowPortlets
           });
           
-          totalHeight =  jq(".portletPics").eq(numSlideshowPortlets).find(".imageCaption").height() + <span tal:replace="slideshowHeight" />;
-          jq(".portletPics").eq(numSlideshowPortlets).css("height",totalHeight);
+          totalHeight =  $(".portletPics").eq(numSlideshowPortlets).find(".imageCaption").height() + <span tal:replace="slideshowHeight" />;
+          $(".portletPics").eq(numSlideshowPortlets).css("height",totalHeight);
           
           numSlideshowPortlets += 1;
           

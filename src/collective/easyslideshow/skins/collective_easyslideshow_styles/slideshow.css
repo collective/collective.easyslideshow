@@ -1,8 +1,8 @@
 .pics {  
     padding: 0;  
     margin: 0;
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
 } 
  
 .pics img {  
@@ -19,19 +19,20 @@
     background-color: #dddddd;
 }
 
-#nav a,
-#nav #navNumbers a {
+#content #nav a,
+#nav .navNumbers a {
     text-decoration: none;
     outline: none;
+    border: none;
 }
 
-#nav #navNumbers a {
+#nav .navNumbers a {
     padding: 2px 3px 4px;
     margin-right: 5px;
     line-height: 19px;
 }
 
-#nav #navNumbers a.activeSlide {
+#nav .navNumbers a.cycle-pager-active {
     background-color: #ffffff;
 }
 
@@ -54,13 +55,14 @@
     outline: none;
     margin-bottom: 5px;
 }
-#nav.thumbnails #navNumbers a,
-#nav.thumbnails #navNumbers a.activeSlide {
+#nav.thumbnails .navNumbers a,
+#nav.thumbnails .navNumbers a.cycle-pager-active {
     padding: 0;
     border: none;
     background-color: transparent;
+    margin: 0 10px;
 }
-#nav.thumbnails .activeSlide img {
+#nav.thumbnails .cycle-pager-active img {
     outline: 1px solid #333333;
 }
 
@@ -139,7 +141,7 @@
     color: #DDDDDD;
 }
 
-.slideshowPortlet .nav .navNumbers a.activeSlide {
+.slideshowPortlet .nav .navNumbers a.cycle-pager-active {
     color: #888888;
     background-color: #888888;
 }

@@ -4,6 +4,9 @@ Changelog
 Unreleased
 ----------
 
+- Upgrade to Cycle2. This requires jQuery 1.7+
+  [cdw9]
+
 - Remove dependency on base_properties
   [cdw9]
 
