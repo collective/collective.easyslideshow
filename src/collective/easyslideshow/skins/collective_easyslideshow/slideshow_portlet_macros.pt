@@ -8,16 +8,17 @@
     
     <tal:cond tal:condition="images">
     
-    <div class="cycle-slideshow portletPics" data-cycle-slides=".slideContainer"
+    <div class="portletPics" data-cycle-slides=".slideContainer"
          tal:attributes="style string:width:${slideshowWidth}px;;height:${slideshowHeight}px">
         <tal:rep repeat="image images">
           <div class="slideContainer"
-               tal:attributes="style python:('width:%spx;;height:%spx'%(slideshowWidth,slideshowHeight))">
-              <tal:def define="title image/Title;
-                               description image/Description;
-                               url image/getURL;
-                               link_path image/getRelatedLink;
-                               link_url python:context.REQUEST.physicalPathToURL(link_path or '')">
+               tal:define="title image/Title;
+                           description image/Description;
+                           url image/getURL;
+                           link_path image/getRelatedLink;
+                           link_url python:context.REQUEST.physicalPathToURL(link_path or '');"
+               tal:attributes="style python:('width:%spx;;height:%spx'%(slideshowWidth,slideshowHeight));
+                               data-cycle-pager-template string:<a href='#'>${repeat/image/number}</a>">
                 <a tal:attributes="href string:$link_url"
                    tal:omit-tag="not:link_path">
                     <img tal:define="obj image/getObject;
@@ -30,7 +31,6 @@
                     <a tal:attributes="href string:$link_url"
                        tal:omit-tag="not:link_path"><span tal:content="description" /></a>
                 </div>
-              </tal:def>
           </div>
         </tal:rep>
     </div>
