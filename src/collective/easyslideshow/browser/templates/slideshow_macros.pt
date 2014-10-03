@@ -6,13 +6,13 @@
           tal:define="view context/@@easyslideshow_view;
                       slideshowfolderid slideshowfolderid|string:slideshow-folder;
                       props view/getSlideshowAllProperties;
+                      original_image python:props['display_original'];
                       pause python:props['pause_hover'] and 'true' or 'false';
                       random python:props['random_order'] and 'true' or 'false';
                       slideHeight python:props['slideshow_height'];
                       slideWidth python:props['slideshow_width'];
                       navDisplay python:props['display_nav'];
-                      navThumbs python:navDisplay == 'Thumbnails';
-                      navNumbers python:navDisplay == 'Numbers';
+                      nav_off python:navDisplay == 'Don\'t Display';
                       images python:view.getImages(slideshowfolderid);">
   <tal:cond tal:condition="images">
   
@@ -30,16 +30,11 @@
                 autoHeight: '<span tal:replace="slideWidth" />:<span tal:replace="slideHeight" />',
                 prev: '#prev',
                 next: '#next'
-                <tal:nav condition="python:navNumbers or navThumbs">
+                <tal:nav condition="not: nav_off">
                     ,pagerTemplate: '<a href="#">{{slideNum}}</a>',
                     pager: '#nav .navNumbers'
                 </tal:nav>
             });
-            
-            //slidewidth = <span tal:replace="slideWidth" />;
-            //slideheight = <span tal:replace="slideHeight" />;
-            
-            //$("#slideshow .imageCaption").css({"width":slidewidth, "margin-top":slideheight-75});
         });
       </tal:translate>
     <tal:block tal:replace='structure string:&lt;/script&gt;'></tal:block>
@@ -58,18 +53,26 @@
                                   scales obj/@@images; 
                                   preview python:scales.scale('image', width=50, height=50, direction='down');
                                   nav_link_numbers string:<a href='#'>${repeat/image/number}</a>;
-                                  nav_link_thumbs string:<a href='#'><img src='${preview/url}' alt='${title}'/></a>"
-               tal:attributes="data-cycle-pager-template python:navThumbs and nav_link_thumbs or nav_link_numbers">
+                                  nav_link_titles string:<a href='#'>${title}</a>;
+                                  nav_link_thumbs string:<a href='#'><img src='${preview/url}' alt='${title}'/></a>;
+                                  navThumbs python:navDisplay == 'Thumbnails' and nav_link_thumbs;
+                                  navTitles python:navDisplay == 'Titles' and nav_link_titles;
+                                  navNumbers python:navDisplay == 'Numbers' and nav_link_numbers"
+               tal:attributes="data-cycle-pager-template python:navThumbs or navTitles or navNumbers">
                 <div class="imageCaption" tal:condition="python:props['display_caption']" i18n:translate="">
                     <span class="imageTitle" tal:content="title" i18n:name="slide_title" />
                     <span class="imageDescrip" tal:content="description" i18n:name="slide_description" />
                 </div>
                 <a tal:attributes="href string:$link_url"
                    tal:omit-tag="not:link_path">
-                    <img tal:define="obj image/getObject;
+                    <img tal:condition="not: original_image"
+                         tal:define="obj image/getObject;
                                      scales obj/@@images; 
                                      preview python:scales.scale('image', width=int(slideWidth), height=int(slideHeight))"
                          tal:attributes="src preview/url; 
+                                         alt title;" />
+                    <img tal:condition="original_image"
+                         tal:attributes="src url; 
                                          alt title;" />
                 </a>
           </div>
@@ -77,8 +80,8 @@
     </div>
     
     <div id="nav"
-         tal:condition="python:navNumbers or navThumbs"
-         tal:attributes="class python:navThumbs and 'thumbnails cycle-pager' or 'cycle-pager';
+         tal:condition="not: nav_off"
+         tal:attributes="class python:navDisplay == 'Thumbnails' and 'thumbnails cycle-pager' or 'cycle-pager';
                          style python:'width:%spx' %(slideWidth)">
          <a id="prev" href="#">&laquo;</a>
          <span class="navNumbers"></span>

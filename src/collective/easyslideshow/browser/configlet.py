@@ -27,6 +27,8 @@ class EasyslideshowControlPanelAdapter(SchemaAdapterBase):
         IEasyslideshowConfiguration['slideshow_width'])
     slideshow_height = ProxyFieldProperty(
         IEasyslideshowConfiguration['slideshow_height'])
+    display_original = ProxyFieldProperty(
+        IEasyslideshowConfiguration['display_original'])
     slide_timeout = ProxyFieldProperty(
         IEasyslideshowConfiguration['slide_timeout'])
     transition = ProxyFieldProperty(

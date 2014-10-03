@@ -1,6 +1,5 @@
 from zope.component import getUtility
 from Products.CMFCore.interfaces import IPropertiesTool
-from collective.easyslideshow.browser.interfaces import _
 
 
 def getSlideshowWidth():
@@ -12,11 +11,13 @@ def getSlideshowHeight():
     ptool = getUtility(IPropertiesTool)
     return ptool.easyslideshow_properties.getProperty('slideshow_height')
 
+def getSlideImageSize():
+    ptool = getUtility(IPropertiesTool)
+    return ptool.easyslideshow_properties.getProperty('display_original_image')
 
 def getSlideTimeout():
     ptool = getUtility(IPropertiesTool)
     return ptool.easyslideshow_properties.getProperty('slide_timeout')
-
 
 def getTransition():
     ptool = getUtility(IPropertiesTool)

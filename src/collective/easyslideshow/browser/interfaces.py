@@ -29,6 +29,18 @@ class IEasyslideshowConfiguration(Interface):
         required=True,
         default=333)
 
+    display_original = schema.Bool(
+        title=_(u"label_display_original", default=u'Display Original Image'),
+        description=_(
+            u"help_display_original",
+            default=u"If checked, the original size of each image will "
+            "display. Use this setting if you plan on uploading the images "
+            "at the exact dimensions of the slideshow. "
+            "Otherwise, the image will be resized to match the slideshow "
+            "width and height, which may increase the file size."),
+        required=False,
+        default=False)
+
     slide_timeout = schema.Int(
         title=_(u"label_slide_timeout", default=u'Slide Time'),
         description=_(
@@ -71,7 +83,7 @@ class IEasyslideshowConfiguration(Interface):
         title=_(u"label_display_nav", default=u'Navigation Display'),
         description=_(u"help_display_nav",
                       default=u''),
-        values=("Numbers", "Thumbnails", "Don't Display"),
+        values=("Numbers", "Titles", "Thumbnails", "Don't Display"),
         required=True,
         default="Numbers")
 

@@ -4,6 +4,7 @@
   <property name="title">easyslideshow properties</property>     
   <property name="slideshow_width" type="int">500</property>
   <property name="slideshow_height" type="int">333</property>
+  <property name="display_original" type="boolean">False</property>
   <property name="slide_timeout" type="int">7000</property>
   <property name="transition" type="string">fade</property>
   <property name="transition_speed" type="int">1000</property>
