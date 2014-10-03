@@ -1,8 +1,12 @@
 Changelog
 =========
 
-Unreleased
-----------
+Unreleased (to be 3.0)
+----------------------
+
+- Add new option to display images at full size instead of being resized,
+  new option to display navigation as titles (uses image title)
+  [cdw9]
 
 - Remove skins, put everything into resource directories
   [cdw9]
