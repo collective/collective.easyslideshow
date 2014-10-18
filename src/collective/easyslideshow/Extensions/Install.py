@@ -3,7 +3,6 @@ from Products.CMFCore.utils import getToolByName
 from zope.component import getUtility
 from Products.CMFCore.interfaces import IPropertiesTool
 from zope.interface import noLongerProvides
-from p4a.subtyper import interfaces as p4ainterfaces
 from collective.easyslideshow import interfaces as essinterfaces
 from zope.annotation.interfaces import IAnnotations
 from zope.component import getMultiAdapter
@@ -51,15 +50,10 @@ def uninstall(portal, reinstall=False):
         if folder.getProperty("layout") is not None:
             if folder.layout == "slideshow_folder_view":
                 folder.layout = "folder_listing"
-        noLongerProvides(folder, p4ainterfaces.ISubtyped)
         noLongerProvides(folder, essinterfaces.ISlideshowFolder)
         annotations = IAnnotations(folder)
         if annotations.get('easyslideshow.slideshowmanager.props'):
             annotations.pop('easyslideshow.slideshowmanager.props')
-        psD = annotations.get('p4a.subtyper.DescriptorInfo')
-        if psD and psD.get('descriptor_name')\
-           and psD['descriptor_name'] == 'collective.easyslideshow.slideshow':
-            annotations.pop('p4a.subtyper.DescriptorInfo')
 
     # remove portlet-assignments
     allbrains = pc()
@@ -88,22 +82,5 @@ def uninstall(portal, reinstall=False):
     out = StringIO()
     runProfile(portal, 'profile-collective.easyslideshow:uninstall')
 
-    # _removePersistentUtility(portal, logger)
     print >> out, "Uninstalled collective.easyslideshow"
     return out.getvalue()
-
-
-def _removePersistentUtility(portal, logger):
-    sm = portal.getSiteManager()
-    try:
-        from p4a.subtyper.interfaces import IPortalTypedFolderishDescriptor
-        util = sm.getUtility(IPortalTypedFolderishDescriptor, name="collective.easyslideshow.slideshow")
-        sm.unregisterUtility(util)
-        del util
-        sm.utilities.unsubscribe((), IPortalTypedFolderishDescriptor)
-        del sm.utilities.__dict__['_provided'][IPortalTypedFolderishDescriptor]
-        logger.info("Removed utility")
-    except ComponentLookupError, e:
-        logger.error("Error while removing utility: %s" % str(e))
-        logger.info("You might want to try wildcard.fixpersistentutilitie")
-

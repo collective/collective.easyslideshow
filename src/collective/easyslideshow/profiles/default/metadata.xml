@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
 <metadata>
     <version>003</version>
-    <dependencies>
-        <dependency>profile-p4a.subtyper:default</dependency>
-    </dependencies>
 </metadata>

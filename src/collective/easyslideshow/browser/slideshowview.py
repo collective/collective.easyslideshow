@@ -1,19 +1,93 @@
 import random
 
-from zope.interface import implements
 from zope.component import getMultiAdapter
 from zope.component import getUtility
+from zope.event import notify
+from zope.interface import alsoProvides
+from zope.interface import implements
+from zope.interface import noLongerProvides
 
+from Acquisition import aq_inner
+from plone.folder.interfaces import IFolder
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.interfaces import IPropertiesTool
 from Products.statusmessages.interfaces import IStatusMessage
 
-from Acquisition import aq_inner
-
 from collective.easyslideshow.browser.interfaces import IEasySlideshowView, IEasyslideshowConfiguration
 from collective.easyslideshow.browser.slideshowmanager import SlideshowManagerAdapter
+from collective.easyslideshow.interfaces import ISlideshowFolder
+from collective.easyslideshow.events import SlideshowCreatedEvent
+from collective.easyslideshow.events import SlideshowRemovedEvent
+from collective.easyslideshow.events import SlideshowWillBeCreatedEvent
+from collective.easyslideshow.events import SlideshowWillBeRemovedEvent
 
+class SlideshowTool(BrowserView):
+
+    @property
+    def available(self):
+        """True, if the context can become a slideshow folder.
+        """
+        return IFolder.providedBy(self.context)
+
+    @property
+    def disabled(self):
+        """True, if context is not a slideshow folder but could possibly be one.
+        """
+        return self.available and not self.enabled
+
+    @property
+    def enabled(self):
+        """True, if context is a slideshow folder.
+        """
+        return ISlideshowFolder.providedBy(self.context)
+
+    def enable(self):
+        """Enable a slideshow folder on this context.
+        """
+        ctx = self.context
+        notify(SlideshowWillBeCreatedEvent(ctx))
+
+        # enable slideshow folder
+        # folder = self.object
+        ctx.setLayout('slideshow_folder_view')
+        fol = getToolByName(ctx, 'portal_types')['Folder']
+        if 'Slideshow' not in [ac.title for ac in fol.listActions()]:
+            fol.addAction("slideshowproperties",
+                          "Slideshow",
+                          "slideshow_edit_form",
+                          "python:object.restrictedTraverse(\
+                          '@@plone_interface_info').provides(\
+                          'collective.easyslideshow.interfaces.ISlideshowFolder')",
+                          "Modify portal content",
+                          "folder",)
+
+        # provide ISlideshowFolder
+        alsoProvides(ctx, ISlideshowFolder)
+
+        ctx.reindexObject(idxs=('object_provides'))
+        notify(SlideshowCreatedEvent(ctx))
+
+        # redirect
+        self.request.response.redirect(ctx.absolute_url())
+
+    def disable(self):
+        """Disable a slideshow folder on this context.
+        """
+        ctx = self.context
+        notify(SlideshowWillBeRemovedEvent(ctx))
+
+        # remove local site components
+        ctx.setLayout('folder_listing')
+
+        # remove ISlideshowFolder
+        noLongerProvides(ctx, ISlideshowFolder)
+
+        ctx.reindexObject(idxs=('object_provides'))
+        notify(SlideshowRemovedEvent(ctx))
+
+        # redirect
+        self.request.response.redirect(ctx.absolute_url())
 
 class SlideshowView(BrowserView):
     """View class for the Slideshow

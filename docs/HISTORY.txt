@@ -4,6 +4,10 @@ Changelog
 Unreleased (to be 3.0)
 ----------------------
 
+- Remove anything related to p4a. Allow slideshow folder to be enabled 
+  and disabled in actions menu
+  [cdw9]
+
 - Add new option to display images at full size instead of being resized,
   new option to display navigation as titles (uses image title)
   [cdw9]
@@ -11,7 +15,7 @@ Unreleased (to be 3.0)
 - Remove skins, put everything into resource directories
   [cdw9]
 
-- Upgrade to Cycle2. This requires jQuery 1.7+
+- Upgrade to Cycle2. This requires jQuery 1.7+ (Plone 4.3+)
   [cdw9]
 
 - Remove dependency on base_properties

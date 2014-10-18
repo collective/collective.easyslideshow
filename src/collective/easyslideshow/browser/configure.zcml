@@ -19,6 +19,17 @@
       
   <browser:page
       for="*"
+      name="slideshow_tool"
+      class=".slideshowview.SlideshowTool"
+      allowed_attributes="enabled
+                          disabled
+                          enable
+                          disable"
+      permission="cmf.ManagePortal"
+      />
+  
+  <browser:page
+      for="*"
       name="slideshow_macros"
       template="templates/slideshow_macros.pt"
       permission="zope.Public"
