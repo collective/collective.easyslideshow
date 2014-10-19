@@ -1,3 +1,9 @@
+#contentview-slideshowproperties {
+    font-size: 11px;
+}
+#contentview-slideshowproperties .icon-slideshowproperties {
+    background: transparent url(slideshow-icon.png) no-repeat center center;
+}
 .pics {  
     padding: 0;  
     margin: 0;
