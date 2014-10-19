@@ -4,6 +4,9 @@ Changelog
 Unreleased (to be 3.0)
 ----------------------
 
+- Update transition options, Cycle2 has less available by default
+  [cdw9]
+
 - Remove anything related to p4a. Allow slideshow folder to be enabled 
   and disabled in actions menu
   [cdw9]

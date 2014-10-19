@@ -55,11 +55,7 @@ class IEasyslideshowConfiguration(Interface):
         title=_(u"label_transition", default=u'Transition'),
         description=_(u"help_transition",
                       default=u''),
-        values=("blindX", "blindY", "blindZ", "cover", "curtainX", "curtainY",
-                "fade", "scrollUp", "scrollDown",
-                "scrollLeft", "scrollRight", "scrollHorz", "scrollVert",
-                "shuffle", "slideX", "slideY", "turnUp", "turnDown",
-                "turnLeft", "turnRight", "uncover", "wipe", "zoom"),
+        values=("fade", "fadeout", "scrollHorz"),
         default="fade")
 
     transition_speed = schema.Int(
