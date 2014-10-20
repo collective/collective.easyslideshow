@@ -1,5 +1,0 @@
-<layers>
-  <layer 
-    name="collective.easyslideshow.lite" 
-    interface="collective.easyslideshow.browser.interfaces.IEasySlideshowLiteBrowserLayer"/>
-</layers>

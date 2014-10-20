@@ -98,12 +98,6 @@ class IEasyslideshowConfiguration(Interface):
         default=False)
 
 
-
-class IEasySlideshowLiteBrowserLayer(Interface):
-    """ Browser layer marker interface for the lite version
-    """
-
-
 class IEasySlideshowView(Interface):
     """ View class for the Slideshow
     """
