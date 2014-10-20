@@ -1,3 +1,5 @@
+from Products.CMFCore.utils import getToolByName
+
 def importVariousInitial(context):
     """Run the setup handlers for the initial profile"""
     if context.readDataFile('collective.easyslideshow-initial.txt') is None:
@@ -14,3 +16,6 @@ def setupVarious(context):
         return
 
     # Add additional setup code here
+    portal = context.getSite()
+    setup_tool = getToolByName(portal, 'portal_setup')
+    setup_tool.runAllImportStepsFromProfile('profile-collective.easyslideshow:initial')
