@@ -61,6 +61,11 @@ Uninstall
 - Marker interfaces, layout, and annotations will be removed
 - Slideshow portlets will be deleted
 
+Upgrading
+=========
+
+Upgrading to EasySlideshow 3.0 is not currently a smooth process.  If you are happy with 2.1.x, stick with that version. Otherwise the best process to upgrade is to uninstall EasySlideshow, upgrade, then install. This means you will need to reactivate any slideshow folders and readd any portlets.
+
 Use
 ===
 
