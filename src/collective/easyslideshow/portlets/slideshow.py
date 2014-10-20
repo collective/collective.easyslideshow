@@ -1,12 +1,11 @@
 from zope.interface import implements
-from zope.formlib import form
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.i18nmessageid import MessageFactory
 from zope import schema
 
 from plone.app.portlets.portlets import base
 from plone.portlets.interfaces import IPortletDataProvider
-from plone.app.vocabularies.catalog import SearchableTextSourceBinder
+from plone.app.vocabularies.catalog import CatalogSource
 
 _ = MessageFactory('collective.easyslideshow')
 
@@ -29,8 +28,8 @@ class ISlideshow(IPortletDataProvider):
         description=_(u"Path to the folder that contains the images "
                        "to be visible in the portlet."),
         required=True,
-        source=SearchableTextSourceBinder({'is_folderish': True},
-                                          default_query='path:'))
+        source=CatalogSource(is_folderish=True),
+        )
 
     slideshow_width = schema.Int(
         title=_(u"label_slideshow__portlet_width",
@@ -158,7 +157,7 @@ class AddForm(base.AddForm):
     constructs the assignment that is being added.
     """
 
-    form_fields = form.Fields(ISlideshow)
+    schema = ISlideshow
     label = _(u"title_add_slideshow_portlet",
               default=u"Add slideshow portlet")
     description = _(u"description_slideshow_add_portlet",
@@ -174,7 +173,7 @@ class EditForm(base.EditForm):
     This is registered with configure.zcml. The form_fields variable tells
     zope.formlib which fields to display.
     """
-    form_fields = form.Fields(ISlideshow)
+    schema = ISlideshow
     ISlideshowlabel = _(u"title_edit_slideshow_portlet",
               default=u"Edit slideshow portlet")
     description = _(u"description_slideshow_edit_portlet",
