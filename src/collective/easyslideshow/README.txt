@@ -89,5 +89,5 @@ Customization
     </metal:block>
 
 - When used on a custom template, the slideshow will look for images in a folder called ``Slideshow Folder`` (id ``slideshow-folder``) at the same level as the page on which it will be displayed. The name of this folder can be modified within the macro.
-- For more transision options, see the Cycle2 Download page http://malsup.com/jquery/cycle2/download/
+- For more transition options, see the Cycle2 Download page http://malsup.com/jquery/cycle2/download/
 - See http://malsup.com/jquery/cycle2 for further functions and customizations that can be used.
