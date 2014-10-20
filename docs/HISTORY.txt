@@ -4,6 +4,9 @@ Changelog
 Unreleased (to be 3.0)
 ----------------------
 
+- Make sure everything works in Plone 5
+  [cdw9]
+
 - Update transition options, Cycle2 has less available by default
   [cdw9]
 
