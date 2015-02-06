@@ -50,8 +50,9 @@ Installation
 - Install ``collective.easyslideshow`` via ``portal_quickinstaller``
 
 NOTES:
-* version 2.1 is compatible with Plone >= 4.1
-* version 3.0 is compatible with Plone >= 4.3
+
+* version 2.1 requires Plone >= 4.1
+* version 2.2 requires >= 4.3
 
 Uninstall
 =========
@@ -61,10 +62,20 @@ Uninstall
 - Marker interfaces, layout, and annotations will be removed
 - Slideshow portlets will be deleted
 
-Upgrading
-=========
+Upgrading to 3.x
+================
 
-Upgrading to EasySlideshow 3.0 is not currently a smooth process.  If you are happy with 2.1.x, stick with that version. Otherwise the best process to upgrade is to uninstall EasySlideshow, upgrade, then install. This means you will need to reactivate any slideshow folders and readd any portlets.
+When upgrading to EasySlideshow 3.0 or greater, you will need to first upgrade to 2.2. Version 2.2 removes dependencies on p4a.subtyper.
+
+Steps for upgrading:
+--------------------
+
+1. Install version `2.2` into your existing Lineage powered site
+2. Go to the Plone Site Setup and from the Add-Ons panel click the button to
+   upgrade EasySlideshow
+3. Install version `3.x`
+4. Go to the Plone Site Setup and from the Add-Ons panel click the button to
+   upgrade EasySlideshow
 
 Use
 ===
