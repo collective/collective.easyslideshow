@@ -1,13 +1,10 @@
 Changelog
 =========
 
-Unreleased (to be 2.2)
+2.2 (2015-02-06)
 ----------------------
 
 - Add upgrade step to remove p4a interfaces
-  [cdw9]
-
-- Make sure everything works in Plone 5
   [cdw9]
 
 - Update transition options, Cycle2 has less available by default
