@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<componentregistry>
+    <utilities>
+        <utility remove="True"
+        interface="p4a.subtyper.interfaces.IPortalTypedFolderishDescriptor"
+        name="collective.easyslideshow.slideshow"/>
+    </utilities>
+</componentregistry>

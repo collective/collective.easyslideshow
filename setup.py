@@ -44,6 +44,9 @@ setup(name='collective.easyslideshow',
           'setuptools',
           # -*- Extra requirements: -*-
           'collective.autopermission',
+          'p4a.common',
+          'p4a.z2utils',
+          'p4a.subtyper'
       ],
       tests_require=tests_require,
       extras_require={'tests': tests_require},

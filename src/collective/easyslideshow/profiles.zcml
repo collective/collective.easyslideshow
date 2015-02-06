@@ -72,4 +72,40 @@
       profile="collective.easyslideshow:default"
       />
 
+  <genericsetup:registerProfile
+      name="migration-004"
+      title="Easy Slideshow Migration for 2.2"
+      directory="profiles/migration-004"
+      description="Migration profile for random_order"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  
+  <genericsetup:upgradeStep
+      title="Import new settings"
+      description=""
+      source="003"
+      destination="004"
+      handler="collective.easyslideshow.upgrades.runMigration"
+      sortkey="10"
+      profile="collective.easyslideshow:default"
+      />
+  
+  <genericsetup:registerProfile
+     name="removep4a"
+     title="EasySlideshow (remove p4a)"
+     directory="profiles/removep4a"
+     description="Remove p4a bits in EasySlideshow"
+     provides="Products.GenericSetup.interfaces.EXTENSION"
+     />
+     
+  <genericsetup:upgradeStep
+      title="Remove p4a crud"
+      description=""
+      source="003"
+      destination="004"
+      handler="collective.easyslideshow.upgrades.removeP4A"
+      sortkey="10"
+      profile="collective.easyslideshow:default"
+      />
+
 </configure>

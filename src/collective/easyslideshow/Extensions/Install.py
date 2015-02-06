@@ -7,6 +7,7 @@ from collective.easyslideshow import interfaces as essinterfaces
 from zope.annotation.interfaces import IAnnotations
 from zope.component import getMultiAdapter
 from zope.component.interfaces import ComponentLookupError
+from p4a.subtyper.interfaces import IPortalTypedFolderishDescriptor
 from plone.portlets.interfaces import IPortletAssignmentMapping
 from plone.portlets.interfaces import IPortletManager
 import logging
@@ -84,3 +85,13 @@ def uninstall(portal, reinstall=False):
 
     print >> out, "Uninstalled collective.easyslideshow"
     return out.getvalue()
+    
+def _unregisterUtility(portal):
+    sm = portal.getSiteManager()
+    util = sm.queryUtility(
+        IPortalTypedFolderishDescriptor, u'collective.easyslideshow.slideshow')
+    sm.unregisterUtility(
+        util,
+        IPortalTypedFolderishDescriptor, name=u'collective.easyslideshow.slideshow')
+    if IPortalTypedFolderishDescriptor in sm.utilities._subscribers[0]:
+        del sm.utilities._subscribers[0][IPortalTypedFolderishDescriptor]
