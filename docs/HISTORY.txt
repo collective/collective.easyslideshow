@@ -1,11 +1,8 @@
 Changelog
 =========
 
-Unreleased (to be 2.2)
+Unreleased (to be 3.0)
 ----------------------
-
-- Add upgrade step to remove p4a interfaces
-  [cdw9]
 
 - Make sure everything works in Plone 5
   [cdw9]
