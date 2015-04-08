@@ -114,8 +114,17 @@ class SlideshowView(BrowserView):
         if randomize:
             results = [brain for brain in results]
             random.shuffle(results)
-        return results
+        return self.checkForExpired(results)
 
+    def checkForExpired(self, results):
+        """Take a list of images, filter out any that are expired
+        """
+        activeImages = []
+        for i in results:
+            if not i.isExpired():
+                activeImages.append(i)
+        return activeImages
+    
     def getPortletImages(self, slideshowfolderpath, randomize=False):
         # we check if there is a folder with path
         # slideshowfolderpath
@@ -138,7 +147,7 @@ class SlideshowView(BrowserView):
         if randomize:
             results = [brain for brain in results]
             random.shuffle(results)
-        return results
+        return self.checkForExpired(results)
 
 
     def getSlideshowLocalProperties(self):

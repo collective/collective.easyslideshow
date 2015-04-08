@@ -6,6 +6,9 @@ Changelog
 
 - Major release version that does not include anything p4a
   [cdw9]
+  
+ - Filter out images that are expired
+   [cdw9]
 
 2.2 (2015-02-06)
 ----------------
