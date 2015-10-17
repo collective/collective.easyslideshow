@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<registry>
+    <records interface="collective.easyslideshow.browser.interfaces.IEasyslideshowConfiguration"
+             prefix="collective.easyslideshow.browser.interfaces.IEasyslideshowConfiguration">
+             
+     <record name="collective.easyslideshow.browser.interfaces.IEasyslideshowConfiguration.transition_speed"
+         interface="collective.easyslideshow.browser.interfaces.IEasyslideshowConfiguration" field="transition_speed">
+       <field type="plone.registry.field.Int">
+         <default>1000</default>
+         <required>False</required>
+         <description xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.easyslideshow" ns0:translate="help_transition_speed">Enter a number in milliseconds (1000 = 1 second).</description>
+         <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.easyslideshow" ns0:translate="label_transition_speed">Transition Time</title>
+       </field>
+       <value>1000</value>
+     </record>
+ </records>
+</registry>

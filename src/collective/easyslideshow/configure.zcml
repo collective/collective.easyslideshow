@@ -22,8 +22,6 @@
   <includePlugins package="." />
   <includeDependencies package="." />
 
-  <adapter
-      factory=".browser.configlet.EasyslideshowControlPanelAdapter" />
   <adapter name="getRelatedLink" factory=".indexers.getRelatedLink" />
 
   <!-- handle refs being transitioned -->

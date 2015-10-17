@@ -11,11 +11,12 @@
       allowed_interface=".interfaces.IEasySlideshowView"
       />
       
-  <browser:page
-      name="easyslideshow-controlpanel"
+   <browser:page
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-      class="collective.easyslideshow.browser.configlet.EasyslideshowControlPanel"      
-      permission="cmf.ManagePortal" />
+      name="easyslideshow-controlpanel"
+      class=".easyslideshow.SlideshowControlPanel"
+      permission="cmf.ManagePortal"
+      />
       
   <browser:page
       for="*"
