@@ -11,7 +11,7 @@ class SlideshowControlPanelForm(controlpanel.RegistryEditForm):
     id = "SlideshowSettings"
     label = _(u"EasySlideshow Settings")
     schema = IEasyslideshowConfiguration
-    schema_prefix = "plone"
+    schema_prefix = "collective.easyslideshow.browser.interfaces.IEasyslideshowConfiguration"
 
 
 class SlideshowControlPanel(controlpanel.ControlPanelFormWrapper):

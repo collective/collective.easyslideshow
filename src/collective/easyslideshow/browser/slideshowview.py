@@ -9,9 +9,9 @@ from zope.interface import noLongerProvides
 
 from Acquisition import aq_inner
 from plone.folder.interfaces import IFolder
+from plone.registry.interfaces import IRegistry
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
-from Products.CMFCore.interfaces import IPropertiesTool
 from Products.statusmessages.interfaces import IStatusMessage
 
 from collective.easyslideshow.browser.interfaces import IEasySlideshowView, IEasyslideshowConfiguration
@@ -178,15 +178,17 @@ class SlideshowView(BrowserView):
 
     def getSlideshowGeneralProperties(self):
         """ Returns the slideshow properties defined site-wide """
-        ptool = getUtility(IPropertiesTool)
+        prefix = "collective.easyslideshow.browser.interfaces.IEasyslideshowConfiguration"
+        # todo: import this list
+        pids = ['slideshow_width', 'slideshow_height', 'display_original',
+                'slide_timeout', 'transition', 'transition_speed',
+                'pause_hover', 'display_nav', 'display_caption',
+                'random_order']
+        registry = getUtility(IRegistry)
+
         props = {}
-        for pid in ptool.easyslideshow_properties.propertyIds():
-            if pid != 'title':
-                prop = str(ptool.easyslideshow_properties.getProperty(pid))
-                if hasattr(IEasyslideshowConfiguration[pid], 'vocabulary'):
-                    prop = (prop, [item.value for item in\
-                        IEasyslideshowConfiguration[pid].vocabulary._terms])
-                props[pid] = prop
+        for pid in pids:
+            props[pid] = registry.records['{0}.{1}'.format(prefix, pid)].value
         return props
 
     def getSlideshowAllProperties(self):
