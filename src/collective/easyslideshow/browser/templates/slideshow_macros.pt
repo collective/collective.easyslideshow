@@ -48,7 +48,6 @@
                                   description image/Description;
                                   url image/getURL;
                                   link_path image/getRelatedLink;
-                                  link_url python:context.REQUEST.physicalPathToURL(link_path or '');
                                   obj image/getObject;
                                   scales obj/@@images; 
                                   preview python:scales.scale('image', width=50, height=50, direction='down');
@@ -63,7 +62,7 @@
                     <span class="imageTitle" tal:content="title" i18n:name="slide_title" />
                     <span class="imageDescrip" tal:content="description" i18n:name="slide_description" />
                 </div>
-                <a tal:attributes="href string:$link_url"
+                <a tal:attributes="href link_path"
                    tal:omit-tag="not:link_path">
                     <img tal:condition="not: original_image"
                          tal:define="obj image/getObject;
