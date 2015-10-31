@@ -129,18 +129,17 @@ class SlideshowView(BrowserView):
         # we check if there is a folder with path
         # slideshowfolderpath
         results = []
-        ps = getMultiAdapter((self.context, self.context.REQUEST),
-                              name=u"plone_portal_state")
-        path = "/%s%s" % (ps.portal().getId(), slideshowfolderpath)
 
         pc = getToolByName(self.context, 'portal_catalog')
-        pot_folders = pc.searchResults(path={'query': path, 'depth': 0})
+        pot_folders = pc.searchResults(UID=slideshowfolderpath)
 
         if pot_folders:
             folder = pot_folders[0]
             if folder.isPrincipiaFolderish:
                 path = {
-                    'query': folder.getPath()}
+                    'query': folder.getPath(),
+                    'depth': 1,
+                }
                 results = pc.searchResults(portal_type='Image',
                                            path=path,
                                            sort_on='getObjPositionInParent')

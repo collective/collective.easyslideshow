@@ -5,7 +5,6 @@
 <metal:ad define-macro="slideshow"
           tal:define="view context/@@easyslideshow_view;
                       images python:view.getPortletImages(slideshowfolderpath, randomize=randomOrder)">
-    
     <tal:cond tal:condition="images">
     
     <div class="portletPics" data-cycle-slides=".slideContainer"
@@ -41,7 +40,7 @@
     <tal:block tal:replace='structure string:&lt;script type="text/javascript" charset="utf-8"&gt;'></tal:block>
       <tal:translate i18n:translate="">
       (function($) { $(function() {
-          // numSlideshowPortlets is set in jquery-cycle.js
+          /* numSlideshowPortlets is set in jquery-cycle.js */
           $(".slideshowPortlet").eq(numSlideshowPortlets).find(".navNumbers").addClass("nav"+numSlideshowPortlets);
           $(".portletPics").eq(numSlideshowPortlets).css({'display':'block', 'visibility': 'visible'});
           

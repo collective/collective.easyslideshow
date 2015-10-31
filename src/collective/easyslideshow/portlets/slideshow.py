@@ -6,9 +6,23 @@ from zope import schema
 
 from plone.app.portlets.portlets import base
 from plone.portlets.interfaces import IPortletDataProvider
-from plone.app.vocabularies.catalog import SearchableTextSourceBinder
+from plone.app.vocabularies.catalog import CatalogSource
 
 _ = MessageFactory('collective.easyslideshow')
+
+try:
+    from plone.app.contenttypes.behaviors.collection import ISyndicatableCollection as ICollection  # noqa
+    from plone.app.contenttypes.interfaces import IFolder
+    search_base_uid_source = CatalogSource(object_provides={
+        'query': [
+            ICollection.__identifier__,
+            IFolder.__identifier__
+        ],
+        'operator': 'or'
+    })
+except ImportError:
+    search_base_uid_source = CatalogSource(is_folderish=True)
+    ICollection = None
 
 
 class ISlideshow(IPortletDataProvider):
@@ -29,8 +43,7 @@ class ISlideshow(IPortletDataProvider):
         description=_(u"Path to the folder that contains the images "
                        "to be visible in the portlet."),
         required=True,
-        source=SearchableTextSourceBinder({'is_folderish': True},
-                                          default_query='path:'))
+        source=search_base_uid_source)
 
     slideshow_width = schema.Int(
         title=_(u"label_slideshow__portlet_width",
@@ -153,12 +166,12 @@ class Renderer(base.Renderer):
 class AddForm(base.AddForm):
     """Portlet add form.
 
-    This is registered in configure.zcml. The form_fields variable tells
-    zope.formlib which fields to display. The create() method actually
+    This is registered in configure.zcml. The schema variable tells
+    plone.autoform which fields to display. The create() method actually
     constructs the assignment that is being added.
     """
 
-    form_fields = form.Fields(ISlideshow)
+    schema = ISlideshow
     label = _(u"title_add_slideshow_portlet",
               default=u"Add slideshow portlet")
     description = _(u"description_slideshow_add_portlet",
@@ -171,10 +184,10 @@ class AddForm(base.AddForm):
 class EditForm(base.EditForm):
     """Portlet edit form.
 
-    This is registered with configure.zcml. The form_fields variable tells
-    zope.formlib which fields to display.
+    This is registered with configure.zcml. The schema variable tells
+    plone.autoform which fields to display.
     """
-    form_fields = form.Fields(ISlideshow)
+    schema = ISlideshow
     ISlideshowlabel = _(u"title_edit_slideshow_portlet",
               default=u"Edit slideshow portlet")
     description = _(u"description_slideshow_edit_portlet",

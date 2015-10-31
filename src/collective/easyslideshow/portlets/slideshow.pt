@@ -15,7 +15,8 @@
                     displayCaption view/data/display_caption;
                     randomOrder view/data/random_order;
                     slideshowfolderpath view/data/images_location;">
-        <metal:block use-macro="here/slideshow_portlet_macros/macros/slideshow">
+                    
+        <metal:block use-macro="context/slideshow_portlet_macros/macros/slideshow">
           slideshow here...
         </metal:block>               
         
