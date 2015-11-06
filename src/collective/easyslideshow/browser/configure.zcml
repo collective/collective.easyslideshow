@@ -49,13 +49,6 @@
       template="templates/slideshow_edit_form.pt"
       permission="cmf.ManagePortal"
       />
-      
-  <browser:page
-      for="*"
-      name="slideshow_portlet_macros"
-      template="templates/slideshow_portlet_macros.pt"
-      permission="zope.Public"
-      />
 
   <browser:resourceDirectory
       name="easyslideshow"

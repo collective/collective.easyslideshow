@@ -15,10 +15,6 @@
     padding: 0px; 
 }
 
-.slideContainer {
-    background-color: #ffffff;
-}
-
 #nav {
     text-align: center;
     background-color: #dddddd;
@@ -106,15 +102,23 @@
     margin: 0;
     overflow: hidden;
     position: relative;
+    width: 100%;
 }
-
-.portletPics .imageCaption {
+.portletPics .slideContainer {
+    width: 100%;
+}
+.portletPics img {
+    max-width: 100%;
+}
+.portletPics  .imageCaption {
     background: none;
     height: 35px;
     position: static;
     color: #000000;
 }
-
+.slideshowPortlet .portletItem {
+    padding: 13px 15px;
+}
 .slideshowPortlet a {
     outline: none;
 }
