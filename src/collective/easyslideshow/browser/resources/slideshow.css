@@ -1,3 +1,6 @@
+.icon-controlpanel-EasySlideshowConfiguration::before {
+    content: '\e832';
+}
 #contentview-slideshowproperties {
     font-size: 11px;
 }
