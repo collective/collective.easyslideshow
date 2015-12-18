@@ -1,7 +1,7 @@
 Changelog
 =========
 
-(unreleased, to be 3.0)
+3.0 (2015-12-18)
 ----------------
 
 - Major release version that does not include anything p4a
