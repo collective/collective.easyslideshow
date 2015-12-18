@@ -13,7 +13,9 @@
     position: relative;
     overflow: hidden;
 } 
- 
+.slideContainer {
+    width: 100%;
+}
 .pics img {  
     padding: 0px; 
 }
