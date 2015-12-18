@@ -1,4 +1,5 @@
-.icon-controlpanel-EasySlideshowConfiguration::before {
+.icon-controlpanel-EasySlideshowConfiguration::before,
+.icon-slideshowproperties::before {
     content: '\e832';
 }
 #contentview-slideshowproperties {
