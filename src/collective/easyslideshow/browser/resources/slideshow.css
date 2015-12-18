@@ -18,7 +18,9 @@
     width: 100%;
 }
 .pics img {  
-    padding: 0px; 
+    padding: 0px;
+    max-width: 100%;
+    height: auto;
 }
 
 #nav {
@@ -74,7 +76,7 @@
     z-index: 9;
     color: #ffffff;
     background: rgba(0, 0, 0, 0.5);
-    height: 65px;
+    min-height: 65px;
     padding: 5px 0;
     position: absolute;
     width: 100%;

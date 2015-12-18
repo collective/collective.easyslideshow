@@ -22,6 +22,9 @@ Changelog
   
 - Do not display images in a slideshow if they are expired
   [cdw9]
+  
+- Make the slideshows responsive
+  [cdw9]
 
 2.2 (2015-02-06)
 ----------------

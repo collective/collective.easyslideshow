@@ -40,7 +40,7 @@
     <tal:block tal:replace='structure string:&lt;/script&gt;'></tal:block>
     
     <div id="slideshow" class="pics" data-cycle-slides=".slideContainer"
-         tal:attributes="style python:('width:%spx;;height:%spx'%(slideWidth,slideHeight))"> 
+         tal:attributes="style python:('max-width:%spx;;max-height:%spx'%(slideWidth,slideHeight))"> 
         
         <tal:rep repeat="image images">
           <div class="slideContainer"
@@ -81,7 +81,7 @@
     <div id="nav"
          tal:condition="not: nav_off"
          tal:attributes="class python:navDisplay == 'Thumbnails' and 'thumbnails cycle-pager' or 'cycle-pager';
-                         style python:'width:%spx' %(slideWidth)">
+                         style python:'max-width:%spx' %(slideWidth)">
          <a id="prev" href="#">&laquo;</a>
          <span class="navNumbers"></span>
          <a id="next" href="#">&raquo;</a>
