@@ -13,6 +13,15 @@ Changelog
 - Add conditions for when related_items might be empty. Ran into
   issues when migrating default types from Archetypes to Dexterity
   [cdw9]
+  
+- Display icons for the toolbar and control panel
+  [cdw9]
+  
+- Fixes to make easyslideshow Plone 5 compatible
+  [cdw9]
+  
+- Do not display images in a slideshow if they are expired
+  [cdw9]
 
 2.2 (2015-02-06)
 ----------------
