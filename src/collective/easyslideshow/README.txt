@@ -30,12 +30,9 @@ Examples
 Sites that use EasySlideshow include:
 
 - `ReTrans <http://www.re-trans.com>`_
-- `The Huck Institutes <http://www.huck.psu.edu>`_
-- `Drive Aluminum <http://www.drivealuminum.org>`_
 - `Simons Foundation Autism Research Initiative <http://sfari.org/>`_
 - `IEEE Information Theory Society <http://www.itsoc.org/>`_
 - `Indiana Historical Society <http://www.indianahistory.org/>`_
-- `UVA Health System <http://uvahealth.com/>`_
 
 Installation
 ============
@@ -51,7 +48,8 @@ Installation
 
 NOTES:
 * version 2.1 requires Plone >= 4.1
-* version 2.2 requires >= 4.3
+* version 2.3 requires >= 4.3
+* version 3.0 requires Plone 5 or 4.3 with Dexterity Images.
 
 Uninstall
 =========
@@ -64,12 +62,12 @@ Uninstall
 Upgrading to 3.x
 ================
 
-When upgrading to EasySlideshow 3.0 or greater, you will need to first upgrade to 2.2. Version 2.2 removes dependencies on p4a.subtyper.
+When upgrading to EasySlideshow 3.0 or greater, you will need to first upgrade to 2.3. Version 2.3 removes dependencies on p4a.subtyper.
 
 Steps for upgrading:
 --------------------
 
-1. Install version `2.2` into your existing Lineage powered site
+1. Install version `2.3` into your existing EasySlideshow powered site
 2. Go to the Plone Site Setup and from the Add-Ons panel click the button to
    upgrade EasySlideshow
 3. Install version `3.x`

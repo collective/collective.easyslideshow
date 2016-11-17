@@ -1,8 +1,15 @@
 Changelog
 =========
 
+2.3 (2016-11-17)
+----------------
+
+- Add descriptors.py back in with a placeholder so the site
+  doesn't complain about it missing fixes #18
+  [cdw9]
+
 2.2 (2015-02-06)
-----------------------
+----------------
 
 - Add upgrade step to remove p4a interfaces
   [cdw9]
