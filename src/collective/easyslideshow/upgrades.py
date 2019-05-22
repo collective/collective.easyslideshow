@@ -6,6 +6,8 @@ except ImportError:
     from zope.component.hooks import getSite  # NOQA
 from Products.CMFCore.utils import getToolByName
 
+from plone import api
+
 from collective.easyslideshow.interfaces import ISlideshowFolder
 
 
@@ -31,3 +33,17 @@ def update_getRelatedLink(context):
         containing_folder = img.getParentNode()
         if ISlideshowFolder.providedBy(containing_folder):
             img.reindexObject(idxs=['getRelatedLink'])
+
+
+def remove_resources_from_old_registries(content):
+    """
+    Let's remove these from the old css/js registries
+    """
+    css_resource = "++resource++easyslideshow/slideshow.css"
+    js_resource = "++resource++easyslideshow/jquery-cycle.js"
+
+    css_tool = api.portal.get_tool("portal_css")
+    js_tool = api.portal.get_tool("portal_javascripts")
+
+    css_tool.unregisterResource(css_resource)
+    js_tool.unregisterResource(js_resource)

@@ -72,4 +72,14 @@
       profile="collective.easyslideshow:default"
       />
 
+  <genericsetup:upgradeStep
+      title="Remove resources from old-style registries"
+      description=""
+      source="004"
+      destination="005"
+      handler="collective.easyslideshow.upgrades.remove_resources_from_old_registries"
+      sortkey="10"
+      profile="collective.easyslideshow:default"
+      />
+
 </configure>
