@@ -1,6 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="collective.easyslideshow">
 
   <browser:page
@@ -50,10 +51,11 @@
       permission="cmf.ManagePortal"
       />
 
-  <browser:resourceDirectory
+  <!-- Publish static files -->
+  <plone:static
       name="easyslideshow"
+      type="plone"
       directory="resources"
-      layer=".interfaces.IEasySlideshowBrowserLayer"
-     />
+      />
 
 </configure>
