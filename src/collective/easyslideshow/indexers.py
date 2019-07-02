@@ -1,7 +1,6 @@
 from Products.CMFCore.utils import getToolByName
 from plone.app.contenttypes.interfaces import IImage
 from plone.indexer import indexer
-from Products.ATContentTypes.interface.image import IATImage
 from Products.CMFPlone.utils import base_hasattr
 from zope.component import provideAdapter
 
