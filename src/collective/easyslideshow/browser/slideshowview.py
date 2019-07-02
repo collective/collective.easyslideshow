@@ -4,7 +4,7 @@ from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.event import notify
 from zope.interface import alsoProvides
-from zope.interface import implements
+from zope.interface import implementer
 from zope.interface import noLongerProvides
 
 from Acquisition import aq_inner
@@ -12,6 +12,7 @@ from plone.folder.interfaces import IFolder
 from plone.registry.interfaces import IRegistry
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import isExpired
 from Products.statusmessages.interfaces import IStatusMessage
 
 from collective.easyslideshow.browser.interfaces import IEasySlideshowView, IEasyslideshowConfiguration
@@ -30,13 +31,11 @@ class SlideshowTool(BrowserView):
         """
         return IFolder.providedBy(self.context)
 
-    @property
     def disabled(self):
         """True, if context is not a slideshow folder but could possibly be one.
         """
-        return self.available and not self.enabled
+        return self.available and not self.enabled()
 
-    @property
     def enabled(self):
         """True, if context is a slideshow folder.
         """
@@ -92,7 +91,7 @@ class SlideshowTool(BrowserView):
 class SlideshowView(BrowserView):
     """View class for the Slideshow
     """
-    implements(IEasySlideshowView)
+    implementer(IEasySlideshowView)
 
     def getImages(self, slideshowfolderid, randomize=False):
         # we check if there is a folder with id slideshowfolderid
@@ -121,7 +120,7 @@ class SlideshowView(BrowserView):
         """
         activeImages = []
         for i in results:
-            if not i.isExpired():
+            if not isExpired(i):
                 activeImages.append(i)
         return activeImages
     

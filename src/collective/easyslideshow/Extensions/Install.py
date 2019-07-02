@@ -64,7 +64,7 @@ def uninstall(portal, reinstall=False):
             try:
                 assignments = getMultiAdapter((item, manager),
                                                  IPortletAssignmentMapping)
-            except ComponentLookupError, e:
+            except ComponentLookupError as e:
                 logger.error("Ignoring broken portlet: %s" % str(e))
             if assignments:
                 for key in assignments.keys():

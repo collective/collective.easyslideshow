@@ -3,20 +3,20 @@ from collective.easyslideshow.interfaces import ISlideshowRemovedEvent
 from collective.easyslideshow.interfaces import ISlideshowWillBeCreatedEvent
 from collective.easyslideshow.interfaces import ISlideshowWillBeRemovedEvent
 from zope.component.interfaces import ObjectEvent
-from zope.interface import implements
+from zope.interface import implementer
 
 
 class SlideshowWillBeCreatedEvent(ObjectEvent):
-    implements(ISlideshowWillBeCreatedEvent)
+    implementer(ISlideshowWillBeCreatedEvent)
 
 
 class SlideshowCreatedEvent(ObjectEvent):
-    implements(ISlideshowCreatedEvent)
+    implementer(ISlideshowCreatedEvent)
 
 
 class SlideshowWillBeRemovedEvent(ObjectEvent):
-    implements(ISlideshowWillBeRemovedEvent)
+    implementer(ISlideshowWillBeRemovedEvent)
 
 
 class SlideshowRemovedEvent(ObjectEvent):
-    implements(ISlideshowRemovedEvent)
+    implementer(ISlideshowRemovedEvent)

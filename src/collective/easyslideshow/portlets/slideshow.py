@@ -1,4 +1,4 @@
-from zope.interface import implements
+from zope.interface import implementer
 from zope.formlib import form
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.i18nmessageid import MessageFactory
@@ -126,7 +126,7 @@ class Assignment(base.Assignment):
     with columns.
     """
 
-    implements(ISlideshow)
+    implementer(ISlideshow)
 
     def __init__(self, header=u"", images_location=None, slideshow_width=244,
                 slideshow_height=157, slide_timeout=7000, transition="fade",

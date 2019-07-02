@@ -26,21 +26,21 @@
 
   <!-- handle refs being transitioned -->
   <subscriber
-      for="Products.ATContentTypes.interface.IATContentType
+      for="plone.dexterity.interfaces.IDexterityContent
            Products.DCWorkflow.interfaces.IAfterTransitionEvent"
       handler=".subscribers.slideLinkSync"
       />
 
   <!-- handle refs being moved -->
   <subscriber
-      for="Products.ATContentTypes.interface.IATContentType
+      for="plone.dexterity.interfaces.IDexterityContent
            zope.container.interfaces.IObjectMovedEvent"
       handler=".subscribers.slideLinkSync"
       />
 
   <!-- handle refs being deleted -->
   <subscriber
-      for="Products.ATContentTypes.interface.IATContentType
+      for="plone.dexterity.interfaces.IDexterityContent
            zope.container.interfaces.IObjectRemovedEvent"
       handler=".subscribers.slideLinkDeleted"
       />
