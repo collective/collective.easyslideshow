@@ -1,10 +1,10 @@
 Introduction
 ============
 
-.. image:: http://www.sixfeetup.com/logos/EasySlideshow.gif
+.. image:: http://www.sixfeetup.com/images/logos/EasySlideshow.gif
    :height: 259
    :width: 248
-   :alt: EasySlideshow
+   :alt: EasySlideshow logo
    :align: left
 
 EasySlideshow is a Plone product that makes it easy for any content editor to create and manage online slideshows. It comes with all the settings you need to customize your slideshows, such as:
@@ -24,18 +24,6 @@ While EasySlideshow's global parameters are controlled via the Control Panel (lo
 
 EasySlideshow is Plone 5 compatible and requires no custom installation, as it leverages the jQuery library that already ships with Plone. EasySlideshow uses fields already found in the Plone image type for presentation.  The jQuery plugin that is the basis for this product is `jQuery Cycle2 <http://malsup.com/jquery/cycle2>`_.
 
-Examples
-========
-
-Sites that use EasySlideshow include:
-
-- `ReTrans <http://www.re-trans.com>`_
-- `Drive Aluminum <http://www.drivealuminum.org>`_
-- `Simons Foundation Autism Research Initiative <http://sfari.org/>`_
-- `IEEE Information Theory Society <http://www.itsoc.org/>`_
-- `Indiana Historical Society <http://www.indianahistory.org/>`_
-- `The Innocence Project <http://www.innocenceproject.org/>`_
-
 Installation
 ============
 
@@ -43,21 +31,22 @@ Installation
 
     [instance]
     eggs = collective.easyslideshow
-    zcml = collective.easyslideshow
 
 - Run buildout, and start up the instance
-- Install ``collective.easyslideshow`` via ``portal_quickinstaller``
+- Install ``collective.easyslideshow`` in the Add-Ons Control Panel
 
-NOTES:
+Compatibility
+=============
 
-* version 2.1 requires Plone >= 4.1
-* version 2.2 requires Plone >= 4.3
-* version 3.0 requires Plone >= 5.0
+- version 2.1 requires Plone >= 4.1
+- version 2.2 requires Plone >= 4.3
+- version 3.0 requires Plone >= 5.0
+- version 4.0 works on Plone >= 5.2, Python 2 and Python 3
 
 Uninstall
 =========
 
-- Uninstall ``collective.easyslideshow`` via ``portal_quickinstaller``
+- Uninstall ``collective.easyslideshow`` in the Add-Ons Control Panel
 - Existing slideshow folders will be fully reverted to normal folders
 - Marker interfaces, layout, and annotations will be removed
 - Slideshow portlets will be deleted
@@ -92,7 +81,7 @@ Use
 Customization
 =============
 
-- Slideshow appearance can be further modified by overriding ``slideshow_macros.pt``
+- Slideshow appearance can be further modified by overriding ``slideshow_macros.pt`` with z3c.jbot
 - The slideshow macro can be put into a custom template with the following code::
 
     <metal:block use-macro="here/slideshow_macros/macros/slideshow">

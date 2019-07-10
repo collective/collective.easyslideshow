@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.x (unreleased)
+4.0 (unreleased)
 ----------------
 - Plone 5.2 and Python 3 support
   [cdw9, abosio]
