@@ -12,6 +12,15 @@
       allowed_interface=".interfaces.IEasySlideshowView"
       />
       
+  <browser:page
+      for="*"
+      name="set_local_props"
+      class=".slideshowview.SlideshowView"
+      attribute="setSlideshowLocalProperties"
+      permission="cmf.ManagePortal"
+      allowed_interface=".interfaces.IEasySlideshowView"
+      />
+
    <browser:page
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       name="easyslideshow-controlpanel"

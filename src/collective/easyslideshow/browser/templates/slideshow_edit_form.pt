@@ -16,9 +16,9 @@
                             general_sp view/getSlideshowGeneralProperties;
                             props python:general_sp.keys();
                             ">
-                <form action="./@@easyslideshow_view/setSlideshowLocalProperties" method="get">
+                <form action="@@set_local_props" method="get">
                     <div id="slideshow-edit-property" tal:repeat="prop props">
-                        <tal:def define="is_local python:local_sp.has_key(prop);
+                        <tal:def define="is_local python:local_sp.get(prop);
                         val python:is_local and local_sp[prop] or general_sp[prop];
                         bool python:general_sp[prop] in ['True','False'];
                         tuple python:type(general_sp[prop]) == type(())">
