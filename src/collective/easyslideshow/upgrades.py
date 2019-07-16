@@ -7,6 +7,7 @@ except ImportError:
 from Products.CMFCore.utils import getToolByName
 
 from plone import api
+from plone.api.exc import InvalidParameterError
 
 from collective.easyslideshow.interfaces import ISlideshowFolder
 
@@ -42,8 +43,13 @@ def remove_resources_from_old_registries(content):
     css_resource = "++resource++easyslideshow/slideshow.css"
     js_resource = "++resource++easyslideshow/jquery-cycle.js"
 
-    css_tool = api.portal.get_tool("portal_css")
-    js_tool = api.portal.get_tool("portal_javascripts")
+    try:
+        css_tool = api.portal.get_tool("portal_css")
+        js_tool = api.portal.get_tool("portal_javascripts")
 
-    css_tool.unregisterResource(css_resource)
-    js_tool.unregisterResource(js_resource)
+        css_tool.unregisterResource(css_resource)
+        js_tool.unregisterResource(js_resource)
+
+    except InvalidParameterError:
+        # Plone 5.2+ doesn't have these tools
+        pass
