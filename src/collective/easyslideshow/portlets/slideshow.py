@@ -119,6 +119,7 @@ class ISlideshow(IPortletDataProvider):
         default=False)
 
 
+@implementer(ISlideshow)
 class Assignment(base.Assignment):
     """Portlet assignment.
 
@@ -126,7 +127,6 @@ class Assignment(base.Assignment):
     with columns.
     """
 
-    implementer(ISlideshow)
 
     def __init__(self, header=u"", images_location=None, slideshow_width=244,
                 slideshow_height=157, slide_timeout=7000, transition="fade",
