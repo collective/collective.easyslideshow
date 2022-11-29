@@ -1,2 +1,6 @@
-dist/*
+*.egg
+*.egg-info
 *.pyc
+.idea
+.vscode
+dist
