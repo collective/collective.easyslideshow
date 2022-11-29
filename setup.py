@@ -51,7 +51,6 @@ setup(name='collective.easyslideshow',
           'setuptools',
           # -*- Extra requirements: -*-
           'zope.formlib',
-          'collective.autopermission',
       ],
       tests_require=tests_require,
       extras_require={'tests': tests_require},
