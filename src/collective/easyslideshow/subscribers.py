@@ -7,9 +7,9 @@ from collective.easyslideshow.browser.slideshowmanager import SlideshowManagerAd
 def slideLinkSync(obj, event):
     """Need to keep the getRelatedLink up-to-date
     """
-    pc = getToolByName(obj, 'portal_catalog')
+    pc = getToolByName(obj, 'portal_catalog',None)
     # make sure the index exists first
-    if 'getRelatedLink' in pc.indexes():
+    if pc and 'getRelatedLink' in pc.indexes():
         # check to see if the obj has the attr since this subscriber
         # is applied to all objects, even plone sites.
         if base_hasattr(obj, 'getBRefs'):

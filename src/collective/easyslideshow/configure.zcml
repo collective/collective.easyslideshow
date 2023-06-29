@@ -12,15 +12,12 @@
   <five:registerPackage package="." initialize=".initialize"/>
 
   <include file="permissions.zcml" />
-  <configure zcml:condition="have plone-4">
-    <include package="Products.CMFCore" file="permissions.zcml" />
-  </configure>
+
+  <include package="." />
   <include package=".browser" />
   <include package=".portlets" />
   <include file="profiles.zcml"/>
 
-  <includePlugins package="." />
-  <includeDependencies package="." />
 
   <adapter name="getRelatedLink" factory=".indexers.getRelatedLink" />
 

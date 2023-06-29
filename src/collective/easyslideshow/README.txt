@@ -42,6 +42,7 @@ Compatibility
 - version 2.2 requires Plone >= 4.3
 - version 3.0 requires Plone >= 5.0
 - version 4.0 works on Plone >= 5.2, Python 2 and Python 3
+- version 5.0 works on Plone >= 6.0, Python 3
 
 Uninstall
 =========
